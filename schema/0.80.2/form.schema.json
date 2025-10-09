@@ -1,0 +1,289 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "User Form",
+  "description": "A form for collecting user input with customizable fields and actions",
+  "version": "0.80.2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the form",
+      "title": "Form ID",
+      "readOnly": true,
+      "examples": [
+        1,
+        2,
+        100
+      ],
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "path": {
+      "description": "URL path where the form is accessible",
+      "title": "Form Path",
+      "placeholder": "/contact",
+      "examples": [
+        "/contact",
+        "/signup",
+        "/feedback",
+        "/order"
+      ],
+      "pattern": "^/[a-z0-9-/]*$",
+      "help": "Must start with / and use lowercase letters, numbers, hyphens",
+      "type": "string",
+      "minLength": 1
+    },
+    "action": {
+      "description": "API endpoint or action to handle form submission",
+      "title": "Submit Action",
+      "placeholder": "/api/submit-form",
+      "examples": [
+        "/api/contact",
+        "/api/register",
+        "https://api.example.com/form"
+      ],
+      "help": "The endpoint that will process the form data",
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "description": "Internal name for the form",
+      "title": "Form Name",
+      "placeholder": "Enter form name",
+      "examples": [
+        "Contact Form",
+        "Registration Form",
+        "Feedback Survey"
+      ],
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "description": "Display title shown to users",
+      "title": "Display Title",
+      "placeholder": "Form title visible to users",
+      "examples": [
+        "Contact Us",
+        "Create Your Account",
+        "We Value Your Feedback"
+      ],
+      "type": "string"
+    },
+    "description": {
+      "description": "Help text or instructions for the form",
+      "title": "Form Description",
+      "placeholder": "Describe the purpose of this form",
+      "examples": [
+        "Fill out this form to get in touch with our team",
+        "Please provide your details to create an account"
+      ],
+      "uiSchema": {
+        "ui:widget": "textarea",
+        "ui:rows": 2
+      },
+      "type": "string"
+    },
+    "inputs": {
+      "description": "List of form fields for user input",
+      "title": "Form Fields",
+      "minItems": 1,
+      "uiSchema": {
+        "ui:ArrayFieldTemplate": "collapsible",
+        "ui:options": {
+          "orderable": true,
+          "removable": true,
+          "addable": true
+        }
+      },
+      "default": [],
+      "type": "array",
+      "items": {
+        "title": "Input",
+        "description": "The input is a input of a form",
+        "anyOf": [
+          {
+            "title": "Text Input",
+            "description": "The text input is a input that can contain a text",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "defaultValue": {
+                "type": "string"
+              },
+              "placeholder": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "single-line-text",
+                  "long-text",
+                  "phone-number",
+                  "email",
+                  "url"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Checkbox Input",
+            "description": "The checkbox input is a input that can contain a checkbox",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "defaultValue": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "string",
+                "const": "checkbox"
+              }
+            },
+            "required": [
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Select Input",
+            "description": "The select input is a input that can contain a select",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "defaultValue": {
+                "type": "string"
+              },
+              "placeholder": {
+                "type": "string"
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "single-select"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "options",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Attachment Input",
+            "description": "The attachment input is a input that can contain a attachment",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "accept": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "const": "single-attachment"
+              }
+            },
+            "required": [
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "successMessage": {
+      "description": "Message displayed after successful form submission",
+      "title": "Success Message",
+      "placeholder": "Thank you for your submission!",
+      "examples": [
+        "Thank you! We will get back to you soon.",
+        "Your account has been created successfully!",
+        "Form submitted successfully."
+      ],
+      "uiSchema": {
+        "ui:widget": "textarea",
+        "ui:rows": 2
+      },
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "path",
+    "action",
+    "name",
+    "inputs"
+  ],
+  "additionalProperties": false
+}

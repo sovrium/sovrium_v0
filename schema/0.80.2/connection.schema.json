@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Connect your application to external services like Calendly, Airtable, Google, LinkedIn, or Facebook",
+  "title": "Service Connection",
+  "discriminator": "type",
+  "uiSchema": {
+    "ui:widget": "connection-selector",
+    "ui:options": {
+      "showIcon": true,
+      "groupBy": "category"
+    }
+  },
+  "version": "0.80.2",
+  "anyOf": [
+    {
+      "title": "Calendly",
+      "description": "The Calendly connection is a connection to the Calendly API",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "name": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string",
+          "const": "calendly"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "clientId",
+        "clientSecret",
+        "service"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "title": "Airtable",
+      "description": "The Airtable connection is a connection to the Airtable API",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "name": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string",
+          "const": "airtable"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "clientId",
+        "clientSecret",
+        "service"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "anyOf": [
+        {
+          "title": "Google Gmail",
+          "description": "The Google Gmail connection is a connection to the Google Gmail API",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "name": {
+              "type": "string"
+            },
+            "clientId": {
+              "type": "string"
+            },
+            "clientSecret": {
+              "type": "string"
+            },
+            "service": {
+              "type": "string",
+              "const": "google-gmail"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "clientId",
+            "clientSecret",
+            "service"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Google Sheets",
+          "description": "The Google Sheets connection is a connection to the Google Sheets API",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "name": {
+              "type": "string"
+            },
+            "clientId": {
+              "type": "string"
+            },
+            "clientSecret": {
+              "type": "string"
+            },
+            "service": {
+              "type": "string",
+              "const": "google-sheets"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "clientId",
+            "clientSecret",
+            "service"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    {
+      "title": "LinkedIn Ads",
+      "description": "The LinkedIn Ads connection is a connection to the LinkedIn Ads API",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "name": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string",
+          "const": "linkedin-ads"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "clientId",
+        "clientSecret",
+        "service"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "title": "Facebook Ads",
+      "description": "The Facebook Ads connection is a connection to the Facebook Ads API",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "name": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string",
+          "const": "facebook-ads"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "clientId",
+        "clientSecret",
+        "service"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "title": "Notion",
+      "description": "The Notion connection is a connection to the Notion API",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "name": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string",
+          "const": "notion"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "clientId",
+        "clientSecret",
+        "service"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "title": "Qonto",
+      "description": "The Qonto connection is a connection to the Qonto API",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "name": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string",
+          "const": "qonto"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "clientId",
+        "clientSecret",
+        "service"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

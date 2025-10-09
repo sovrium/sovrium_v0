@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Application Metadata",
+  "description": "Essential information about your application",
+  "version": "0.80.2",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of your application",
+      "title": "Application Name",
+      "examples": [
+        "My E-commerce App",
+        "Customer Portal",
+        "Admin Dashboard"
+      ],
+      "placeholder": "Enter your application name",
+      "default": "My app",
+      "type": "string",
+      "minLength": 3
+    },
+    "description": {
+      "description": "A brief description of what your application does",
+      "title": "Application Description",
+      "examples": [
+        "A platform for managing customer orders",
+        "Internal tool for data analytics"
+      ],
+      "placeholder": "Describe your application purpose",
+      "uiSchema": {
+        "ui:widget": "textarea",
+        "ui:rows": 3
+      },
+      "default": "My app description",
+      "type": "string",
+      "minLength": 1
+    },
+    "icon": {
+      "description": "The icon that represents your application",
+      "title": "Application Icon",
+      "enumNames": [
+        "Shopping Cart",
+        "Chart Bar",
+        "Users",
+        "File Text",
+        "Calendar",
+        "Mail",
+        "Database",
+        "Cloud",
+        "Shield",
+        "Globe",
+        "Play Circle",
+        "Settings",
+        "Briefcase",
+        "Heart",
+        "Book",
+        "Dollar Sign",
+        "Truck",
+        "Home",
+        "Zap",
+        "Package"
+      ],
+      "placeholder": "Select an icon",
+      "default": "globe",
+      "type": "string",
+      "enum": [
+        "shopping-cart",
+        "chart-bar",
+        "users",
+        "file-text",
+        "calendar",
+        "mail",
+        "database",
+        "cloud",
+        "shield",
+        "globe",
+        "play-circle",
+        "settings",
+        "briefcase",
+        "heart",
+        "book",
+        "dollar-sign",
+        "truck",
+        "home",
+        "zap",
+        "package"
+      ]
+    },
+    "color": {
+      "description": "The primary color theme for your application",
+      "title": "Theme Color",
+      "enumNames": [
+        "Blue",
+        "Emerald",
+        "Violet",
+        "Amber",
+        "Red",
+        "Cyan",
+        "Pink",
+        "Indigo",
+        "Lime",
+        "Orange",
+        "Teal",
+        "Purple"
+      ],
+      "placeholder": "Select a color theme",
+      "default": "blue",
+      "type": "string",
+      "enum": [
+        "blue",
+        "emerald",
+        "violet",
+        "amber",
+        "red",
+        "cyan",
+        "pink",
+        "indigo",
+        "lime",
+        "orange",
+        "teal",
+        "purple"
+      ]
+    },
+    "appVersion": {
+      "description": "The version of your application following semantic versioning",
+      "title": "Application Version",
+      "examples": [
+        "1.0.0",
+        "2.1.3",
+        "0.5.0-beta"
+      ],
+      "placeholder": "1.0.0",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9]+)?$",
+      "default": "1.0.0",
+      "type": "string",
+      "minLength": 5
+    },
+    "schemaVersion": {
+      "description": "The version of the schema format being used",
+      "title": "Schema Version",
+      "examples": [
+        "latest",
+        "1.0.0",
+        "2.0.0"
+      ],
+      "placeholder": "latest",
+      "readOnly": true,
+      "default": "latest",
+      "type": "string",
+      "minLength": 5
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "icon",
+    "color",
+    "appVersion",
+    "schemaVersion"
+  ],
+  "additionalProperties": false
+}

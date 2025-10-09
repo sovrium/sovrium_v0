@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Table",
+  "description": "A database table definition with its fields and structure",
+  "version": "0.80.2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the table",
+      "title": "Table ID",
+      "readOnly": true,
+      "examples": [
+        1,
+        2,
+        100
+      ],
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "name": {
+      "description": "Name of the database table",
+      "title": "Table Name",
+      "placeholder": "Enter table name",
+      "examples": [
+        "users",
+        "products",
+        "orders",
+        "customers"
+      ],
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "help": "Use lowercase letters, numbers, and underscores. Must start with a letter.",
+      "type": "string",
+      "minLength": 1
+    },
+    "fields": {
+      "description": "List of fields/columns in this table",
+      "title": "Table Fields",
+      "minItems": 1,
+      "uiSchema": {
+        "ui:ArrayFieldTemplate": "collapsible",
+        "ui:options": {
+          "orderable": true,
+          "removable": true,
+          "addable": true
+        }
+      },
+      "default": [],
+      "type": "array",
+      "items": {
+        "title": "Field",
+        "description": "The field is a field of a table",
+        "anyOf": [
+          {
+            "title": "Text Field",
+            "description": "The text field is a field that can contain a text",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              },
+              "name": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "single-line-text",
+                  "long-text",
+                  "phone-number",
+                  "email",
+                  "url"
+                ]
+              },
+              "default": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Checkbox Field",
+            "description": "The checkbox field is a field that can contain a checkbox",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              },
+              "name": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "string",
+                "const": "checkbox"
+              },
+              "default": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Single Select Field",
+            "description": "The single select field is a field that can contain a single select",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              },
+              "name": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "string",
+                "const": "single-select"
+              },
+              "default": {
+                "type": "string"
+              },
+              "options": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Single Attachment Field",
+            "description": "The single attachment field is a field that can contain a single attachment",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              },
+              "name": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "string",
+                "const": "single-attachment"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "fields"
+  ],
+  "additionalProperties": false
+}

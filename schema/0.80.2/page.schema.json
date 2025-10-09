@@ -1,0 +1,434 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Page",
+  "description": "A static page with customizable head and body content",
+  "version": "0.80.2",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Internal name for the page",
+      "title": "Page Name",
+      "placeholder": "Enter page name",
+      "examples": [
+        "home",
+        "about",
+        "contact",
+        "custom-html"
+      ],
+      "help": "Unique identifier for the page",
+      "type": "string",
+      "minLength": 1
+    },
+    "path": {
+      "description": "URL path where the page is accessible",
+      "title": "Page Path",
+      "placeholder": "/about",
+      "examples": [
+        "/",
+        "/about",
+        "/contact",
+        "/custom-html"
+      ],
+      "pattern": "^/[a-z0-9-/]*$",
+      "help": "Must start with / and use lowercase letters, numbers, hyphens",
+      "type": "string",
+      "minLength": 1
+    },
+    "head": {
+      "description": "List of head elements (meta tags, etc.)",
+      "title": "Head Elements",
+      "minItems": 0,
+      "uiSchema": {
+        "ui:ArrayFieldTemplate": "collapsible",
+        "ui:options": {
+          "orderable": true,
+          "removable": true,
+          "addable": true
+        }
+      },
+      "default": [],
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "title": "Head Element",
+            "description": "Meta element configuration for page head section",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "description": "Type of head element",
+                "title": "Head Element Tag",
+                "examples": [
+                  "meta"
+                ],
+                "type": "string",
+                "const": "meta"
+              },
+              "name": {
+                "description": "Name attribute of the meta tag",
+                "title": "Meta Name",
+                "placeholder": "description",
+                "examples": [
+                  "title",
+                  "description",
+                  "keywords",
+                  "author"
+                ],
+                "help": "The meta tag name attribute",
+                "type": "string",
+                "minLength": 1
+              },
+              "content": {
+                "description": "Content of the meta tag",
+                "title": "Meta Content",
+                "placeholder": "Enter meta content",
+                "examples": [
+                  "Page description",
+                  "Page title",
+                  "keyword1, keyword2"
+                ],
+                "help": "The content for this meta tag",
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "tag",
+              "name",
+              "content"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Title Element",
+            "description": "Title element configuration for page head section",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "description": "Type of head element",
+                "title": "Head Element Tag",
+                "examples": [
+                  "title"
+                ],
+                "type": "string",
+                "const": "title"
+              },
+              "content": {
+                "description": "Title content for the page",
+                "title": "Page Title",
+                "placeholder": "Enter page title",
+                "examples": [
+                  "Custom HTML page",
+                  "About Us",
+                  "Contact",
+                  "Home"
+                ],
+                "help": "The title that appears in the browser tab and search results",
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "tag",
+              "content"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Script Element",
+            "description": "Script element configuration for page head section",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "description": "Type of head element",
+                "title": "Head Element Tag",
+                "examples": [
+                  "script"
+                ],
+                "type": "string",
+                "const": "script"
+              },
+              "src": {
+                "description": "Source URL for external script",
+                "title": "Script Source",
+                "placeholder": "https://cdn.example.com/script.js",
+                "examples": [
+                  "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4",
+                  "https://unpkg.com/react@18/umd/react.production.min.js"
+                ],
+                "help": "URL to external JavaScript file",
+                "type": "string",
+                "format": "uri"
+              },
+              "content": {
+                "description": "Inline script content",
+                "title": "Script Content",
+                "placeholder": "console.log(\"Hello World\");",
+                "examples": [
+                  "console.log(\"Page loaded\");",
+                  "window.myApp = { version: \"1.0\" };"
+                ],
+                "help": "JavaScript code to execute inline",
+                "uiSchema": {
+                  "ui:widget": "textarea",
+                  "ui:rows": 3
+                },
+                "type": "string"
+              },
+              "type": {
+                "description": "Script type attribute",
+                "title": "Script Type",
+                "placeholder": "text/javascript",
+                "examples": [
+                  "text/javascript",
+                  "module",
+                  "application/json"
+                ],
+                "help": "MIME type of the script",
+                "type": "string"
+              },
+              "async": {
+                "description": "Load script asynchronously",
+                "title": "Async Loading",
+                "help": "Load the script asynchronously",
+                "type": "boolean"
+              },
+              "defer": {
+                "description": "Defer script execution",
+                "title": "Defer Execution",
+                "help": "Defer script execution until page is parsed",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Style Element",
+            "description": "Style element configuration for page head section",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "description": "Type of head element",
+                "title": "Head Element Tag",
+                "examples": [
+                  "style"
+                ],
+                "type": "string",
+                "const": "style"
+              },
+              "content": {
+                "description": "CSS content for the style tag",
+                "title": "CSS Content",
+                "placeholder": "body { margin: 0; }",
+                "examples": [
+                  "@theme { --color-clifford: #da373d; }",
+                  "body { font-family: Arial, sans-serif; }",
+                  ".container { max-width: 1200px; margin: 0 auto; }"
+                ],
+                "help": "CSS styles to be applied to the page",
+                "uiSchema": {
+                  "ui:widget": "textarea",
+                  "ui:rows": 5
+                },
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "description": "Style type attribute",
+                "title": "Style Type",
+                "placeholder": "text/css",
+                "examples": [
+                  "text/css",
+                  "text/tailwindcss"
+                ],
+                "help": "MIME type of the stylesheet",
+                "type": "string"
+              },
+              "media": {
+                "description": "Media query for when to apply styles",
+                "title": "Media Query",
+                "placeholder": "screen and (max-width: 768px)",
+                "examples": [
+                  "screen",
+                  "print",
+                  "screen and (max-width: 768px)"
+                ],
+                "help": "Specify which media/device the styles are for",
+                "type": "string"
+              }
+            },
+            "required": [
+              "tag",
+              "content"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "title": "Link Element",
+            "description": "Link element configuration for page head section",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "description": "Type of head element",
+                "title": "Head Element Tag",
+                "examples": [
+                  "link"
+                ],
+                "type": "string",
+                "const": "link"
+              },
+              "href": {
+                "description": "URL of the linked resource",
+                "title": "Link URL",
+                "placeholder": "/styles.css",
+                "examples": [
+                  "/index.css",
+                  "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700",
+                  "/favicon.ico"
+                ],
+                "help": "URL of the resource to link to",
+                "type": "string",
+                "minLength": 1
+              },
+              "rel": {
+                "description": "Relationship between current document and linked resource",
+                "title": "Relationship",
+                "placeholder": "stylesheet",
+                "examples": [
+                  "stylesheet",
+                  "icon",
+                  "preconnect",
+                  "canonical",
+                  "alternate"
+                ],
+                "help": "Specifies the relationship between the current document and the linked document",
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "description": "MIME type of the linked resource",
+                "title": "MIME Type",
+                "placeholder": "text/css",
+                "examples": [
+                  "text/css",
+                  "image/x-icon",
+                  "application/rss+xml"
+                ],
+                "help": "MIME type of the linked resource",
+                "type": "string"
+              },
+              "media": {
+                "description": "Media query for when to load the resource",
+                "title": "Media Query",
+                "placeholder": "screen and (max-width: 768px)",
+                "examples": [
+                  "screen",
+                  "print",
+                  "screen and (max-width: 768px)"
+                ],
+                "help": "Specify which media/device the resource is for",
+                "type": "string"
+              },
+              "sizes": {
+                "description": "Sizes of the linked resource (for icons)",
+                "title": "Sizes",
+                "placeholder": "16x16",
+                "examples": [
+                  "16x16",
+                  "32x32",
+                  "180x180",
+                  "any"
+                ],
+                "help": "Sizes of the icon (for rel=\"icon\" links)",
+                "type": "string"
+              },
+              "crossorigin": {
+                "description": "CORS settings for the resource",
+                "title": "CORS Setting",
+                "help": "How the element handles cross-origin requests",
+                "type": "string",
+                "enum": [
+                  "anonymous",
+                  "use-credentials"
+                ]
+              }
+            },
+            "required": [
+              "tag",
+              "href",
+              "rel"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "body": {
+      "description": "List of body elements for page content",
+      "title": "Body Elements",
+      "minItems": 1,
+      "uiSchema": {
+        "ui:ArrayFieldTemplate": "collapsible",
+        "ui:options": {
+          "orderable": true,
+          "removable": true,
+          "addable": true
+        }
+      },
+      "default": [],
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "title": "Body Element",
+            "description": "Custom HTML element configuration for page body section",
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "Type of body element",
+                "title": "Body Element Type",
+                "examples": [
+                  "custom-html"
+                ],
+                "type": "string",
+                "const": "custom-html"
+              },
+              "content": {
+                "description": "HTML content for the body element",
+                "title": "HTML Content",
+                "placeholder": "<h1>Your content here</h1>",
+                "examples": [
+                  "<h1>Welcome</h1>",
+                  "<div class=\"container\"><p>Hello world</p></div>",
+                  "<section><h2>About</h2><p>Description</p></section>"
+                ],
+                "help": "Custom HTML content to be rendered in the page body",
+                "uiSchema": {
+                  "ui:widget": "textarea",
+                  "ui:rows": 5
+                },
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "type",
+              "content"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "name",
+    "path",
+    "head",
+    "body"
+  ],
+  "additionalProperties": false
+}

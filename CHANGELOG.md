@@ -1,3 +1,11 @@
+## [0.80.2](https://github.com/latechforce/engine/compare/v0.80.1...v0.80.2) (2025-10-03)
+
+
+### Bug Fixes
+
+* add ssl rejectUnauthorized for pg database ([fcef64b](https://github.com/latechforce/engine/commit/fcef64bf20061dffd28ac2a1afeb41c162bc6efb)) — Thomas JEANNEAU
+* remove SSL config from postgres connection and update Facebook ads permissions ([fd6503c](https://github.com/latechforce/engine/commit/fd6503c32cdc6b357b24b18ac88a31cc6db31c2c)) — Thomas JEANNEAU
+
 ## [0.80.1](https://github.com/latechforce/engine/compare/v0.80.0...v0.80.1) (2025-09-22)
 
 
