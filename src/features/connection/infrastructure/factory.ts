@@ -32,7 +32,6 @@ export interface ConnectionServices {
     disconnect: DisconnectConnectionUseCase
     list: ListConnectionsUseCase
     authenticate: AuthenticateConnectionUseCase
-    handleError: HandleConnectionErrorUseCase
   }
   services: {
     database: ConnectionDatabaseService
@@ -54,9 +53,6 @@ export function createConnectionServices(container: SimpleContainer): Connection
   const connectionRepository = new ConnectionRepository(logger, connectionDatabase, env, email)
   const tokenRepository = new TokenRepository(connectionDatabase, connectionRepository)
 
-  // Get automation repository from container (it should be available at this point)
-  const automationRepository = container.get<IAutomationRepository>('automationRepository')
-
   // Create use cases
   const setupUseCase = new SetupConnectionUseCase(connectionRepository, tokenRepository)
   const disconnectUseCase = new DisconnectConnectionUseCase(connectionRepository)
@@ -64,10 +60,6 @@ export function createConnectionServices(container: SimpleContainer): Connection
   const authenticateUseCase = new AuthenticateConnectionUseCase(
     connectionRepository,
     tokenRepository
-  )
-  const handleErrorUseCase = new HandleConnectionErrorUseCase(
-    connectionRepository,
-    automationRepository
   )
 
   // Create context
@@ -77,7 +69,6 @@ export function createConnectionServices(container: SimpleContainer): Connection
   container.set('connectionRepository', connectionRepository)
   container.set('tokenRepository', tokenRepository)
   container.set('setupConnectionUseCase', setupUseCase)
-  container.set('handleConnectionErrorUseCase', handleErrorUseCase)
 
   return {
     repositories: {
@@ -89,11 +80,28 @@ export function createConnectionServices(container: SimpleContainer): Connection
       disconnect: disconnectUseCase,
       list: listUseCase,
       authenticate: authenticateUseCase,
-      handleError: handleErrorUseCase,
     },
     services: {
       database: connectionDatabase,
     },
     context,
   }
+}
+
+/**
+ * Create HandleConnectionErrorUseCase after automation repository is available
+ * This must be called in Phase 3 of DI initialization
+ */
+export function createHandleConnectionErrorUseCase(container: SimpleContainer): HandleConnectionErrorUseCase {
+  const connectionRepository = container.get<ConnectionRepository>('connectionRepository')
+  const automationRepository = container.get<IAutomationRepository>('automationRepository')
+
+  const handleErrorUseCase = new HandleConnectionErrorUseCase(
+    connectionRepository,
+    automationRepository
+  )
+
+  container.set('handleConnectionErrorUseCase', handleErrorUseCase)
+
+  return handleErrorUseCase
 }

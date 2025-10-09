@@ -24,7 +24,10 @@ import type { App } from '../../../features/app/domain/entity/app.entity'
 
 // Core feature factories (no circular dependencies)
 import { createUserServices } from '../../../features/user/infrastructure/factory'
-import { createConnectionServices } from '../../../features/connection/infrastructure/factory'
+import {
+  createConnectionServices,
+  createHandleConnectionErrorUseCase,
+} from '../../../features/connection/infrastructure/factory'
 import { createBucketServices } from '../../../features/bucket/infrastructure/factory'
 import { createTableServices } from '../../../features/table/infrastructure/factory'
 import { createRunServices } from '../../../features/run/infrastructure/factory'
@@ -139,16 +142,19 @@ function createComplexFeatureServices(
   container: SimpleContainer,
   externals: Record<string, unknown>
 ) {
-  // Step 1: Create automation repository first (needed by trigger)
+  // Step 1: Create automation repository first (needed by trigger and connection error handler)
   createAutomationRepository(container)
 
-  // Step 2: Create integration service will be created after we have action services
+  // Step 2: Create HandleConnectionErrorUseCase now that automation repository is available
+  createHandleConnectionErrorUseCase(container)
 
-  // Step 3: Create action and trigger services (can access automationRepository)
+  // Step 3: Create integration service will be created after we have action services
+
+  // Step 4: Create action and trigger services (can access automationRepository)
   const action = createActionServices(container, externals)
   const trigger = createTriggerServices(container)
 
-  // Step 4: Create automation services (can access setupTriggerUseCase and setupActionUseCase)
+  // Step 5: Create automation services (can access setupTriggerUseCase and setupActionUseCase)
   const automation = createAutomationServices(container)
 
   return { action, trigger, automation }
