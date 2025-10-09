@@ -180,4 +180,48 @@ export class App {
         connection.state === String(nameOrStateOrId)
     )
   }
+
+  findAutomationsByConnection(connectionId: number): Automation[] {
+    return this.automations.filter((automation) => {
+      // Check if trigger uses this connection
+      if ('account' in automation.schema.trigger) {
+        const triggerAccount = automation.schema.trigger.account
+        if (
+          triggerAccount === connectionId ||
+          (typeof triggerAccount === 'string' &&
+            this.connections.find((c) => c.name === triggerAccount && c.id === connectionId))
+        ) {
+          return true
+        }
+      }
+
+      // Check if any action uses this connection
+      const checkActions = (actions: typeof automation.schema.actions): boolean => {
+        for (const action of actions) {
+          if ('account' in action) {
+            const actionAccount = action.account
+            if (
+              actionAccount === connectionId ||
+              (typeof actionAccount === 'string' &&
+                this.connections.find((c) => c.name === actionAccount && c.id === connectionId))
+            ) {
+              return true
+            }
+          }
+
+          // Check nested actions in split-into-paths
+          if (action.service === 'filter' && action.action === 'split-into-paths') {
+            for (const path of action.params) {
+              if (checkActions(path.actions)) {
+                return true
+              }
+            }
+          }
+        }
+        return false
+      }
+
+      return checkActions(automation.schema.actions)
+    })
+  }
 }

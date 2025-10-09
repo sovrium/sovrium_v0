@@ -5,6 +5,8 @@ import type { SetupTableUseCase } from '../../../table/application/use-case/setu
 import type { ValidateAppUseCase } from './validate-app.use-case'
 import type { SetupConnectionUseCase } from '../../../connection/application/use-case/setup-connection.use-case'
 import type { SetupBucketUseCase } from '../../../bucket/application/use-case/setup-bucket.use-case'
+import type { HandleConnectionErrorUseCase } from '../../../connection/application/use-case/handle-connection-error.use-case'
+import type { IConnectionRepository } from '../../../connection/domain/repository-interface/connection-repository.interface'
 import type { ConnectionSchema } from '../../../../shared/integrations/core/connection.schema'
 
 // eslint-disable-next-line
@@ -18,6 +20,8 @@ export class StartAppUseCase {
     private readonly setupConnectionUseCase: SetupConnectionUseCase,
     private readonly validateAppUseCase: ValidateAppUseCase,
     private readonly setupBucketUseCase: SetupBucketUseCase,
+    private readonly handleConnectionErrorUseCase: HandleConnectionErrorUseCase,
+    private readonly connectionRepository: IConnectionRepository,
     private readonly container: SimpleContainer
   ) {}
 
@@ -41,6 +45,22 @@ export class StartAppUseCase {
     for (const connection of app.connections) {
       await this.setupConnectionUseCase.execute(connection)
     }
+
+    // Handle any connections that failed during setup
+    const connectionStatuses = await this.connectionRepository.status.listByIds(
+      app.connections.map((c) => c.id)
+    )
+    for (const status of connectionStatuses) {
+      if (!status.connected) {
+        const connection = app.findConnection(status.id)
+        if (connection) {
+          // Deactivate automations using this failed connection
+          const error = new Error('Connection failed during token refresh')
+          await this.handleConnectionErrorUseCase.execute(app, connection, error)
+        }
+      }
+    }
+
     for (const table of app.tables) {
       await this.setupTableUseCase.execute(table)
     }

@@ -14,6 +14,10 @@ import { SetupConnectionUseCase } from '../application/use-case/setup-connection
 import { DisconnectConnectionUseCase } from '../application/use-case/disconnect-connection.use-case'
 import { ListConnectionsUseCase } from '../application/use-case/list-connections.use-case'
 import { AuthenticateConnectionUseCase } from '../application/use-case/authenticate-connection.use-case'
+import { HandleConnectionErrorUseCase } from '../application/use-case/handle-connection-error.use-case'
+
+// Dependencies
+import type { IAutomationRepository } from '../../automation/domain/repository-interface/automation-repository.interface'
 
 // Context
 import { ConnectionHonoContext } from './di/context'
@@ -28,6 +32,7 @@ export interface ConnectionServices {
     disconnect: DisconnectConnectionUseCase
     list: ListConnectionsUseCase
     authenticate: AuthenticateConnectionUseCase
+    handleError: HandleConnectionErrorUseCase
   }
   services: {
     database: ConnectionDatabaseService
@@ -49,6 +54,9 @@ export function createConnectionServices(container: SimpleContainer): Connection
   const connectionRepository = new ConnectionRepository(logger, connectionDatabase, env, email)
   const tokenRepository = new TokenRepository(connectionDatabase, connectionRepository)
 
+  // Get automation repository from container (it should be available at this point)
+  const automationRepository = container.get<IAutomationRepository>('automationRepository')
+
   // Create use cases
   const setupUseCase = new SetupConnectionUseCase(connectionRepository, tokenRepository)
   const disconnectUseCase = new DisconnectConnectionUseCase(connectionRepository)
@@ -56,6 +64,10 @@ export function createConnectionServices(container: SimpleContainer): Connection
   const authenticateUseCase = new AuthenticateConnectionUseCase(
     connectionRepository,
     tokenRepository
+  )
+  const handleErrorUseCase = new HandleConnectionErrorUseCase(
+    connectionRepository,
+    automationRepository
   )
 
   // Create context
@@ -65,6 +77,7 @@ export function createConnectionServices(container: SimpleContainer): Connection
   container.set('connectionRepository', connectionRepository)
   container.set('tokenRepository', tokenRepository)
   container.set('setupConnectionUseCase', setupUseCase)
+  container.set('handleConnectionErrorUseCase', handleErrorUseCase)
 
   return {
     repositories: {
@@ -76,6 +89,7 @@ export function createConnectionServices(container: SimpleContainer): Connection
       disconnect: disconnectUseCase,
       list: listUseCase,
       authenticate: authenticateUseCase,
+      handleError: handleErrorUseCase,
     },
     services: {
       database: connectionDatabase,

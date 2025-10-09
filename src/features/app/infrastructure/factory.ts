@@ -17,6 +17,7 @@ import type { SetupAutomationUseCase } from '../../automation/application/use-ca
 import type { SetupTableUseCase } from '../../table/application/use-case/setup-table.use-case'
 import type { SetupConnectionUseCase } from '../../connection/application/use-case/setup-connection.use-case'
 import type { SetupBucketUseCase } from '../../bucket/application/use-case/setup-bucket.use-case'
+import type { HandleConnectionErrorUseCase } from '../../connection/application/use-case/handle-connection-error.use-case'
 import type { AuthService } from '../../user/infrastructure/service/auth.service'
 import type { EnvService } from '../../../shared/infrastructure/service/env.service'
 import type { LoggerService } from '../../../shared/infrastructure/service/logger.service'
@@ -24,6 +25,7 @@ import type { TemplateService } from '../../../shared/infrastructure/service/tem
 import type { ServerService } from '../../../shared/infrastructure/service/server.service'
 import type { DatabaseService } from '../../../shared/infrastructure/service/database.service'
 import type { AutomationRepository } from '../../automation/infrastructure/repository/automation.repository'
+import type { ConnectionRepository } from '../../connection/infrastructure/repository/connection.repository'
 
 export interface AppServices {
   repositories: {
@@ -51,12 +53,16 @@ export function createAppServices(container: SimpleContainer): AppServices {
   const setupAutomationUseCase = container.get<SetupAutomationUseCase>('setupAutomationUseCase')
   const setupConnectionUseCase = container.get<SetupConnectionUseCase>('setupConnectionUseCase')
   const setupBucketUseCase = container.get<SetupBucketUseCase>('setupBucketUseCase')
+  const handleConnectionErrorUseCase = container.get<HandleConnectionErrorUseCase>(
+    'handleConnectionErrorUseCase'
+  )
 
   // Create repositories (get auth service from container)
   const auth = container.get<AuthService>('authService')
 
   const appRepository = new AppRepository(env, logger, database, auth, server, template)
   const automationRepository = container.get<AutomationRepository>('automationRepository')
+  const connectionRepository = container.get<ConnectionRepository>('connectionRepository')
 
   // Create use cases
   const validateUseCase = new ValidateAppUseCase(appRepository)
@@ -71,6 +77,8 @@ export function createAppServices(container: SimpleContainer): AppServices {
     setupConnectionUseCase,
     validateUseCase,
     setupBucketUseCase,
+    handleConnectionErrorUseCase,
+    connectionRepository,
     container
   )
 

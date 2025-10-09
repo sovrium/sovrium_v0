@@ -34,26 +34,37 @@ export class TokenRepository implements ITokenRepository {
     if (!this.isTokenValid(token)) {
       const integration = toConnectionIntegration(connection, this.connectionRepository.redirectUri)
       let newToken: Token | undefined
-      switch (integration.tokenType) {
-        case 'refresh-token': {
-          newToken = token.refresh_token
-            ? await integration.getAccessTokenFromRefreshToken(token.refresh_token)
-            : undefined
-          break
+      try {
+        switch (integration.tokenType) {
+          case 'refresh-token': {
+            newToken = token.refresh_token
+              ? await integration.getAccessTokenFromRefreshToken(token.refresh_token)
+              : undefined
+            break
+          }
+          case 'short-lived-token': {
+            newToken = await integration.getAccessTokenFromShortLivedToken(token.access_token)
+            break
+          }
+          case 'bearer': {
+            // Bearer tokens don't expire and don't need refresh
+            newToken = token
+            break
+          }
+          default: {
+            const _exhaustiveCheck: never = integration
+            throw new Error(`Unhandled case: ${_exhaustiveCheck}`)
+          }
         }
-        case 'short-lived-token': {
-          newToken = await integration.getAccessTokenFromShortLivedToken(token.access_token)
-          break
-        }
-        case 'bearer': {
-          // Bearer tokens don't expire and don't need refresh
-          newToken = token
-          break
-        }
-        default: {
-          const _exhaustiveCheck: never = integration
-          throw new Error(`Unhandled case: ${_exhaustiveCheck}`)
-        }
+      } catch (error) {
+        // Log the error but don't crash the app
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+        this.connectionRepository.error(
+          `Failed to refresh token for connection "${connection.name}" (${connection.service}): ${errorMessage}`
+        )
+        // Mark connection as disconnected
+        await this.connectionRepository.status.setConnected(connection.id, false)
+        return undefined
       }
       if (!newToken) {
         await this.connectionRepository.status.setConnected(connection.id, false)
