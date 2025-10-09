@@ -2,11 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://engine.latechforce.com/blog</id>
     <title>LTF Engine Blog</title>
-    <updated>2025-10-03T00:00:00.000Z</updated>
+    <updated>2025-10-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://engine.latechforce.com/blog"/>
     <subtitle>LTF Engine Blog</subtitle>
     <icon>https://engine.latechforce.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 0.81.0]]></title>
+        <id>https://engine.latechforce.com/blog/release-0-81-0</id>
+        <link href="https://engine.latechforce.com/blog/release-0-81-0"/>
+        <updated>2025-10-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Changelog for version 0.81.0]]></summary>
+        <content type="html"><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-81-0"><p class="before-truncate"> 0.81.0   Bug Fixes  * resolve dependency injection order for HandleConnectionErrorUseCase (6e257af) — Thomas JEANNEAU    Features  * add connection error handling and automation deactivation (bca5bd5) — Thomas JEANNEAU...</p>
+</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0810"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-81-0">0.81.0</a><a href="https://engine.latechforce.com/blog/release-0-81-0#0810" class="hash-link" aria-label="Direct link to 0.81.0" title="Direct link to 0.81.0">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-81-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
+<ul>
+<li>resolve dependency injection order for HandleConnectionErrorUseCase (<a href="https://github.com/latechforce/engine/commit/6e257af97e8b28e7aec40d1a57767e37067878af" target="_blank" rel="noopener noreferrer">6e257af</a>) — Thomas JEANNEAU</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-81-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
+<ul>
+<li>add connection error handling and automation deactivation (<a href="https://github.com/latechforce/engine/commit/bca5bd500b9c9d553b3c815a04ac0a7b189d49b0" target="_blank" rel="noopener noreferrer">bca5bd5</a>) — Thomas JEANNEAU</li>
+</ul>]]></content>
+        <category label="Release" term="Release"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Fix 0.80.2]]></title>
         <id>https://engine.latechforce.com/blog/fix-0-80-2</id>
@@ -450,31 +468,5 @@
 <li><strong>template:</strong> should fill a template with the current local date in ISO format (<a href="https://github.com/latechforce/engine/commit/84e67561cc5dd985815d4b66f406a2c948952844" target="_blank" rel="noopener noreferrer">84e6756</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 0.61.0]]></title>
-        <id>https://engine.latechforce.com/blog/release-0-61-0</id>
-        <link href="https://engine.latechforce.com/blog/release-0-61-0"/>
-        <updated>2025-06-24T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Changelog for version 0.61.0]]></summary>
-        <content type="html"><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-61-0"><p class="before-truncate"> 0.61.0   Bug Fixes  * open forms in a new page (18ef5de) — Thomas JEANNEAU * run number step ui (97af4a4) — Thomas JEANNEAU    Features  * form: should display an error when the form is submitted (d9366a1) — Thomas JEANNEAU   0.60.0   Features  * action: should create a record from an automation (4...</p>
-</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0610"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-61-0">0.61.0</a><a href="https://engine.latechforce.com/blog/release-0-61-0#0610" class="hash-link" aria-label="Direct link to 0.61.0" title="Direct link to 0.61.0">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-61-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
-<ul>
-<li>open forms in a new page (<a href="https://github.com/latechforce/engine/commit/18ef5debc660ca92f24d1e8e8f1468b0172663f8" target="_blank" rel="noopener noreferrer">18ef5de</a>) — Thomas JEANNEAU</li>
-<li>run number step ui (<a href="https://github.com/latechforce/engine/commit/97af4a42b2842f63ae002dfa4cef39366a6f9532" target="_blank" rel="noopener noreferrer">97af4a4</a>) — Thomas JEANNEAU</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-61-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
-<ul>
-<li><strong>form:</strong> should display an error when the form is submitted (<a href="https://github.com/latechforce/engine/commit/d9366a18ebb856c71991d70e02afd45d432b9ae8" target="_blank" rel="noopener noreferrer">d9366a1</a>) — Thomas JEANNEAU</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="0600">0.60.0<a href="https://engine.latechforce.com/blog/release-0-61-0#0600" class="hash-link" aria-label="Direct link to 0.60.0" title="Direct link to 0.60.0">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features<a href="https://engine.latechforce.com/blog/release-0-61-0#features-1" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
-<ul>
-<li><strong>action:</strong> should create a record from an automation (<a href="https://github.com/latechforce/engine/commit/4032c43d173a35b2708a71b2e50ea35de6701cf8" target="_blank" rel="noopener noreferrer">4032c43</a>) — Thomas JEANNEAU</li>
-<li><strong>automation:</strong> should run parallel automations with same integration actions in a queue with 2 seconds apart (<a href="https://github.com/latechforce/engine/commit/f9f0e1c1184b047c2349f65ba26c3c4265cb6e7a" target="_blank" rel="noopener noreferrer">f9f0e1c</a>) — Thomas JEANNEAU</li>
-<li><strong>template:</strong> should fill a template with the current date in ISO format (<a href="https://github.com/latechforce/engine/commit/92ddb8b17d76600dbe5e2343fc29b71e64886acd" target="_blank" rel="noopener noreferrer">92ddb8b</a>) — Thomas JEANNEAU</li>
-</ul>]]></content>
-        <category label="Release" term="Release"/>
     </entry>
 </feed>
