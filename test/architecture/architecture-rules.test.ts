@@ -51,13 +51,30 @@ function getImports(filePath: string): string[] {
 }
 
 /**
+ * Normalize a path by repeatedly removing ../ and ./ until no more can be removed
+ * This prevents path injection vulnerabilities from incomplete sanitization
+ */
+function normalizePath(path: string): string {
+  let normalized = path
+  let previousLength = 0
+
+  // Keep applying replacements until the string stops changing
+  while (normalized.length !== previousLength) {
+    previousLength = normalized.length
+    normalized = normalized.replace(/\.\.\//g, '').replace(/\.\//g, '')
+  }
+
+  return normalized
+}
+
+/**
  * Check if a path represents a cross-feature import
  */
 function isCrossFeatureImport(importPath: string, currentFeature: string): boolean {
   // Skip relative imports that don't go up directories
   if (importPath.startsWith('./') || importPath.startsWith('../')) {
     // Check if it goes to a different feature
-    const normalizedPath = importPath.replace(/\.\.\//g, '').replace(/\.\//g, '')
+    const normalizedPath = normalizePath(importPath)
     return (
       normalizedPath.includes('features/') &&
       !normalizedPath.includes(`features/${currentFeature}/`)
