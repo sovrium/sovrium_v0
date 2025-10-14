@@ -1,3 +1,15 @@
+# [0.81.0](https://github.com/latechforce/engine/compare/v0.80.2...v0.81.0) (2025-10-09)
+
+
+### Bug Fixes
+
+* resolve dependency injection order for HandleConnectionErrorUseCase ([6e257af](https://github.com/latechforce/engine/commit/6e257af97e8b28e7aec40d1a57767e37067878af)) — Thomas JEANNEAU
+
+
+### Features
+
+* add connection error handling and automation deactivation ([bca5bd5](https://github.com/latechforce/engine/commit/bca5bd500b9c9d553b3c815a04ac0a7b189d49b0)) — Thomas JEANNEAU
+
 ## [0.80.2](https://github.com/latechforce/engine/compare/v0.80.1...v0.80.2) (2025-10-03)
 
 
