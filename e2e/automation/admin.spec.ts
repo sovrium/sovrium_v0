@@ -71,6 +71,6 @@ test('should open the edit url', async ({ startExampleApp }) => {
 
   // THEN
   await expect(popup).toHaveURL(
-    'https://github.com/latechforce/engine/blob/main/example/automation/admin.ts'
+    'https://github.com/omnera-dev/omnera/blob/main/example/automation/admin.ts'
   )
 })

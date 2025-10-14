@@ -1,6 +1,6 @@
 {
   "branches": ["main"],
-  "repositoryUrl": "https://github.com/latechforce/engine",
+  "repositoryUrl": "https://github.com/omnera-dev/omnera",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
@@ -21,9 +21,9 @@
       "@semantic-release/release-notes-generator",
       {
         "writerOpts": {
-          "commitPartial": "* {{#if scope}}**{{scope}}:** {{/if}}{{subject}} ([{{shortHash}}](https://github.com/latechforce/engine/commit/{{hash}})) — {{#if author.login}}[@{{author.login}}](https://github.com/{{author.login}}){{else}}{{author.name}}{{/if}}\n"
+          "commitPartial": "* {{#if scope}}**{{scope}}:** {{/if}}{{subject}} ([{{shortHash}}](https://github.com/omnera-dev/omnera/commit/{{hash}})) — {{#if author.login}}[@{{author.login}}](https://github.com/{{author.login}}){{else}}{{author.name}}{{/if}}\n"
         },
-        "commitUrlFormat": "https://github.com/latechforce/engine/commit/{{hash}}"
+        "commitUrlFormat": "https://github.com/omnera-dev/omnera/commit/{{hash}}"
       }
     ],
     "@semantic-release/changelog",

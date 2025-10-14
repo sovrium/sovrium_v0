@@ -130,7 +130,7 @@ export function Sidebar({ title, description, groups, startPath, ...props }: Sid
                 <DropdownMenuItem
                   onClick={() => {
                     window.open(
-                      'https://github.com/latechforce/engine/issues/new?template=bug_report.md',
+                      'https://github.com/omnera-dev/omnera/issues/new?template=bug_report.md',
                       '_blank'
                     )
                   }}
@@ -140,7 +140,7 @@ export function Sidebar({ title, description, groups, startPath, ...props }: Sid
                 <DropdownMenuItem
                   onClick={() => {
                     window.open(
-                      'https://github.com/latechforce/engine/issues/new?template=feature_request.md',
+                      'https://github.com/omnera-dev/omnera/issues/new?template=feature_request.md',
                       '_blank'
                     )
                   }}

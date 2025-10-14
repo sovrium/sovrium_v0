@@ -21,6 +21,6 @@ In order to solve this issue, you are invited to fork this GitHub repository, ma
 
 First, you may want to read about:
 
-- How to propose a valuable contribution to this repo: [`CONTRIBUTING.md`](https://github.com/latechforce/engine/blob/main/docs/CONTRIBUTING.md)
+- How to propose a valuable contribution to this repo: [`CONTRIBUTING.md`](https://github.com/omnera-dev/omnera/blob/main/docs/CONTRIBUTING.md)
 
 I will be happy to assist you at any stage, if you want to try to solve this issue! If you have any question, just leave a comment below. Beginners are also welcome! 🤗

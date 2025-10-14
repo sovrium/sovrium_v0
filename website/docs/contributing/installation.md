@@ -25,7 +25,7 @@ powershell -c "irm https://bun.sh/install.ps1 | iex"
 Clone the repository.
 
 ```bash
-git clone https://github.com/latechforce/engine.git
+git clone https://github.com/omnera-dev/omnera.git
 ```
 
 Go to the project directory.

@@ -8,7 +8,7 @@ Welcome to the LaTeChforce Engine development team! This guide will help you get
 
 ```bash
 # Clone the repository
-git clone https://github.com/latechforce/engine.git
+git clone https://github.com/omnera-dev/omnera.git
 cd engine
 
 # Install dependencies
@@ -168,7 +168,7 @@ describe('Table', () => {
   it('should throw error when adding record to locked table', () => {
     const table = new Table(id, name, true) // locked = true
     const record = new Record(recordId, fields)
-    
+
     expect(() => table.addRecord(record))
       .toThrow('Cannot add record to locked table')
   })
@@ -180,9 +180,9 @@ describe('CreateRecordUseCase', () => {
     const mockRepository = createMockRepository()
     const mockEventPublisher = createMockEventPublisher()
     const useCase = new CreateRecordUseCase(mockRepository, mockEventPublisher)
-    
+
     await useCase.execute({ tableId: 1, fields: { name: 'Test' } })
-    
+
     expect(mockEventPublisher.publish).toHaveBeenCalledWith(
       expect.any(RecordCreatedEvent)
     )
@@ -196,7 +196,7 @@ describe('Table API', () => {
       .post('/tables/1/records')
       .send({ name: 'Test Record' })
       .expect(201)
-    
+
     expect(response.body.data.name).toBe('Test Record')
   })
 })
@@ -257,7 +257,7 @@ export class ProductName {
       throw new Error('Product name must be at least 3 characters')
     }
   }
-  
+
   getValue(): string {
     return this.value
   }
@@ -271,7 +271,7 @@ export class Product {
     public readonly price: Money,
     public readonly createdAt: Date
   ) {}
-  
+
   updatePrice(newPrice: Money): Product {
     return new Product(
       this.id,
@@ -291,11 +291,11 @@ export class CreateProductUseCase {
     private readonly productRepository: IProductRepository,
     private readonly eventPublisher: IDomainEventPublisher
   ) {}
-  
+
   async execute(input: CreateProductInput): Promise<Product> {
     // 1. Validate business rules
     await this.validateBusinessRules(input)
-    
+
     // 2. Create domain entity
     const product = new Product(
       new Id(0), // Will be assigned by repository
@@ -303,10 +303,10 @@ export class CreateProductUseCase {
       new Money(input.price),
       new Date()
     )
-    
+
     // 3. Persist
     const savedProduct = await this.productRepository.save(product)
-    
+
     // 4. Emit domain event
     await this.eventPublisher.publish(
       new ProductCreatedEvent(savedProduct.id.toString(), {
@@ -315,7 +315,7 @@ export class CreateProductUseCase {
         price: savedProduct.price.getValue()
       })
     )
-    
+
     return savedProduct
   }
 }
@@ -327,7 +327,7 @@ export class CreateProductUseCase {
 // ✅ Good: Using domain events
 export class OrderCreatedHandler implements IDomainEventHandler<OrderCreatedEvent> {
   constructor(private readonly inventoryService: IInventoryService) {}
-  
+
   async handle(event: OrderCreatedEvent): Promise<void> {
     // React to order creation by updating inventory
     await this.inventoryService.reserveProducts(event.payload.productIds)
@@ -360,7 +360,7 @@ export class PaymentAntiCorruptionLayer extends BaseAntiCorruptionLayer<
       new Date(external.created * 1000) // Stripe uses Unix timestamp
     )
   }
-  
+
   toExternal(domain: PaymentResult): StripePaymentResponse {
     // Transform domain to Stripe format
   }
@@ -373,10 +373,10 @@ Let's build a simple "Task" feature together:
 
 ### Step 1: Plan the Feature
 
-**Domain**: Task Management  
-**Entities**: Task  
-**Value Objects**: TaskTitle, TaskStatus, Priority  
-**Events**: TaskCreated, TaskCompleted, TaskAssigned  
+**Domain**: Task Management
+**Entities**: Task
+**Value Objects**: TaskTitle, TaskStatus, Priority
+**Events**: TaskCreated, TaskCompleted, TaskAssigned
 
 ### Step 2: Generate the Structure
 
@@ -390,17 +390,17 @@ bun run generate:feature task --full
 // src/features/task/domain/value-object/task-status.value-object.ts
 export class TaskStatus {
   private static readonly VALID_STATUSES = ['todo', 'in_progress', 'done'] as const
-  
+
   constructor(private readonly value: typeof TaskStatus.VALID_STATUSES[number]) {
     if (!TaskStatus.VALID_STATUSES.includes(value)) {
       throw new Error(`Invalid task status: ${value}`)
     }
   }
-  
+
   getValue(): string {
     return this.value
   }
-  
+
   isCompleted(): boolean {
     return this.value === 'done'
   }
@@ -420,12 +420,12 @@ export class Task {
     public readonly createdAt: Date,
     public readonly updatedAt: Date
   ) {}
-  
+
   complete(): Task {
     if (this.status.isCompleted()) {
       throw new Error('Task is already completed')
     }
-    
+
     return new Task(
       this.id,
       this.title,
@@ -435,7 +435,7 @@ export class Task {
       new Date()
     )
   }
-  
+
   assignTo(assigneeId: Id): Task {
     return new Task(
       this.id,
@@ -481,16 +481,16 @@ export class CompleteTaskUseCase {
     private readonly taskRepository: ITaskRepository,
     private readonly eventPublisher: IDomainEventPublisher
   ) {}
-  
+
   async execute(taskId: number): Promise<Task> {
     const task = await this.taskRepository.findById(new Id(taskId))
     if (!task) {
       throw new Error('Task not found')
     }
-    
+
     const completedTask = task.complete()
     const savedTask = await this.taskRepository.save(completedTask)
-    
+
     await this.eventPublisher.publish(
       new TaskCompletedEvent(savedTask.id.toString(), {
         taskId: savedTask.id.getValue(),
@@ -499,7 +499,7 @@ export class CompleteTaskUseCase {
         assigneeId: savedTask.assigneeId?.getValue()
       })
     )
-    
+
     return savedTask
   }
 }
@@ -519,12 +519,12 @@ describe('Task', () => {
       new Date(),
       new Date()
     )
-    
+
     const completedTask = task.complete()
-    
+
     expect(completedTask.status.isCompleted()).toBe(true)
   })
-  
+
   it('should throw error when completing already completed task', () => {
     const task = new Task(
       new Id(1),
@@ -534,7 +534,7 @@ describe('Task', () => {
       new Date(),
       new Date()
     )
-    
+
     expect(() => task.complete()).toThrow('Task is already completed')
   })
 })
@@ -587,19 +587,19 @@ Now that you've completed the onboarding:
 
 ### Common Questions
 
-**Q: Can I import from other features?**  
+**Q: Can I import from other features?**
 A: No, use domain events for cross-feature communication.
 
-**Q: Where should I put shared logic?**  
+**Q: Where should I put shared logic?**
 A: In the shared domain (value objects, services) or create a shared kernel.
 
-**Q: How do I handle external APIs?**  
+**Q: How do I handle external APIs?**
 A: Use anti-corruption layers to protect your domain.
 
-**Q: Should I write tests first?**  
+**Q: Should I write tests first?**
 A: Yes, TDD is encouraged, especially for domain logic.
 
-**Q: How do I handle database migrations?**  
+**Q: How do I handle database migrations?**
 A: Check the database service documentation and existing migration examples.
 
 ## 🎉 Welcome to the Team!

@@ -22,8 +22,8 @@ These are just guidelines, not rules, use your best judgment and feel free to pr
 You can contribute to La Tech Force Engine in various ways:
 
 - Fix bugs or contribute to the development of features on which help is wanted: [see our To Do list](https://github.com/orgs/latechforce/projects/1)
-- Submit Github issues for bugs you (or other users) found ([template](https://github.com/latechforce/engine/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=))
-- Give feedback, suggest feature and/or provide value in ongoing discussions in [issues](https://github.com/latechforce/engine/issues) and [pull requests](https://github.com/latechforce/engine/pulls)
+- Submit Github issues for bugs you (or other users) found ([template](https://github.com/omnera-dev/omnera/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=))
+- Give feedback, suggest feature and/or provide value in ongoing discussions in [issues](https://github.com/omnera-dev/omnera/issues) and [pull requests](https://github.com/omnera-dev/omnera/pulls)
 
 > **Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github). And don't hesitate to ask for assistance by posting a message in any of the Github issues that you would like to contribute to.
 
