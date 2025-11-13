@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://engine.latechforce.com/blog</id>
     <title>LTF Engine Blog</title>
-    <updated>2025-10-09T00:00:00.000Z</updated>
+    <updated>2025-11-13T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://engine.latechforce.com/blog"/>
     <subtitle>LTF Engine Blog</subtitle>
     <icon>https://engine.latechforce.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 0.82.0]]></title>
+        <id>https://engine.latechforce.com/blog/release-0-82-0</id>
+        <link href="https://engine.latechforce.com/blog/release-0-82-0"/>
+        <updated>2025-11-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Changelog for version 0.82.0]]></summary>
+        <content type="html"><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-82-0"><p class="before-truncate"> 0.82.0   Features  * table: add created_at and id columns to admin tables view (aa94488) — Thomas JEANNEAU...</p>
+</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0820"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-82-0">0.82.0</a><a href="https://engine.latechforce.com/blog/release-0-82-0#0820" class="hash-link" aria-label="Direct link to 0.82.0" title="Direct link to 0.82.0">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-82-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
+<ul>
+<li><strong>table:</strong> add created_at and id columns to admin tables view (<a href="https://github.com/sovrium/sovrium_v0/commit/aa94488f1b9634b4dfe1df2a2bbf80df5549edaa" target="_blank" rel="noopener noreferrer">aa94488</a>) — Thomas JEANNEAU</li>
+</ul>]]></content>
+        <category label="Release" term="Release"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 0.81.0]]></title>
         <id>https://engine.latechforce.com/blog/release-0-81-0</id>
@@ -17,11 +31,11 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0810"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-81-0">0.81.0</a><a href="https://engine.latechforce.com/blog/release-0-81-0#0810" class="hash-link" aria-label="Direct link to 0.81.0" title="Direct link to 0.81.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-81-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>resolve dependency injection order for HandleConnectionErrorUseCase (<a href="https://github.com/latechforce/engine/commit/6e257af97e8b28e7aec40d1a57767e37067878af" target="_blank" rel="noopener noreferrer">6e257af</a>) — Thomas JEANNEAU</li>
+<li>resolve dependency injection order for HandleConnectionErrorUseCase (<a href="https://github.com/sovrium/sovrium_v0/commit/6e257af97e8b28e7aec40d1a57767e37067878af" target="_blank" rel="noopener noreferrer">6e257af</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-81-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add connection error handling and automation deactivation (<a href="https://github.com/latechforce/engine/commit/bca5bd500b9c9d553b3c815a04ac0a7b189d49b0" target="_blank" rel="noopener noreferrer">bca5bd5</a>) — Thomas JEANNEAU</li>
+<li>add connection error handling and automation deactivation (<a href="https://github.com/sovrium/sovrium_v0/commit/bca5bd500b9c9d553b3c815a04ac0a7b189d49b0" target="_blank" rel="noopener noreferrer">bca5bd5</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -35,8 +49,8 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0802"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-80-2">0.80.2</a><a href="https://engine.latechforce.com/blog/fix-0-80-2#0802" class="hash-link" aria-label="Direct link to 0.80.2" title="Direct link to 0.80.2">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-80-2#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>add ssl rejectUnauthorized for pg database (<a href="https://github.com/latechforce/engine/commit/fcef64bf20061dffd28ac2a1afeb41c162bc6efb" target="_blank" rel="noopener noreferrer">fcef64b</a>) — Thomas JEANNEAU</li>
-<li>remove SSL config from postgres connection and update Facebook ads permissions (<a href="https://github.com/latechforce/engine/commit/fd6503c32cdc6b357b24b18ac88a31cc6db31c2c" target="_blank" rel="noopener noreferrer">fd6503c</a>) — Thomas JEANNEAU</li>
+<li>add ssl rejectUnauthorized for pg database (<a href="https://github.com/sovrium/sovrium_v0/commit/fcef64bf20061dffd28ac2a1afeb41c162bc6efb" target="_blank" rel="noopener noreferrer">fcef64b</a>) — Thomas JEANNEAU</li>
+<li>remove SSL config from postgres connection and update Facebook ads permissions (<a href="https://github.com/sovrium/sovrium_v0/commit/fd6503c32cdc6b357b24b18ac88a31cc6db31c2c" target="_blank" rel="noopener noreferrer">fd6503c</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
     </entry>
@@ -50,7 +64,7 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0801"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-80-1">0.80.1</a><a href="https://engine.latechforce.com/blog/fix-0-80-1#0801" class="hash-link" aria-label="Direct link to 0.80.1" title="Direct link to 0.80.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-80-1#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>add FormData in code service (<a href="https://github.com/latechforce/engine/commit/836f30cf4c21700cd49b9dcd8b7dbf0c7ed19605" target="_blank" rel="noopener noreferrer">836f30c</a>) — Thomas JEANNEAU</li>
+<li>add FormData in code service (<a href="https://github.com/sovrium/sovrium_v0/commit/836f30cf4c21700cd49b9dcd8b7dbf0c7ed19605" target="_blank" rel="noopener noreferrer">836f30c</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
     </entry>
@@ -64,12 +78,12 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0800"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-80-0">0.80.0</a><a href="https://engine.latechforce.com/blog/release-0-80-0#0800" class="hash-link" aria-label="Direct link to 0.80.0" title="Direct link to 0.80.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-80-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>ensure all paths execute in split-into-paths and preserve filtered status (<a href="https://github.com/latechforce/engine/commit/6fe4b89419ec880b5aff9f3a70508dbb420424ce" target="_blank" rel="noopener noreferrer">6fe4b89</a>) — Thomas JEANNEAU</li>
-<li>update Notion integration types for API v5.1.0 (<a href="https://github.com/latechforce/engine/commit/6592964e98ae4b0cac5a1d346a0f02b03c7fbfbc" target="_blank" rel="noopener noreferrer">6592964</a>) — Thomas JEANNEAU</li>
+<li>ensure all paths execute in split-into-paths and preserve filtered status (<a href="https://github.com/sovrium/sovrium_v0/commit/6fe4b89419ec880b5aff9f3a70508dbb420424ce" target="_blank" rel="noopener noreferrer">6fe4b89</a>) — Thomas JEANNEAU</li>
+<li>update Notion integration types for API v5.1.0 (<a href="https://github.com/sovrium/sovrium_v0/commit/6592964e98ae4b0cac5a1d346a0f02b03c7fbfbc" target="_blank" rel="noopener noreferrer">6592964</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-80-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add sticky table components and e2e test for pagination (<a href="https://github.com/latechforce/engine/commit/1beca56d436582aba62a439ca261914545f2dedb" target="_blank" rel="noopener noreferrer">1beca56</a>) — Thomas JEANNEAU</li>
+<li>add sticky table components and e2e test for pagination (<a href="https://github.com/sovrium/sovrium_v0/commit/1beca56d436582aba62a439ca261914545f2dedb" target="_blank" rel="noopener noreferrer">1beca56</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -83,7 +97,7 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0790"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-79-0">0.79.0</a><a href="https://engine.latechforce.com/blog/release-0-79-0#0790" class="hash-link" aria-label="Direct link to 0.79.0" title="Direct link to 0.79.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-79-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>enhance Facebook Lead Ads integration with improved webhook management (<a href="https://github.com/latechforce/engine/commit/0f598df5319f28cd3dcece3c18b54aa02c781025" target="_blank" rel="noopener noreferrer">0f598df</a>) — Thomas JEANNEAU</li>
+<li>enhance Facebook Lead Ads integration with improved webhook management (<a href="https://github.com/sovrium/sovrium_v0/commit/0f598df5319f28cd3dcece3c18b54aa02c781025" target="_blank" rel="noopener noreferrer">0f598df</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -97,19 +111,19 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0781"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-78-1">0.78.1</a><a href="https://engine.latechforce.com/blog/fix-0-78-1#0781" class="hash-link" aria-label="Direct link to 0.78.1" title="Direct link to 0.78.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-78-1#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>export PageSchema (<a href="https://github.com/latechforce/engine/commit/148a9605f7743fd98062c52fc5401294f1b8b07d" target="_blank" rel="noopener noreferrer">148a960</a>) — Thomas JEANNEAU</li>
+<li>export PageSchema (<a href="https://github.com/sovrium/sovrium_v0/commit/148a9605f7743fd98062c52fc5401294f1b8b07d" target="_blank" rel="noopener noreferrer">148a960</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0780">0.78.0<a href="https://engine.latechforce.com/blog/fix-0-78-1#0780" class="hash-link" aria-label="Direct link to 0.78.0" title="Direct link to 0.78.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/fix-0-78-1#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add page feature with domain schema and enhanced HTML template (<a href="https://github.com/latechforce/engine/commit/03968403f6f4132f18a2f2abf6d052155a290dfd" target="_blank" rel="noopener noreferrer">0396840</a>) — Thomas JEANNEAU</li>
-<li>complete page head elements schema and e2e tests (<a href="https://github.com/latechforce/engine/commit/125ec4ff067dcc14bea80ba7afbb7d97bd20c317" target="_blank" rel="noopener noreferrer">125ec4f</a>) — Thomas JEANNEAU</li>
-<li>implement direct Bun server static page serving (<a href="https://github.com/latechforce/engine/commit/a23eae81015f36b63bea71c0d4b2db1275aa15e6" target="_blank" rel="noopener noreferrer">a23eae8</a>) — Thomas JEANNEAU</li>
+<li>add page feature with domain schema and enhanced HTML template (<a href="https://github.com/sovrium/sovrium_v0/commit/03968403f6f4132f18a2f2abf6d052155a290dfd" target="_blank" rel="noopener noreferrer">0396840</a>) — Thomas JEANNEAU</li>
+<li>complete page head elements schema and e2e tests (<a href="https://github.com/sovrium/sovrium_v0/commit/125ec4ff067dcc14bea80ba7afbb7d97bd20c317" target="_blank" rel="noopener noreferrer">125ec4f</a>) — Thomas JEANNEAU</li>
+<li>implement direct Bun server static page serving (<a href="https://github.com/sovrium/sovrium_v0/commit/a23eae81015f36b63bea71c0d4b2db1275aa15e6" target="_blank" rel="noopener noreferrer">a23eae8</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0770">0.77.0<a href="https://engine.latechforce.com/blog/fix-0-78-1#0770" class="hash-link" aria-label="Direct link to 0.77.0" title="Direct link to 0.77.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features<a href="https://engine.latechforce.com/blog/fix-0-78-1#features-1" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add Facebook LeadGen API integration (<a href="https://github.com/latechforce/engine/commit/2c995e457e18bc4db38dfd017ceb4efd563cd3fe" target="_blank" rel="noopener noreferrer">2c995e4</a>) — Thomas JEANNEAU</li>
+<li>add Facebook LeadGen API integration (<a href="https://github.com/sovrium/sovrium_v0/commit/2c995e457e18bc4db38dfd017ceb4efd563cd3fe" target="_blank" rel="noopener noreferrer">2c995e4</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
     </entry>
@@ -123,17 +137,17 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0760"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-76-0">0.76.0</a><a href="https://engine.latechforce.com/blog/release-0-76-0#0760" class="hash-link" aria-label="Direct link to 0.76.0" title="Direct link to 0.76.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-76-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add tooltips to sidebar component links (<a href="https://github.com/latechforce/engine/commit/a448462caa04ec7586021cd7d7f4091a1cc40cbc" target="_blank" rel="noopener noreferrer">a448462</a>) — Thomas JEANNEAU</li>
+<li>add tooltips to sidebar component links (<a href="https://github.com/sovrium/sovrium_v0/commit/a448462caa04ec7586021cd7d7f4091a1cc40cbc" target="_blank" rel="noopener noreferrer">a448462</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0750">0.75.0<a href="https://engine.latechforce.com/blog/release-0-76-0#0750" class="hash-link" aria-label="Direct link to 0.75.0" title="Direct link to 0.75.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-76-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>replace console.log with triggerRepository.log.debug in LinkedIn webhook validation (<a href="https://github.com/latechforce/engine/commit/478fa9045e42587c0c1c218b5df4a5457299c9c8" target="_blank" rel="noopener noreferrer">478fa90</a>) — Thomas JEANNEAU</li>
-<li>update LinkedIn webhook duplicate removal and fix unit tests (<a href="https://github.com/latechforce/engine/commit/f6f91d2f238ad439a24862dcf91ce7154b0d5534" target="_blank" rel="noopener noreferrer">f6f91d2</a>) — Thomas JEANNEAU</li>
+<li>replace console.log with triggerRepository.log.debug in LinkedIn webhook validation (<a href="https://github.com/sovrium/sovrium_v0/commit/478fa9045e42587c0c1c218b5df4a5457299c9c8" target="_blank" rel="noopener noreferrer">478fa90</a>) — Thomas JEANNEAU</li>
+<li>update LinkedIn webhook duplicate removal and fix unit tests (<a href="https://github.com/sovrium/sovrium_v0/commit/f6f91d2f238ad439a24862dcf91ce7154b0d5534" target="_blank" rel="noopener noreferrer">f6f91d2</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features<a href="https://engine.latechforce.com/blog/release-0-76-0#features-1" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add LinkedIn integration to get single Lead Form Response (<a href="https://github.com/latechforce/engine/commit/19cad842f76268e9913df8c33c60d7986b3adc51" target="_blank" rel="noopener noreferrer">19cad84</a>) — Thomas JEANNEAU</li>
+<li>add LinkedIn integration to get single Lead Form Response (<a href="https://github.com/sovrium/sovrium_v0/commit/19cad842f76268e9913df8c33c60d7986b3adc51" target="_blank" rel="noopener noreferrer">19cad84</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -147,11 +161,11 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0740"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-74-0">0.74.0</a><a href="https://engine.latechforce.com/blog/release-0-74-0#0740" class="hash-link" aria-label="Direct link to 0.74.0" title="Direct link to 0.74.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-74-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>handle LinkedIn API response variations in lead notification subscriptions (<a href="https://github.com/latechforce/engine/commit/b05c7e537a9f6fb033d29f8dd03c195a1a2cbbac" target="_blank" rel="noopener noreferrer">b05c7e5</a>) — Thomas JEANNEAU</li>
+<li>handle LinkedIn API response variations in lead notification subscriptions (<a href="https://github.com/sovrium/sovrium_v0/commit/b05c7e537a9f6fb033d29f8dd03c195a1a2cbbac" target="_blank" rel="noopener noreferrer">b05c7e5</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-74-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add Qonto integration with create client and create invoice actions (<a href="https://github.com/latechforce/engine/commit/971b3ebedc1b6534beded95697c7737a29ddd1f0" target="_blank" rel="noopener noreferrer">971b3eb</a>) — Thomas JEANNEAU</li>
+<li>add Qonto integration with create client and create invoice actions (<a href="https://github.com/sovrium/sovrium_v0/commit/971b3ebedc1b6534beded95697c7737a29ddd1f0" target="_blank" rel="noopener noreferrer">971b3eb</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -165,8 +179,8 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0731"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-73-1">0.73.1</a><a href="https://engine.latechforce.com/blog/fix-0-73-1#0731" class="hash-link" aria-label="Direct link to 0.73.1" title="Direct link to 0.73.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-73-1#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>linkedin webhook trigger (<a href="https://github.com/latechforce/engine/commit/6c5409806803780b5f4a5644fd4d15df44e359d4" target="_blank" rel="noopener noreferrer">6c54098</a>) — Thomas JEANNEAU</li>
-<li>linkedin webhook trigger (<a href="https://github.com/latechforce/engine/commit/75ecfba930ba7ed004cc2ae39b7b816578fd1418" target="_blank" rel="noopener noreferrer">75ecfba</a>) — Thomas JEANNEAU</li>
+<li>linkedin webhook trigger (<a href="https://github.com/sovrium/sovrium_v0/commit/6c5409806803780b5f4a5644fd4d15df44e359d4" target="_blank" rel="noopener noreferrer">6c54098</a>) — Thomas JEANNEAU</li>
+<li>linkedin webhook trigger (<a href="https://github.com/sovrium/sovrium_v0/commit/75ecfba930ba7ed004cc2ae39b7b816578fd1418" target="_blank" rel="noopener noreferrer">75ecfba</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
     </entry>
@@ -180,21 +194,21 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0730"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-73-0">0.73.0</a><a href="https://engine.latechforce.com/blog/release-0-73-0#0730" class="hash-link" aria-label="Direct link to 0.73.0" title="Direct link to 0.73.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-73-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>linkedin webhook triggger (<a href="https://github.com/latechforce/engine/commit/56b5e19e3f873b6c423ef19e34e2ca8a5edb3c8c" target="_blank" rel="noopener noreferrer">56b5e19</a>) — Thomas JEANNEAU</li>
+<li>linkedin webhook triggger (<a href="https://github.com/sovrium/sovrium_v0/commit/56b5e19e3f873b6c423ef19e34e2ca8a5edb3c8c" target="_blank" rel="noopener noreferrer">56b5e19</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-73-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add Notion integration (<a href="https://github.com/latechforce/engine/commit/b600e27008f039156cd480f27cb2c9e4f058975b" target="_blank" rel="noopener noreferrer">b600e27</a>) — Thomas JEANNEAU</li>
+<li>add Notion integration (<a href="https://github.com/sovrium/sovrium_v0/commit/b600e27008f039156cd480f27cb2c9e4f058975b" target="_blank" rel="noopener noreferrer">b600e27</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0722">0.72.2<a href="https://engine.latechforce.com/blog/release-0-73-0#0722" class="hash-link" aria-label="Direct link to 0.72.2" title="Direct link to 0.72.2">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-73-0#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>package path (<a href="https://github.com/latechforce/engine/commit/ce09d392ba22229e22015bbae8da4d500d8da2a4" target="_blank" rel="noopener noreferrer">ce09d39</a>) — Thomas JEANNEAU</li>
+<li>package path (<a href="https://github.com/sovrium/sovrium_v0/commit/ce09d392ba22229e22015bbae8da4d500d8da2a4" target="_blank" rel="noopener noreferrer">ce09d39</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0721">0.72.1<a href="https://engine.latechforce.com/blog/release-0-73-0#0721" class="hash-link" aria-label="Direct link to 0.72.1" title="Direct link to 0.72.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-2">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-73-0#bug-fixes-2" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>package export (<a href="https://github.com/latechforce/engine/commit/f5950f54dd2b260fa3aba7b3cc1b7c4798f325aa" target="_blank" rel="noopener noreferrer">f5950f5</a>) — Thomas JEANNEAU</li>
+<li>package export (<a href="https://github.com/sovrium/sovrium_v0/commit/f5950f54dd2b260fa3aba7b3cc1b7c4798f325aa" target="_blank" rel="noopener noreferrer">f5950f5</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -208,21 +222,21 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0720"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-72-0">0.72.0</a><a href="https://engine.latechforce.com/blog/release-0-72-0#0720" class="hash-link" aria-label="Direct link to 0.72.0" title="Direct link to 0.72.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-72-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add comprehensive React JSON Schema Form metadata to all schemas (<a href="https://github.com/latechforce/engine/commit/541fcbaf38b1c9a61ac21975521815ce3769eb3b" target="_blank" rel="noopener noreferrer">541fcba</a>) — Thomas JEANNEAU</li>
+<li>add comprehensive React JSON Schema Form metadata to all schemas (<a href="https://github.com/sovrium/sovrium_v0/commit/541fcbaf38b1c9a61ac21975521815ce3769eb3b" target="_blank" rel="noopener noreferrer">541fcba</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0711">0.71.1<a href="https://engine.latechforce.com/blog/release-0-72-0#0711" class="hash-link" aria-label="Direct link to 0.71.1" title="Direct link to 0.71.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-72-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>correct schema path in release config and refactor build-schemas script (<a href="https://github.com/latechforce/engine/commit/43d2b39e82862e7734177e84acaa6bd43ab5d1a1" target="_blank" rel="noopener noreferrer">43d2b39</a>) — Thomas JEANNEAU</li>
+<li>correct schema path in release config and refactor build-schemas script (<a href="https://github.com/sovrium/sovrium_v0/commit/43d2b39e82862e7734177e84acaa6bd43ab5d1a1" target="_blank" rel="noopener noreferrer">43d2b39</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0710">0.71.0<a href="https://engine.latechforce.com/blog/release-0-72-0#0710" class="hash-link" aria-label="Direct link to 0.71.0" title="Direct link to 0.71.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-72-0#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>correct LinkedIn webhook validation implementation (<a href="https://github.com/latechforce/engine/commit/7e576f991c9bd5b39605718e40753a63a335d168" target="_blank" rel="noopener noreferrer">7e576f9</a>) — Thomas JEANNEAU</li>
+<li>correct LinkedIn webhook validation implementation (<a href="https://github.com/sovrium/sovrium_v0/commit/7e576f991c9bd5b39605718e40753a63a335d168" target="_blank" rel="noopener noreferrer">7e576f9</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features<a href="https://engine.latechforce.com/blog/release-0-72-0#features-1" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>merge metadata schema into app schema and configure semantic-release build (<a href="https://github.com/latechforce/engine/commit/b48a5755aebda80ea5e1e6a4e1937697b5b88ec4" target="_blank" rel="noopener noreferrer">b48a575</a>) — Thomas JEANNEAU</li>
+<li>merge metadata schema into app schema and configure semantic-release build (<a href="https://github.com/sovrium/sovrium_v0/commit/b48a5755aebda80ea5e1e6a4e1937697b5b88ec4" target="_blank" rel="noopener noreferrer">b48a575</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -236,18 +250,18 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0701"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-70-1">0.70.1</a><a href="https://engine.latechforce.com/blog/fix-0-70-1#0701" class="hash-link" aria-label="Direct link to 0.70.1" title="Direct link to 0.70.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-70-1#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>implement proper HMAC-SHA256 validation for LinkedIn webhook (<a href="https://github.com/latechforce/engine/commit/301580825fb8a9d49806f00be615071274e6552d" target="_blank" rel="noopener noreferrer">3015808</a>) — Thomas JEANNEAU</li>
-<li>update Facebook webhook validation tests for plain text response (<a href="https://github.com/latechforce/engine/commit/d16a51ea4fd41ae4624480fd19195580d5da999b" target="_blank" rel="noopener noreferrer">d16a51e</a>) — Thomas JEANNEAU</li>
+<li>implement proper HMAC-SHA256 validation for LinkedIn webhook (<a href="https://github.com/sovrium/sovrium_v0/commit/301580825fb8a9d49806f00be615071274e6552d" target="_blank" rel="noopener noreferrer">3015808</a>) — Thomas JEANNEAU</li>
+<li>update Facebook webhook validation tests for plain text response (<a href="https://github.com/sovrium/sovrium_v0/commit/d16a51ea4fd41ae4624480fd19195580d5da999b" target="_blank" rel="noopener noreferrer">d16a51e</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0700">0.70.0<a href="https://engine.latechforce.com/blog/fix-0-70-1#0700" class="hash-link" aria-label="Direct link to 0.70.0" title="Direct link to 0.70.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-70-1#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>correct refetchInterval callback parameter in run page query options (<a href="https://github.com/latechforce/engine/commit/512adba6b6d1dc48372b8513e15f3220b368a51b" target="_blank" rel="noopener noreferrer">512adba</a>) — Thomas JEANNEAU</li>
+<li>correct refetchInterval callback parameter in run page query options (<a href="https://github.com/sovrium/sovrium_v0/commit/512adba6b6d1dc48372b8513e15f3220b368a51b" target="_blank" rel="noopener noreferrer">512adba</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/fix-0-70-1#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add e2e tests for run replay functionality and update documentation (<a href="https://github.com/latechforce/engine/commit/1ce28c124df8022884087e427f335984da6d4dd2" target="_blank" rel="noopener noreferrer">1ce28c1</a>) — Thomas JEANNEAU</li>
-<li>implement webhook validation for LinkedIn and Facebook Lead Ads (<a href="https://github.com/latechforce/engine/commit/132681d8f0531def14186c5ecc763fa410cbf46a" target="_blank" rel="noopener noreferrer">132681d</a>) — Thomas JEANNEAU</li>
+<li>add e2e tests for run replay functionality and update documentation (<a href="https://github.com/sovrium/sovrium_v0/commit/1ce28c124df8022884087e427f335984da6d4dd2" target="_blank" rel="noopener noreferrer">1ce28c1</a>) — Thomas JEANNEAU</li>
+<li>implement webhook validation for LinkedIn and Facebook Lead Ads (<a href="https://github.com/sovrium/sovrium_v0/commit/132681d8f0531def14186c5ecc763fa410cbf46a" target="_blank" rel="noopener noreferrer">132681d</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
     </entry>
@@ -261,12 +275,12 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0690"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-69-0">0.69.0</a><a href="https://engine.latechforce.com/blog/release-0-69-0#0690" class="hash-link" aria-label="Direct link to 0.69.0" title="Direct link to 0.69.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-69-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>facebook:</strong> complete overhaul of Facebook Lead Ads webhook implementation (<a href="https://github.com/latechforce/engine/commit/da6beefa29a8af2c900494c983797e4582635fd5" target="_blank" rel="noopener noreferrer">da6beef</a>) — Thomas JEANNEAU</li>
-<li><strong>linkedin:</strong> support sponsored account for lead notifications (<a href="https://github.com/latechforce/engine/commit/ef98c8e3192b2c75eb97502c31a480b679413229" target="_blank" rel="noopener noreferrer">ef98c8e</a>) — Thomas JEANNEAU</li>
+<li><strong>facebook:</strong> complete overhaul of Facebook Lead Ads webhook implementation (<a href="https://github.com/sovrium/sovrium_v0/commit/da6beefa29a8af2c900494c983797e4582635fd5" target="_blank" rel="noopener noreferrer">da6beef</a>) — Thomas JEANNEAU</li>
+<li><strong>linkedin:</strong> support sponsored account for lead notifications (<a href="https://github.com/sovrium/sovrium_v0/commit/ef98c8e3192b2c75eb97502c31a480b679413229" target="_blank" rel="noopener noreferrer">ef98c8e</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-69-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li><strong>e2e:</strong> implement template database system for faster test execution (<a href="https://github.com/latechforce/engine/commit/bc0f05c090c15aa8a76658559246b148b5d4bae7" target="_blank" rel="noopener noreferrer">bc0f05c</a>) — Thomas JEANNEAU</li>
+<li><strong>e2e:</strong> implement template database system for faster test execution (<a href="https://github.com/sovrium/sovrium_v0/commit/bc0f05c090c15aa8a76658559246b148b5d4bae7" target="_blank" rel="noopener noreferrer">bc0f05c</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -280,20 +294,20 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0680"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-68-0">0.68.0</a><a href="https://engine.latechforce.com/blog/release-0-68-0#0680" class="hash-link" aria-label="Direct link to 0.68.0" title="Direct link to 0.68.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-68-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>add bucket schema type export (<a href="https://github.com/latechforce/engine/commit/46ffff29889ee0714748df7a5af69df505483252" target="_blank" rel="noopener noreferrer">46ffff2</a>) — Thomas JEANNEAU</li>
+<li>add bucket schema type export (<a href="https://github.com/sovrium/sovrium_v0/commit/46ffff29889ee0714748df7a5af69df505483252" target="_blank" rel="noopener noreferrer">46ffff2</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-68-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>implement Phase 1 domain events system and aggregate boundaries (<a href="https://github.com/latechforce/engine/commit/847c98072d1f270fb6dd527efe52090e42e4b7d4" target="_blank" rel="noopener noreferrer">847c980</a>) — Thomas JEANNEAU</li>
-<li>implement Phase 2 repository decomposition and shared kernel (<a href="https://github.com/latechforce/engine/commit/204270b4d5efd2733838c5d230ea36a83e7fbcc0" target="_blank" rel="noopener noreferrer">204270b</a>) — Thomas JEANNEAU</li>
-<li>implement Phase 3 anti-corruption layers and architecture testing (<a href="https://github.com/latechforce/engine/commit/17a35a2eeeafd741831e67e051149d26b23422c0" target="_blank" rel="noopener noreferrer">17a35a2</a>) — Thomas JEANNEAU</li>
-<li>implement Phase 4 enhanced developer experience tooling (<a href="https://github.com/latechforce/engine/commit/cbe64d2bd9f0ca36f01a33ebb5cfca28028df785" target="_blank" rel="noopener noreferrer">cbe64d2</a>) — Thomas JEANNEAU</li>
+<li>implement Phase 1 domain events system and aggregate boundaries (<a href="https://github.com/sovrium/sovrium_v0/commit/847c98072d1f270fb6dd527efe52090e42e4b7d4" target="_blank" rel="noopener noreferrer">847c980</a>) — Thomas JEANNEAU</li>
+<li>implement Phase 2 repository decomposition and shared kernel (<a href="https://github.com/sovrium/sovrium_v0/commit/204270b4d5efd2733838c5d230ea36a83e7fbcc0" target="_blank" rel="noopener noreferrer">204270b</a>) — Thomas JEANNEAU</li>
+<li>implement Phase 3 anti-corruption layers and architecture testing (<a href="https://github.com/sovrium/sovrium_v0/commit/17a35a2eeeafd741831e67e051149d26b23422c0" target="_blank" rel="noopener noreferrer">17a35a2</a>) — Thomas JEANNEAU</li>
+<li>implement Phase 4 enhanced developer experience tooling (<a href="https://github.com/sovrium/sovrium_v0/commit/cbe64d2bd9f0ca36f01a33ebb5cfca28028df785" target="_blank" rel="noopener noreferrer">cbe64d2</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0674">0.67.4<a href="https://engine.latechforce.com/blog/release-0-68-0#0674" class="hash-link" aria-label="Direct link to 0.67.4" title="Direct link to 0.67.4">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-68-0#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>Complete Phase 1 - Table feature DI migration with working e2e tests (<a href="https://github.com/latechforce/engine/commit/f0aafe574f04aade9009dc4a374699b199cb51e4" target="_blank" rel="noopener noreferrer">f0aafe5</a>) — Thomas JEANNEAU</li>
-<li>correct JSON schema exports in npm package (<a href="https://github.com/latechforce/engine/commit/4987253cba77122d1f13a9d614257105a83035c3" target="_blank" rel="noopener noreferrer">4987253</a>) — Thomas JEANNEAU</li>
+<li>Complete Phase 1 - Table feature DI migration with working e2e tests (<a href="https://github.com/sovrium/sovrium_v0/commit/f0aafe574f04aade9009dc4a374699b199cb51e4" target="_blank" rel="noopener noreferrer">f0aafe5</a>) — Thomas JEANNEAU</li>
+<li>correct JSON schema exports in npm package (<a href="https://github.com/sovrium/sovrium_v0/commit/4987253cba77122d1f13a9d614257105a83035c3" target="_blank" rel="noopener noreferrer">4987253</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -307,8 +321,8 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0673"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-67-3">0.67.3</a><a href="https://engine.latechforce.com/blog/fix-0-67-3#0673" class="hash-link" aria-label="Direct link to 0.67.3" title="Direct link to 0.67.3">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-67-3#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>add schema to export in package (<a href="https://github.com/latechforce/engine/commit/3f4ff30fef71996eab978d218f7aff51b1836848" target="_blank" rel="noopener noreferrer">3f4ff30</a>) — Thomas JEANNEAU</li>
-<li>improve column width consistency across browsers in data table (<a href="https://github.com/latechforce/engine/commit/d3a55a2a64ea629318ac8b9c2f1380032a0610d1" target="_blank" rel="noopener noreferrer">d3a55a2</a>) — Thomas JEANNEAU</li>
+<li>add schema to export in package (<a href="https://github.com/sovrium/sovrium_v0/commit/3f4ff30fef71996eab978d218f7aff51b1836848" target="_blank" rel="noopener noreferrer">3f4ff30</a>) — Thomas JEANNEAU</li>
+<li>improve column width consistency across browsers in data table (<a href="https://github.com/sovrium/sovrium_v0/commit/d3a55a2a64ea629318ac8b9c2f1380032a0610d1" target="_blank" rel="noopener noreferrer">d3a55a2</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
     </entry>
@@ -322,29 +336,29 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0672"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-67-2">0.67.2</a><a href="https://engine.latechforce.com/blog/fix-0-67-2#0672" class="hash-link" aria-label="Direct link to 0.67.2" title="Direct link to 0.67.2">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-67-2#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>should not throw an error if there are duplicate trigger paths with different events (<a href="https://github.com/latechforce/engine/commit/6471231f8c5d5510a3ca586620fde253440bc61d" target="_blank" rel="noopener noreferrer">6471231</a>) — Thomas JEANNEAU</li>
+<li>should not throw an error if there are duplicate trigger paths with different events (<a href="https://github.com/sovrium/sovrium_v0/commit/6471231f8c5d5510a3ca586620fde253440bc61d" target="_blank" rel="noopener noreferrer">6471231</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0671">0.67.1<a href="https://engine.latechforce.com/blog/fix-0-67-2#0671" class="hash-link" aria-label="Direct link to 0.67.1" title="Direct link to 0.67.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-67-2#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>should run a response http action with headers (<a href="https://github.com/latechforce/engine/commit/78d45b590089e24b102a1eb68f86e0f751c0406b" target="_blank" rel="noopener noreferrer">78d45b5</a>) — Thomas JEANNEAU</li>
+<li>should run a response http action with headers (<a href="https://github.com/sovrium/sovrium_v0/commit/78d45b590089e24b102a1eb68f86e0f751c0406b" target="_blank" rel="noopener noreferrer">78d45b5</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0670">0.67.0<a href="https://engine.latechforce.com/blog/fix-0-67-2#0670" class="hash-link" aria-label="Direct link to 0.67.0" title="Direct link to 0.67.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-2">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-67-2#bug-fixes-2" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li>add better status management on run ui (<a href="https://github.com/latechforce/engine/commit/9c55a3ab218e333eef3d85a92fbf266bf533b4a3" target="_blank" rel="noopener noreferrer">9c55a3a</a>) — Thomas JEANNEAU</li>
-<li>disable automation if trigger failed to setup (<a href="https://github.com/latechforce/engine/commit/9f967bc700ea2649e07147140255663e2de4f496" target="_blank" rel="noopener noreferrer">9f967bc</a>) — Thomas JEANNEAU</li>
-<li>setup trigger when automation is set active (<a href="https://github.com/latechforce/engine/commit/bdc98b9af05d7b79aa2625eacce844abe58677be" target="_blank" rel="noopener noreferrer">bdc98b9</a>) — Thomas JEANNEAU</li>
-<li>show error when start an automation with a failed setup trigger (<a href="https://github.com/latechforce/engine/commit/4d12bb41a47360e561c3879ef3cbe8fcd1753676" target="_blank" rel="noopener noreferrer">4d12bb4</a>) — Thomas JEANNEAU</li>
+<li>add better status management on run ui (<a href="https://github.com/sovrium/sovrium_v0/commit/9c55a3ab218e333eef3d85a92fbf266bf533b4a3" target="_blank" rel="noopener noreferrer">9c55a3a</a>) — Thomas JEANNEAU</li>
+<li>disable automation if trigger failed to setup (<a href="https://github.com/sovrium/sovrium_v0/commit/9f967bc700ea2649e07147140255663e2de4f496" target="_blank" rel="noopener noreferrer">9f967bc</a>) — Thomas JEANNEAU</li>
+<li>setup trigger when automation is set active (<a href="https://github.com/sovrium/sovrium_v0/commit/bdc98b9af05d7b79aa2625eacce844abe58677be" target="_blank" rel="noopener noreferrer">bdc98b9</a>) — Thomas JEANNEAU</li>
+<li>show error when start an automation with a failed setup trigger (<a href="https://github.com/sovrium/sovrium_v0/commit/4d12bb41a47360e561c3879ef3cbe8fcd1753676" target="_blank" rel="noopener noreferrer">4d12bb4</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/fix-0-67-2#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li>add facebook ads scopes (<a href="https://github.com/latechforce/engine/commit/ec3443cc55b374ca498183e756a7c637358d482c" target="_blank" rel="noopener noreferrer">ec3443c</a>) — Thomas JEANNEAU</li>
-<li>add Facebook integration (<a href="https://github.com/latechforce/engine/commit/d279d79b67e881d46fe19a2c3095655f98e4747a" target="_blank" rel="noopener noreferrer">d279d79</a>) — Thomas JEANNEAU</li>
-<li>add Linkedin integration (<a href="https://github.com/latechforce/engine/commit/19b69e82a838b12ce3dec2370d3321da4d78b853" target="_blank" rel="noopener noreferrer">19b69e8</a>) — Thomas JEANNEAU</li>
-<li>display user email in connections (<a href="https://github.com/latechforce/engine/commit/41770117f891871e02e328daf94b13b175a41e19" target="_blank" rel="noopener noreferrer">4177011</a>) — Thomas JEANNEAU</li>
-<li>should copy shareable connection link (<a href="https://github.com/latechforce/engine/commit/55ff636337395d7497a17c084697496a90ca08cd" target="_blank" rel="noopener noreferrer">55ff636</a>) — Thomas JEANNEAU</li>
-<li>should disconnect a connection (<a href="https://github.com/latechforce/engine/commit/c287a6d35ac7be44f5942951432ea9ae1d198264" target="_blank" rel="noopener noreferrer">c287a6d</a>) — Thomas JEANNEAU</li>
+<li>add facebook ads scopes (<a href="https://github.com/sovrium/sovrium_v0/commit/ec3443cc55b374ca498183e756a7c637358d482c" target="_blank" rel="noopener noreferrer">ec3443c</a>) — Thomas JEANNEAU</li>
+<li>add Facebook integration (<a href="https://github.com/sovrium/sovrium_v0/commit/d279d79b67e881d46fe19a2c3095655f98e4747a" target="_blank" rel="noopener noreferrer">d279d79</a>) — Thomas JEANNEAU</li>
+<li>add Linkedin integration (<a href="https://github.com/sovrium/sovrium_v0/commit/19b69e82a838b12ce3dec2370d3321da4d78b853" target="_blank" rel="noopener noreferrer">19b69e8</a>) — Thomas JEANNEAU</li>
+<li>display user email in connections (<a href="https://github.com/sovrium/sovrium_v0/commit/41770117f891871e02e328daf94b13b175a41e19" target="_blank" rel="noopener noreferrer">4177011</a>) — Thomas JEANNEAU</li>
+<li>should copy shareable connection link (<a href="https://github.com/sovrium/sovrium_v0/commit/55ff636337395d7497a17c084697496a90ca08cd" target="_blank" rel="noopener noreferrer">55ff636</a>) — Thomas JEANNEAU</li>
+<li>should disconnect a connection (<a href="https://github.com/sovrium/sovrium_v0/commit/c287a6d35ac7be44f5942951432ea9ae1d198264" target="_blank" rel="noopener noreferrer">c287a6d</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
     </entry>
@@ -358,29 +372,29 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0661"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-66-1">0.66.1</a><a href="https://engine.latechforce.com/blog/fix-0-66-1#0661" class="hash-link" aria-label="Direct link to 0.66.1" title="Direct link to 0.66.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-66-1#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>table:</strong> fix postgres view schema (<a href="https://github.com/latechforce/engine/commit/311193ab797a60f368b9aa0fe291cc3af742819e" target="_blank" rel="noopener noreferrer">311193a</a>) — Thomas JEANNEAU</li>
+<li><strong>table:</strong> fix postgres view schema (<a href="https://github.com/sovrium/sovrium_v0/commit/311193ab797a60f368b9aa0fe291cc3af742819e" target="_blank" rel="noopener noreferrer">311193a</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0660">0.66.0<a href="https://engine.latechforce.com/blog/fix-0-66-1#0660" class="hash-link" aria-label="Direct link to 0.66.0" title="Direct link to 0.66.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-66-1#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>Run:</strong> fix replaying error (<a href="https://github.com/latechforce/engine/commit/489dcfbb4cde9046f84372ab59c1a59e8ccf7018" target="_blank" rel="noopener noreferrer">489dcfb</a>) — Thomas JEANNEAU</li>
+<li><strong>Run:</strong> fix replaying error (<a href="https://github.com/sovrium/sovrium_v0/commit/489dcfbb4cde9046f84372ab59c1a59e8ccf7018" target="_blank" rel="noopener noreferrer">489dcfb</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/fix-0-66-1#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li><strong>Run:</strong> can filter run by status (<a href="https://github.com/latechforce/engine/commit/8328ff9e57eae1055f4b2fa51dd70cc1dbddfc03" target="_blank" rel="noopener noreferrer">8328ff9</a>) — Thomas JEANNEAU</li>
+<li><strong>Run:</strong> can filter run by status (<a href="https://github.com/sovrium/sovrium_v0/commit/8328ff9e57eae1055f4b2fa51dd70cc1dbddfc03" target="_blank" rel="noopener noreferrer">8328ff9</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0650">0.65.0<a href="https://engine.latechforce.com/blog/fix-0-66-1#0650" class="hash-link" aria-label="Direct link to 0.65.0" title="Direct link to 0.65.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-2">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-66-1#bug-fixes-2" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>Connection:</strong> add email alert when a connection status is disconnected (<a href="https://github.com/latechforce/engine/commit/728dd8c5b116da3daeebc89d9b3c6b051da6baa8" target="_blank" rel="noopener noreferrer">728dd8c</a>) — Thomas JEANNEAU</li>
-<li><strong>Google:</strong> should not throw an error if a refresh token is not valid (<a href="https://github.com/latechforce/engine/commit/66cbd6e514f52974c5dfed0467e59bc951aa8e70" target="_blank" rel="noopener noreferrer">66cbd6e</a>) — Thomas JEANNEAU</li>
-<li><strong>Runs:</strong> reset pagination when navigate between automation runs pages (<a href="https://github.com/latechforce/engine/commit/6c877e04da09f49ac6457765bb2c02f02bd0526c" target="_blank" rel="noopener noreferrer">6c877e0</a>) — Thomas JEANNEAU</li>
+<li><strong>Connection:</strong> add email alert when a connection status is disconnected (<a href="https://github.com/sovrium/sovrium_v0/commit/728dd8c5b116da3daeebc89d9b3c6b051da6baa8" target="_blank" rel="noopener noreferrer">728dd8c</a>) — Thomas JEANNEAU</li>
+<li><strong>Google:</strong> should not throw an error if a refresh token is not valid (<a href="https://github.com/sovrium/sovrium_v0/commit/66cbd6e514f52974c5dfed0467e59bc951aa8e70" target="_blank" rel="noopener noreferrer">66cbd6e</a>) — Thomas JEANNEAU</li>
+<li><strong>Runs:</strong> reset pagination when navigate between automation runs pages (<a href="https://github.com/sovrium/sovrium_v0/commit/6c877e04da09f49ac6457765bb2c02f02bd0526c" target="_blank" rel="noopener noreferrer">6c877e0</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features<a href="https://engine.latechforce.com/blog/fix-0-66-1#features-1" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li><strong>Automation:</strong> add email alert if an automation run failed (<a href="https://github.com/latechforce/engine/commit/24870e166a930bf418b024e09b7ce4a813e6792a" target="_blank" rel="noopener noreferrer">24870e1</a>) — Thomas JEANNEAU</li>
-<li><strong>Run:</strong> add pagination for display runs (<a href="https://github.com/latechforce/engine/commit/2c0af6adac663dc5a98bf73df5c9be60425a52e9" target="_blank" rel="noopener noreferrer">2c0af6a</a>) — Thomas JEANNEAU</li>
-<li><strong>Runs:</strong> can replay failed runs (<a href="https://github.com/latechforce/engine/commit/bb20c30d79d213f7aad301821e4fa98a8fe720f5" target="_blank" rel="noopener noreferrer">bb20c30</a>) — Thomas JEANNEAU</li>
+<li><strong>Automation:</strong> add email alert if an automation run failed (<a href="https://github.com/sovrium/sovrium_v0/commit/24870e166a930bf418b024e09b7ce4a813e6792a" target="_blank" rel="noopener noreferrer">24870e1</a>) — Thomas JEANNEAU</li>
+<li><strong>Run:</strong> add pagination for display runs (<a href="https://github.com/sovrium/sovrium_v0/commit/2c0af6adac663dc5a98bf73df5c9be60425a52e9" target="_blank" rel="noopener noreferrer">2c0af6a</a>) — Thomas JEANNEAU</li>
+<li><strong>Runs:</strong> can replay failed runs (<a href="https://github.com/sovrium/sovrium_v0/commit/bb20c30d79d213f7aad301821e4fa98a8fe720f5" target="_blank" rel="noopener noreferrer">bb20c30</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
     </entry>
@@ -394,16 +408,16 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0640"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-64-0">0.64.0</a><a href="https://engine.latechforce.com/blog/release-0-64-0#0640" class="hash-link" aria-label="Direct link to 0.64.0" title="Direct link to 0.64.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-64-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>app:</strong> should throw an error if a action account is not found (<a href="https://github.com/latechforce/engine/commit/3d036d20111d3ff8bfea1458a067f1fd5b3950e7" target="_blank" rel="noopener noreferrer">3d036d2</a>) — Thomas JEANNEAU</li>
+<li><strong>app:</strong> should throw an error if a action account is not found (<a href="https://github.com/sovrium/sovrium_v0/commit/3d036d20111d3ff8bfea1458a067f1fd5b3950e7" target="_blank" rel="noopener noreferrer">3d036d2</a>) — Thomas JEANNEAU</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-64-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li><strong>action:</strong> should run a TypeScript code with actions (<a href="https://github.com/latechforce/engine/commit/78525c993c11b31a953fb238d15f0251cffa37f1" target="_blank" rel="noopener noreferrer">78525c9</a>) — Thomas JEANNEAU</li>
+<li><strong>action:</strong> should run a TypeScript code with actions (<a href="https://github.com/sovrium/sovrium_v0/commit/78525c993c11b31a953fb238d15f0251cffa37f1" target="_blank" rel="noopener noreferrer">78525c9</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0630">0.63.0<a href="https://engine.latechforce.com/blog/release-0-64-0#0630" class="hash-link" aria-label="Direct link to 0.63.0" title="Direct link to 0.63.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features<a href="https://engine.latechforce.com/blog/release-0-64-0#features-1" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li><strong>airtable:</strong> should run a airtable list webhook payloads action (<a href="https://github.com/latechforce/engine/commit/56199c4be3b0c7bd37505f3fcb12b2e9ae32b500" target="_blank" rel="noopener noreferrer">56199c4</a>) — Thomas JEANNEAU</li>
+<li><strong>airtable:</strong> should run a airtable list webhook payloads action (<a href="https://github.com/sovrium/sovrium_v0/commit/56199c4be3b0c7bd37505f3fcb12b2e9ae32b500" target="_blank" rel="noopener noreferrer">56199c4</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Release" term="Release"/>
     </entry>
@@ -417,55 +431,35 @@
 </a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0622"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-62-2">0.62.2</a><a href="https://engine.latechforce.com/blog/fix-0-62-2#0622" class="hash-link" aria-label="Direct link to 0.62.2" title="Direct link to 0.62.2">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-62-2#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>airtable:</strong> fix createWebhook (<a href="https://github.com/latechforce/engine/commit/5e47eca0c5646bb9ec59cf1357a1fdac26a109cd" target="_blank" rel="noopener noreferrer">5e47eca</a>) — Thomas JEANNEAU</li>
+<li><strong>airtable:</strong> fix createWebhook (<a href="https://github.com/sovrium/sovrium_v0/commit/5e47eca0c5646bb9ec59cf1357a1fdac26a109cd" target="_blank" rel="noopener noreferrer">5e47eca</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0621">0.62.1<a href="https://engine.latechforce.com/blog/fix-0-62-2#0621" class="hash-link" aria-label="Direct link to 0.62.1" title="Direct link to 0.62.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-62-2#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>table:</strong> fix sqlite schema (<a href="https://github.com/latechforce/engine/commit/144030d2f610a479de9b32496fad244ec8504f98" target="_blank" rel="noopener noreferrer">144030d</a>) — Thomas JEANNEAU</li>
+<li><strong>table:</strong> fix sqlite schema (<a href="https://github.com/sovrium/sovrium_v0/commit/144030d2f610a479de9b32496fad244ec8504f98" target="_blank" rel="noopener noreferrer">144030d</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0620">0.62.0<a href="https://engine.latechforce.com/blog/fix-0-62-2#0620" class="hash-link" aria-label="Direct link to 0.62.0" title="Direct link to 0.62.0">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/fix-0-62-2#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
-<li><strong>airtable:</strong> should connect to airtable (<a href="https://github.com/latechforce/engine/commit/79903af1eed75980dae0db872dd5058f9ee4b7ab" target="_blank" rel="noopener noreferrer">79903af</a>) — Thomas JEANNEAU</li>
-<li><strong>airtable:</strong> should trigger an automation when a airtable record is created (<a href="https://github.com/latechforce/engine/commit/6cea525cb73ced216ec5036f7de5da3a1b1bae2b" target="_blank" rel="noopener noreferrer">6cea525</a>) — Thomas JEANNEAU</li>
+<li><strong>airtable:</strong> should connect to airtable (<a href="https://github.com/sovrium/sovrium_v0/commit/79903af1eed75980dae0db872dd5058f9ee4b7ab" target="_blank" rel="noopener noreferrer">79903af</a>) — Thomas JEANNEAU</li>
+<li><strong>airtable:</strong> should trigger an automation when a airtable record is created (<a href="https://github.com/sovrium/sovrium_v0/commit/6cea525cb73ced216ec5036f7de5da3a1b1bae2b" target="_blank" rel="noopener noreferrer">6cea525</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0615">0.61.5<a href="https://engine.latechforce.com/blog/fix-0-62-2#0615" class="hash-link" aria-label="Direct link to 0.61.5" title="Direct link to 0.61.5">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-2">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-62-2#bug-fixes-2" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>action:</strong> allow email in variables in gmail config (<a href="https://github.com/latechforce/engine/commit/3e7330737f7d13c35a7e3cc76a8dd0408f269187" target="_blank" rel="noopener noreferrer">3e73307</a>) — Thomas JEANNEAU</li>
+<li><strong>action:</strong> allow email in variables in gmail config (<a href="https://github.com/sovrium/sovrium_v0/commit/3e7330737f7d13c35a7e3cc76a8dd0408f269187" target="_blank" rel="noopener noreferrer">3e73307</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0614">0.61.4<a href="https://engine.latechforce.com/blog/fix-0-62-2#0614" class="hash-link" aria-label="Direct link to 0.61.4" title="Direct link to 0.61.4">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-3">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-62-2#bug-fixes-3" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>action:</strong> should filter a JavaScript code that return an empty array (<a href="https://github.com/latechforce/engine/commit/c64dab58bf4c35cbec7e26e163bebbb2172cff7f" target="_blank" rel="noopener noreferrer">c64dab5</a>) — Thomas JEANNEAU</li>
-<li><strong>gmail:</strong> can add name, cc and bcc in email (<a href="https://github.com/latechforce/engine/commit/1c584f73e77ec4eaf988f8d3c0f0ef28fe5b7ae0" target="_blank" rel="noopener noreferrer">1c584f7</a>) — Thomas JEANNEAU</li>
+<li><strong>action:</strong> should filter a JavaScript code that return an empty array (<a href="https://github.com/sovrium/sovrium_v0/commit/c64dab58bf4c35cbec7e26e163bebbb2172cff7f" target="_blank" rel="noopener noreferrer">c64dab5</a>) — Thomas JEANNEAU</li>
+<li><strong>gmail:</strong> can add name, cc and bcc in email (<a href="https://github.com/sovrium/sovrium_v0/commit/1c584f73e77ec4eaf988f8d3c0f0ef28fe5b7ae0" target="_blank" rel="noopener noreferrer">1c584f7</a>) — Thomas JEANNEAU</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="0613">0.61.3<a href="https://engine.latechforce.com/blog/fix-0-62-2#0613" class="hash-link" aria-label="Direct link to 0.61.3" title="Direct link to 0.61.3">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-4">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-62-2#bug-fixes-4" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
-<li><strong>run:</strong> should return a list of runs filtered by search on automation name (<a href="https://github.com/latechforce/engine/commit/205be477def15eb94e94ef575f2d23583e941684" target="_blank" rel="noopener noreferrer">205be47</a>) — Thomas JEANNEAU</li>
-<li><strong>run:</strong> should return a list of runs filtered by search on steps content (<a href="https://github.com/latechforce/engine/commit/34ec71b6ecfc27a960c00cf52f279e792de770ab" target="_blank" rel="noopener noreferrer">34ec71b</a>) — Thomas JEANNEAU</li>
-</ul>]]></content>
-        <category label="Fix" term="Fix"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Fix 0.61.2]]></title>
-        <id>https://engine.latechforce.com/blog/fix-0-61-2</id>
-        <link href="https://engine.latechforce.com/blog/fix-0-61-2"/>
-        <updated>2025-06-25T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Changelog for version 0.61.2]]></summary>
-        <content type="html"><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-61-2"><p class="before-truncate"> 0.61.2   Bug Fixes  * gmail: send email with html body (ff2f2c2) — Thomas JEANNEAU   0.61.1   Bug Fixes  * bucket: should throw an error if there are duplicate bucket ids (5190baa) — Thomas JEANNEAU * template: should fill a template with the current local date in ISO format (84e6756) — Thomas JEAN...</p>
-</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0612"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-61-2">0.61.2</a><a href="https://engine.latechforce.com/blog/fix-0-61-2#0612" class="hash-link" aria-label="Direct link to 0.61.2" title="Direct link to 0.61.2">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-61-2#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
-<ul>
-<li><strong>gmail:</strong> send email with html body (<a href="https://github.com/latechforce/engine/commit/ff2f2c2018b00878eff1310857753b8ee754052c" target="_blank" rel="noopener noreferrer">ff2f2c2</a>) — Thomas JEANNEAU</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="0611">0.61.1<a href="https://engine.latechforce.com/blog/fix-0-61-2#0611" class="hash-link" aria-label="Direct link to 0.61.1" title="Direct link to 0.61.1">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-61-2#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
-<ul>
-<li><strong>bucket:</strong> should throw an error if there are duplicate bucket ids (<a href="https://github.com/latechforce/engine/commit/5190baae18242b54be2721aa50dedbb6fe4b5056" target="_blank" rel="noopener noreferrer">5190baa</a>) — Thomas JEANNEAU</li>
-<li><strong>template:</strong> should fill a template with the current local date in ISO format (<a href="https://github.com/latechforce/engine/commit/84e67561cc5dd985815d4b66f406a2c948952844" target="_blank" rel="noopener noreferrer">84e6756</a>) — Thomas JEANNEAU</li>
+<li><strong>run:</strong> should return a list of runs filtered by search on automation name (<a href="https://github.com/sovrium/sovrium_v0/commit/205be477def15eb94e94ef575f2d23583e941684" target="_blank" rel="noopener noreferrer">205be47</a>) — Thomas JEANNEAU</li>
+<li><strong>run:</strong> should return a list of runs filtered by search on steps content (<a href="https://github.com/sovrium/sovrium_v0/commit/34ec71b6ecfc27a960c00cf52f279e792de770ab" target="_blank" rel="noopener noreferrer">34ec71b</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
         <category label="Fix" term="Fix"/>
     </entry>
