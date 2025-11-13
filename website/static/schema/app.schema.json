@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Application Configuration",
   "description": "Complete configuration for your application including metadata, data models, automations, and integrations",
-  "version": "0.82.0",
+  "version": "0.83.0",
   "type": "object",
   "properties": {
     "name": {
@@ -165,7 +165,7 @@
       "items": {
         "title": "Page",
         "description": "A static page with customizable head and body content",
-        "version": "0.82.0",
+        "version": "0.83.0",
         "type": "object",
         "properties": {
           "name": {
@@ -612,7 +612,7 @@
       "items": {
         "title": "Automation Workflow",
         "description": "A workflow that executes a series of actions when triggered by specific events or conditions",
-        "version": "0.82.0",
+        "version": "0.83.0",
         "type": "object",
         "properties": {
           "id": {
@@ -1167,7 +1167,7 @@
       "items": {
         "title": "Data Table",
         "description": "A database table definition with its fields and structure",
-        "version": "0.82.0",
+        "version": "0.83.0",
         "type": "object",
         "properties": {
           "id": {
@@ -1379,7 +1379,7 @@
       "items": {
         "title": "User Form",
         "description": "A form for collecting user input with customizable fields and actions",
-        "version": "0.82.0",
+        "version": "0.83.0",
         "type": "object",
         "properties": {
           "id": {
@@ -1689,7 +1689,7 @@
             "groupBy": "category"
           }
         },
-        "version": "0.82.0",
+        "version": "0.83.0",
         "anyOf": [
           {
             "title": "Calendly",
@@ -1978,7 +1978,7 @@
       "items": {
         "title": "Storage Bucket",
         "description": "A storage container for organizing and managing files and media assets",
-        "version": "0.82.0",
+        "version": "0.83.0",
         "type": "object",
         "properties": {
           "id": {
