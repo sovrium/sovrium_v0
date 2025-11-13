@@ -234,7 +234,7 @@ test('should display created_at and id columns', async ({ startExampleApp }) => 
   await expect(idCell).toContainText(record.id)
 })
 
-test.fixme('should sort table records from newest to oldest', async ({ startExampleApp }) => {
+test('should sort table records from newest to oldest', async ({ startExampleApp }) => {
   // GIVEN
   const { page } = await startExampleApp({ test, loggedOnAdmin: true, filter: '/table/index' })
 
@@ -245,8 +245,8 @@ test.fixme('should sort table records from newest to oldest', async ({ startExam
     },
   })
 
-  // Wait a bit to ensure different creation times
-  await page.waitForTimeout(100)
+  // Wait to ensure different creation times (1 second for SQLite timestamp precision)
+  await page.waitForTimeout(1100)
 
   await page.request.post('/api/tables/1', {
     data: {
@@ -254,7 +254,7 @@ test.fixme('should sort table records from newest to oldest', async ({ startExam
     },
   })
 
-  await page.waitForTimeout(100)
+  await page.waitForTimeout(1100)
 
   await page.request.post('/api/tables/1', {
     data: {

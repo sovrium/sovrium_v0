@@ -287,6 +287,8 @@ export class TableDatabaseService {
           })
         }
 
+        query = query.orderBy('_created_at', 'desc')
+
         const records = await query.execute()
         return this.postProcessViewRecords(table, records)
       },
