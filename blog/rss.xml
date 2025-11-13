@@ -9,14 +9,19 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[Release 0.82.0]]></title>
-            <link>https://engine.latechforce.com/blog/release-0-82-0</link>
-            <guid>https://engine.latechforce.com/blog/release-0-82-0</guid>
+            <title><![CDATA[Release 0.83.0]]></title>
+            <link>https://engine.latechforce.com/blog/release-0-83-0</link>
+            <guid>https://engine.latechforce.com/blog/release-0-83-0</guid>
             <pubDate>Thu, 13 Nov 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Changelog for version 0.82.0]]></description>
-            <content:encoded><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-82-0"><p class="before-truncate"> 0.82.0   Features  * table: add created_at and id columns to admin tables view (aa94488) — Thomas JEANNEAU...</p>
-</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0820"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-82-0">0.82.0</a><a href="https://engine.latechforce.com/blog/release-0-82-0#0820" class="hash-link" aria-label="Direct link to 0.82.0" title="Direct link to 0.82.0">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-82-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
+            <description><![CDATA[Changelog for version 0.83.0]]></description>
+            <content:encoded><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-83-0"><p class="before-truncate"> 0.83.0   Features  * table: sort records by creation date in descending order (0eda71a) — Thomas JEANNEAU   0.82.0   Features  * table: add created_at and id columns to admin tables view (aa94488) — Thomas JEANNEAU...</p>
+</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0830"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-83-0">0.83.0</a><a href="https://engine.latechforce.com/blog/release-0-83-0#0830" class="hash-link" aria-label="Direct link to 0.83.0" title="Direct link to 0.83.0">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-83-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
+<ul>
+<li><strong>table:</strong> sort records by creation date in descending order (<a href="https://github.com/sovrium/sovrium_v0/commit/0eda71a935249be6a6c68f4877c55c5a862b0b2d" target="_blank" rel="noopener noreferrer">0eda71a</a>) — Thomas JEANNEAU</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="0820">0.82.0<a href="https://engine.latechforce.com/blog/release-0-83-0#0820" class="hash-link" aria-label="Direct link to 0.82.0" title="Direct link to 0.82.0">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features<a href="https://engine.latechforce.com/blog/release-0-83-0#features-1" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
 <li><strong>table:</strong> add created_at and id columns to admin tables view (<a href="https://github.com/sovrium/sovrium_v0/commit/aa94488f1b9634b4dfe1df2a2bbf80df5549edaa" target="_blank" rel="noopener noreferrer">aa94488</a>) — Thomas JEANNEAU</li>
 </ul>]]></content:encoded>
