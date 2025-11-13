@@ -8,7 +8,7 @@ Welcome to the LaTeChforce Engine development team! This guide will help you get
 
 ```bash
 # Clone the repository
-git clone https://github.com/omnera-dev/omnera.git
+git clone https://github.com/sovrium/sovrium_v0.git
 cd engine
 
 # Install dependencies

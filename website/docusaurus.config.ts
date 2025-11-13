@@ -53,7 +53,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/omnera-dev/omnera/tree/main/website',
+          editUrl: 'https://github.com/sovrium/sovrium_v0/tree/main/website',
         },
         blog: {
           showReadingTime: false,
@@ -63,7 +63,7 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/omnera-dev/omnera/tree/main/website',
+          editUrl: 'https://github.com/sovrium/sovrium_v0/tree/main/website',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -107,7 +107,7 @@ const config: Config = {
           to: '/guides',
           label: 'Guides',
           position: 'left',
-          editUrl: 'https://github.com/omnera-dev/omnera/tree/main/website/src/pages/guides',
+          editUrl: 'https://github.com/sovrium/sovrium_v0/tree/main/website/src/pages/guides',
         },
         {
           label: 'Experts',
@@ -140,7 +140,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/omnera-dev/omnera',
+          href: 'https://github.com/sovrium/sovrium_v0',
           label: 'GitHub',
           position: 'right',
         },
@@ -200,7 +200,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/omnera-dev/omnera',
+              href: 'https://github.com/sovrium/sovrium_v0',
             },
           ],
         },

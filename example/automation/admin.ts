@@ -9,7 +9,7 @@ export default {
     {
       id: 1,
       name: 'run-typescript',
-      editUrl: 'https://github.com/omnera-dev/omnera/blob/main/example/automation/admin.ts',
+      editUrl: 'https://github.com/sovrium/sovrium_v0/blob/main/example/automation/admin.ts',
       trigger: {
         service: 'http',
         event: 'post',
