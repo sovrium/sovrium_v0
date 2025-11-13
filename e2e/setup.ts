@@ -7,6 +7,20 @@ export let container: StartedPostgreSqlContainer
 export let testServer: ReturnType<typeof createServer>
 
 async function globalSetup() {
+  // Configure Docker socket for Colima if not already set
+  const os = await import('os')
+  const fs = await import('fs')
+  const homeDir = os.homedir()
+  const colimaSocket = `${homeDir}/.colima/default/docker.sock`
+
+  // Check if Colima socket exists
+  if (fs.existsSync(colimaSocket)) {
+    // Set the Docker host to use Colima socket
+    process.env.DOCKER_HOST = `unix://${colimaSocket}`
+    // Disable Ryuk container which has issues with Colima
+    process.env.TESTCONTAINERS_RYUK_DISABLED = 'true'
+  }
+
   container = await new PostgreSqlContainer('postgres:16.9').start()
 
   // Save container info to be used in tests

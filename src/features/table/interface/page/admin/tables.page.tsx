@@ -198,12 +198,34 @@ const RecordsDataTable = () => {
     }
   )
 
+  columns.push(
+    {
+      id: 'createdAt',
+      accessorKey: '_createdAt',
+      header: 'created_at',
+      cell: ({ row }) => {
+        const date = new Date(row.original._createdAt!)
+        return date.toLocaleString()
+      },
+    },
+    {
+      id: 'id',
+      accessorKey: '_id',
+      header: 'id',
+      cell: ({ row }) => <span className="font-mono text-xs">{row.original._id}</span>,
+    }
+  )
+
   return (
     <DataTable
       verticalSeparator
       fullPage
       columns={columns}
-      data={records.map((record) => ({ ...record.fields, _id: record.id }))}
+      data={records.map((record) => ({
+        ...record.fields,
+        _id: record.id,
+        _createdAt: record.createdAt,
+      }))}
       actions={[
         {
           label: 'Create',

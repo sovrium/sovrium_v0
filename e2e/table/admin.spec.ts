@@ -202,6 +202,38 @@ test.fixme(
   }
 )
 
+test('should display created_at and id columns', async ({ startExampleApp }) => {
+  // GIVEN
+  const { page } = await startExampleApp({ test, loggedOnAdmin: true, filter: '/table/index' })
+  const response = await page.request.post('/api/tables/1', {
+    data: {
+      records: [{ fields: { 'First name': 'John', 'Last name': 'Doe' } }],
+    },
+  })
+  const record = (await response.json()).records[0]
+
+  // WHEN
+  await page.goto('/admin/tables')
+
+  // THEN
+  // Verify column headers are visible (they use cell role, not columnheader)
+  const headerRow = page.getByRole('row').first()
+  await expect(headerRow.getByRole('cell', { name: 'created_at' })).toBeVisible()
+  await expect(headerRow.getByRole('cell', { name: 'id' })).toBeVisible()
+
+  // Verify the created_at value is displayed (should contain date/time)
+  const dataRow = page.getByRole('row').filter({ hasText: 'John' })
+  const createdAtCell = dataRow.getByRole('cell').nth(-2)
+  await expect(createdAtCell).toBeVisible()
+  const createdAtText = await createdAtCell.textContent()
+  expect(createdAtText).toMatch(/\d{1,2}\/\d{1,2}\/\d{4}/)
+
+  // Verify the id value is displayed
+  const idCell = dataRow.getByRole('cell').last()
+  await expect(idCell).toBeVisible()
+  await expect(idCell).toContainText(record.id)
+})
+
 test.fixme('should sort table records from newest to oldest', async ({ startExampleApp }) => {
   // GIVEN
   const { page } = await startExampleApp({ test, loggedOnAdmin: true, filter: '/table/index' })
