@@ -1,3 +1,10 @@
+# [0.82.0](https://github.com/sovrium/sovrium_v0/compare/v0.81.0...v0.82.0) (2025-11-13)
+
+
+### Features
+
+* **table:** add created_at and id columns to admin tables view ([aa94488](https://github.com/sovrium/sovrium_v0/commit/aa94488f1b9634b4dfe1df2a2bbf80df5549edaa)) — Thomas JEANNEAU
+
 # [0.81.0](https://github.com/sovrium/sovrium_v0/compare/v0.80.2...v0.81.0) (2025-10-09)
 
 

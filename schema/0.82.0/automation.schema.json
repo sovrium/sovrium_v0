@@ -1,0 +1,2642 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Automation Workflow",
+  "description": "A workflow that executes a series of actions when triggered by specific events or conditions",
+  "version": "0.82.0",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the automation",
+      "title": "Automation ID",
+      "readOnly": true,
+      "examples": [
+        1,
+        2,
+        100
+      ],
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "name": {
+      "description": "Name of the automation workflow",
+      "title": "Automation Name",
+      "placeholder": "Enter automation name",
+      "examples": [
+        "Send Welcome Email",
+        "Process Order",
+        "Sync Customer Data"
+      ],
+      "type": "string",
+      "minLength": 3
+    },
+    "description": {
+      "description": "Detailed description of what this automation does",
+      "title": "Description",
+      "placeholder": "Describe what this automation does",
+      "examples": [
+        "Sends a welcome email when a new user signs up",
+        "Processes incoming orders and updates inventory"
+      ],
+      "uiSchema": {
+        "ui:widget": "textarea",
+        "ui:rows": 2
+      },
+      "type": "string"
+    },
+    "editUrl": {
+      "description": "URL to edit this automation in an external tool",
+      "title": "Edit URL",
+      "placeholder": "https://example.com/automations/edit/123",
+      "examples": [
+        "https://zapier.com/app/editor/123456",
+        "https://make.com/scenario/edit/789"
+      ],
+      "uiSchema": {
+        "ui:widget": "uri"
+      },
+      "type": "string",
+      "format": "uri"
+    },
+    "trigger": {
+      "title": "Trigger",
+      "description": "The event or condition that starts this automation",
+      "uiSchema": {
+        "ui:widget": "trigger-selector"
+      },
+      "anyOf": [
+        {
+          "title": "HTTP",
+          "description": "The HTTP trigger is a trigger that is triggered by an HTTP request",
+          "anyOf": [
+            {
+              "title": "POST",
+              "description": "The POST HTTP trigger is a trigger that is triggered by a POST request",
+              "type": "object",
+              "properties": {
+                "service": {
+                  "type": "string",
+                  "const": "http"
+                },
+                "event": {
+                  "type": "string",
+                  "const": "post"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string"
+                    },
+                    "respondImmediately": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "requestBody": {
+                      "$ref": "#/$defs/__schema0"
+                    }
+                  },
+                  "required": [
+                    "path"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "service",
+                "event",
+                "params"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "title": "GET",
+              "description": "The GET HTTP trigger is a trigger that is triggered by a GET request",
+              "type": "object",
+              "properties": {
+                "service": {
+                  "type": "string",
+                  "const": "http"
+                },
+                "event": {
+                  "type": "string",
+                  "const": "get"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string"
+                    },
+                    "respondImmediately": {
+                      "default": false,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "path"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "service",
+                "event",
+                "params"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        {
+          "title": "Database",
+          "description": "The database trigger is a trigger that is triggered by a database event",
+          "anyOf": [
+            {
+              "title": "Record Created",
+              "description": "The Record Created trigger is a trigger that is triggered by a record being created",
+              "type": "object",
+              "properties": {
+                "service": {
+                  "type": "string",
+                  "const": "database"
+                },
+                "event": {
+                  "type": "string",
+                  "const": "record-created"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "table": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "table"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "service",
+                "event",
+                "params"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "title": "Record Updated",
+              "description": "The Record Updated trigger is a trigger that is triggered by a record being updated",
+              "type": "object",
+              "properties": {
+                "service": {
+                  "type": "string",
+                  "const": "database"
+                },
+                "event": {
+                  "type": "string",
+                  "const": "record-updated"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "table": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "table"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "service",
+                "event",
+                "params"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        {
+          "title": "Schedule",
+          "description": "The Schedule trigger is a trigger that is triggered by a schedule event",
+          "anyOf": [
+            {
+              "title": "Cron Time",
+              "description": "The Cron Time trigger is a trigger that is triggered by a cron time",
+              "type": "object",
+              "properties": {
+                "service": {
+                  "type": "string",
+                  "const": "schedule"
+                },
+                "event": {
+                  "type": "string",
+                  "const": "cron-time"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "expression": {
+                      "type": "string"
+                    },
+                    "timeZone": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "expression",
+                    "timeZone"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "service",
+                "event",
+                "params"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        {
+          "title": "Integration Trigger",
+          "description": "The integration trigger is the event that triggers the automation",
+          "anyOf": [
+            {
+              "title": "Calendly",
+              "description": "The Calendly trigger is a trigger that is triggered by a Calendly event",
+              "anyOf": [
+                {
+                  "title": "Invite Created",
+                  "description": "The Calendly invite created trigger is a trigger that is triggered by a invite created event",
+                  "type": "object",
+                  "properties": {
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "calendly"
+                    },
+                    "event": {
+                      "type": "string",
+                      "const": "invite-created"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "organization": {
+                          "description": "The organization of the trigger",
+                          "default": "Current user organization",
+                          "type": "string"
+                        },
+                        "scope": {
+                          "description": "The scope of the trigger",
+                          "default": "user",
+                          "type": "string",
+                          "enum": [
+                            "user",
+                            "organization",
+                            "group"
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "service",
+                    "event"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "Airtable",
+              "description": "The Airtable trigger is a trigger that is triggered by a Airtable event",
+              "anyOf": [
+                {
+                  "title": "Invite Created",
+                  "description": "The Calendly invite created trigger is a trigger that is triggered by a invite created event",
+                  "type": "object",
+                  "properties": {
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "airtable"
+                    },
+                    "event": {
+                      "type": "string",
+                      "const": "record-created"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "baseId": {
+                          "type": "string"
+                        },
+                        "tableId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "baseId",
+                        "tableId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "service",
+                    "event",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "LinkedIn Ads",
+              "description": "The LinkedIn Ads trigger is triggered by LinkedIn lead events",
+              "anyOf": [
+                {
+                  "title": "New Lead Gen Form Response",
+                  "description": "Triggered when a new LinkedIn Lead Gen Form response is created",
+                  "type": "object",
+                  "properties": {
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "linkedin-ads"
+                    },
+                    "event": {
+                      "type": "string",
+                      "const": "new-lead-gen-form-response"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "organizationId": {
+                          "title": "LinkedIn Organization ID",
+                          "description": "Required for non-sponsored lead forms",
+                          "type": "string"
+                        },
+                        "sponsoredAccountId": {
+                          "title": "LinkedIn Sponsored Account ID",
+                          "description": "Required for sponsored lead forms (leadType: SPONSORED)",
+                          "type": "string"
+                        },
+                        "leadType": {
+                          "default": "SPONSORED",
+                          "description": "Type of lead form. SPONSORED requires sponsoredAccountId",
+                          "type": "string",
+                          "enum": [
+                            "SPONSORED"
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "service",
+                    "event",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "Facebook",
+              "description": "The Facebook trigger is triggered by Facebook lead events",
+              "anyOf": [
+                {
+                  "title": "New Lead",
+                  "description": "Triggered when a new Facebook Lead Ad response is created",
+                  "type": "object",
+                  "properties": {
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "facebook-ads"
+                    },
+                    "event": {
+                      "type": "string",
+                      "const": "new-lead"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "pageId": {
+                          "title": "Facebook Page ID",
+                          "description": "The ID of the Facebook page with lead forms",
+                          "type": "string"
+                        },
+                        "appId": {
+                          "title": "Facebook App ID",
+                          "description": "Your Facebook App ID from the developer console",
+                          "type": "string"
+                        },
+                        "appSecret": {
+                          "title": "Facebook App Secret",
+                          "description": "Your Facebook App Secret from the developer console",
+                          "type": "string"
+                        },
+                        "verifyToken": {
+                          "title": "Webhook Verify Token",
+                          "description": "Security token for webhook verification (auto-generated if not provided)",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "pageId",
+                        "appId",
+                        "appSecret"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "service",
+                    "event",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "actions": {
+      "description": "Sequence of actions to execute when triggered",
+      "title": "Actions",
+      "uiSchema": {
+        "ui:ArrayFieldTemplate": "collapsible",
+        "ui:options": {
+          "orderable": true,
+          "removable": true,
+          "addable": true
+        }
+      },
+      "default": [],
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema1"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "trigger",
+    "actions"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "title": "JSON Schema",
+      "description": "The JSON Schema is a schema that describes the structure of the data",
+      "type": "object",
+      "properties": {
+        "type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "string",
+                "number",
+                "integer",
+                "boolean",
+                "object",
+                "array",
+                "null"
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "object",
+                  "array",
+                  "null"
+                ]
+              }
+            }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/__schema0"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "items": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/__schema0"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/__schema0"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/__schema0"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        },
+        "enum": {
+          "type": "array",
+          "items": {}
+        },
+        "const": {},
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "default": {},
+        "minimum": {
+          "type": "number"
+        },
+        "maximum": {
+          "type": "number"
+        },
+        "multipleOf": {
+          "type": "number"
+        },
+        "minLength": {
+          "type": "number"
+        },
+        "maxLength": {
+          "type": "number"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "minItems": {
+          "type": "number"
+        },
+        "maxItems": {
+          "type": "number"
+        },
+        "uniqueItems": {
+          "type": "boolean"
+        },
+        "allOf": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/__schema0"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        },
+        "anyOf": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/__schema0"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        },
+        "oneOf": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/__schema0"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        },
+        "not": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/__schema0"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "__schema1": {
+      "title": "Action",
+      "description": "The action is an action that is performed by the automation",
+      "anyOf": [
+        {
+          "title": "HTTP",
+          "description": "The HTTP action is an action that is performed by the automation",
+          "anyOf": [
+            {
+              "title": "GET",
+              "description": "The GET HTTP action is an action that is performed by the automation",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "service": {
+                  "type": "string",
+                  "const": "http"
+                },
+                "action": {
+                  "type": "string",
+                  "const": "get"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "headers": {
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "service",
+                "action",
+                "params"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "title": "POST",
+              "description": "The POST HTTP action is an action that is performed by the automation",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "service": {
+                  "type": "string",
+                  "const": "http"
+                },
+                "action": {
+                  "type": "string",
+                  "const": "post"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "headers": {
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "body": {
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {}
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "service",
+                "action",
+                "params"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "title": "Response",
+              "description": "The response HTTP action is an action that is performed by the automation",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "service": {
+                  "type": "string",
+                  "const": "http"
+                },
+                "action": {
+                  "type": "string",
+                  "const": "response"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "headers": {
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "body": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {}
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "service",
+                "action"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        {
+          "title": "Code",
+          "description": "The code action is a code action that is performed by the automation",
+          "anyOf": [
+            {
+              "title": "Run Typescript",
+              "description": "The run typescript code action is a code action that is performed by the automation",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "service": {
+                  "type": "string",
+                  "const": "code"
+                },
+                "action": {
+                  "type": "string",
+                  "const": "run-typescript"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "inputData": {
+                      "default": {},
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "service",
+                "action",
+                "params"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "title": "Run Javascript",
+              "description": "The run javascript code action is a code action that is performed by the automation",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "service": {
+                  "type": "string",
+                  "const": "code"
+                },
+                "action": {
+                  "type": "string",
+                  "const": "run-javascript"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "inputData": {
+                      "default": {},
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "service",
+                "action",
+                "params"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        {
+          "title": "Filter",
+          "description": "The Filter action is an action that is performed by the automation",
+          "anyOf": [
+            {
+              "title": "Only continue if",
+              "description": "The Only continue if filter action is an action that is performed by the automation",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "service": {
+                  "type": "string",
+                  "const": "filter"
+                },
+                "action": {
+                  "type": "string",
+                  "const": "only-continue-if"
+                },
+                "params": {
+                  "$ref": "#/$defs/__schema2"
+                }
+              },
+              "required": [
+                "name",
+                "service",
+                "action",
+                "params"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "title": "Split into paths",
+              "description": "The Split into paths filter action is an action that is performed by the automation",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "service": {
+                  "type": "string",
+                  "const": "filter"
+                },
+                "action": {
+                  "type": "string",
+                  "const": "split-into-paths"
+                },
+                "params": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "filter": {
+                        "$ref": "#/$defs/__schema2"
+                      },
+                      "actions": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/$defs/__schema1"
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "filter",
+                      "actions"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "service",
+                "action",
+                "params"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "title": "Calendly",
+              "description": "The Calendly action is a action that is used to interact with the Calendly API",
+              "anyOf": [
+                {
+                  "title": "List Webhook Subscriptions",
+                  "description": "The Calendly list webhook subscriptions action is a action that lists the webhook subscriptions for a given organization",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "calendly"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "list-webhook-subscriptions"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "organization": {
+                          "default": "Current user organisation",
+                          "type": "string"
+                        },
+                        "scope": {
+                          "default": "user",
+                          "type": "string",
+                          "enum": [
+                            "user",
+                            "organization",
+                            "group"
+                          ]
+                        },
+                        "count": {
+                          "default": 20,
+                          "type": "number",
+                          "minimum": 1,
+                          "maximum": 100
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "Get Event Type",
+                  "description": "The Calendly get event type action is a action that gets the event type for a given uuid",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "calendly"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "get-event-type"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "uuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "uuid"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "Airtable",
+              "description": "The Airtable action is a action that is used to interact with the Airtable API",
+              "anyOf": [
+                {
+                  "title": "List Webhook Subscriptions",
+                  "description": "The Calendly list webhook subscriptions action is a action that lists the webhook subscriptions for a given organization",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "airtable"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "list-webhook-payloads"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "baseId": {
+                          "type": "string"
+                        },
+                        "webhookId": {
+                          "type": "string"
+                        },
+                        "cursor": {
+                          "type": "number"
+                        },
+                        "limit": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "baseId",
+                        "webhookId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "Google Sheets",
+              "description": "The Google Sheets action is a action that is used to interact with the Google Sheets API",
+              "anyOf": [
+                {
+                  "title": "Append values to a Google Sheets",
+                  "description": "The Google Sheets append values action is a action that appends values to a Google Sheets spreadsheet",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "google-sheets"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "append-values"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "spreadsheetId": {
+                          "type": "string"
+                        },
+                        "range": {
+                          "type": "string"
+                        },
+                        "values": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "spreadsheetId",
+                        "range",
+                        "values"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "Google Gmail",
+              "description": "The Google Gmail action is a action that is used to interact with the Google Gmail API",
+              "anyOf": [
+                {
+                  "title": "Send an email",
+                  "description": "The Google Gmail send email action is a action that sends an email",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "google-gmail"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "send-email"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "from": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "to": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        },
+                        "cc": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        },
+                        "bcc": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        },
+                        "subject": {
+                          "type": "string"
+                        },
+                        "html": {
+                          "type": "string"
+                        },
+                        "text": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "to",
+                        "subject",
+                        "html"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "LinkedIn Ads",
+              "description": "Actions to interact with LinkedIn Ads APIs",
+              "anyOf": [
+                {
+                  "title": "Create Lead Notification Subscription (Owner Level)",
+                  "description": "Creates a LinkedIn Lead Notification subscription at owner (organization) level.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "linkedin-ads"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "create-lead-notification-subscription"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "webhook": {
+                          "title": "Webhook URL",
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizationId": {
+                          "title": "LinkedIn Organization ID",
+                          "type": "string"
+                        },
+                        "leadType": {
+                          "default": "SPONSORED",
+                          "type": "string",
+                          "enum": [
+                            "SPONSORED"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "webhook",
+                        "organizationId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "Fetch Lead Notification Subscriptions (Owner Level)",
+                  "description": "Lists LinkedIn lead notification subscriptions for an organization.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "linkedin-ads"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "list-lead-notification-subscriptions"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "organizationId": {
+                          "title": "LinkedIn Organization ID",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "organizationId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "Get Single Lead Form Response",
+                  "description": "Retrieves a single LinkedIn Lead Form Response by its ID.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "linkedin-ads"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "get-lead-form-response"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "leadResponseId": {
+                          "title": "Lead Response ID",
+                          "description": "The unique identifier for the lead form response (e.g., urn:li:leadFormResponse:123456)",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "leadResponseId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "Facebook Ads",
+              "description": "Actions to interact with Facebook Ads APIs",
+              "anyOf": [
+                {
+                  "title": "List App Subscriptions",
+                  "description": "Lists subscriptions configured on the Facebook App",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "facebook-ads"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "list-app-subscriptions"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "appId": {
+                          "title": "Facebook App ID",
+                          "type": "string"
+                        },
+                        "appSecret": {
+                          "title": "Facebook App Secret",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "appId",
+                        "appSecret"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "Get LeadGen",
+                  "description": "Retrieves lead generation data using the leadgen_id from webhook",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "facebook-ads"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "get-leadgen"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "leadgenId": {
+                          "title": "Leadgen ID",
+                          "description": "The leadgen_id from Facebook webhook data",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "leadgenId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "Notion",
+              "description": "The Notion action is used to interact with the Notion API",
+              "anyOf": [
+                {
+                  "title": "Create Page",
+                  "description": "Creates a new page in Notion",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "notion"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "create-page"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "parent": {
+                          "description": "Parent of the new page (database, page, or workspace)",
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "database_id"
+                                },
+                                "database_id": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "database_id"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "page_id"
+                                },
+                                "page_id": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "page_id"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "workspace"
+                                },
+                                "workspace": {
+                                  "type": "boolean",
+                                  "const": true
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "workspace"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "properties": {
+                          "description": "Page properties",
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {}
+                        },
+                        "children": {
+                          "description": "Page content blocks",
+                          "type": "array",
+                          "items": {}
+                        },
+                        "icon": {
+                          "description": "Page icon",
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "emoji"
+                                },
+                                "emoji": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "emoji"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "external"
+                                },
+                                "external": {
+                                  "type": "object",
+                                  "properties": {
+                                    "url": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "url"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "external"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "cover": {
+                          "description": "Page cover image",
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "external"
+                            },
+                            "external": {
+                              "type": "object",
+                              "properties": {
+                                "url": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "url"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "external"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "parent",
+                        "properties"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "Get Page",
+                  "description": "Retrieves a page from Notion",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "notion"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "get-page"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "pageId": {
+                          "description": "The ID of the page to retrieve",
+                          "type": "string"
+                        },
+                        "filterProperties": {
+                          "description": "Properties to include in response",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "pageId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "Update Page",
+                  "description": "Updates properties, icon, cover, or archived status of a Notion page",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "notion"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "update-page"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "pageId": {
+                          "description": "The ID of the page to update",
+                          "type": "string"
+                        },
+                        "properties": {
+                          "description": "Page properties to update",
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {}
+                        },
+                        "icon": {
+                          "description": "Page icon to set",
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "emoji"
+                                },
+                                "emoji": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "emoji"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "external"
+                                },
+                                "external": {
+                                  "type": "object",
+                                  "properties": {
+                                    "url": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "url"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "external"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "cover": {
+                          "description": "Page cover image to set",
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "external"
+                            },
+                            "external": {
+                              "type": "object",
+                              "properties": {
+                                "url": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "url"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "external"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "archived": {
+                          "description": "Whether to archive/unarchive the page",
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "pageId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "Delete Page",
+                  "description": "Deletes (archives) a page in Notion",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "notion"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "delete-page"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "pageId": {
+                          "description": "The ID of the page to delete (archive)",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "pageId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "List Pages",
+                  "description": "Lists pages from a Notion database",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "notion"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "list-pages"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "databaseId": {
+                          "description": "The ID of the database to query",
+                          "type": "string"
+                        },
+                        "filter": {
+                          "description": "Filter conditions for the query"
+                        },
+                        "sorts": {
+                          "description": "Sort conditions for the query",
+                          "type": "array",
+                          "items": {}
+                        },
+                        "startCursor": {
+                          "description": "Pagination cursor",
+                          "type": "string"
+                        },
+                        "pageSize": {
+                          "description": "Number of results per page",
+                          "type": "number",
+                          "minimum": 1,
+                          "maximum": 100
+                        }
+                      },
+                      "required": [
+                        "databaseId"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "Search Pages",
+                  "description": "Searches for pages in Notion",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "notion"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "search-pages"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "query": {
+                          "description": "Search query text",
+                          "type": "string"
+                        },
+                        "filter": {
+                          "description": "Optional filter for search results",
+                          "type": "object",
+                          "properties": {
+                            "property": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "query"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "title": "Qonto",
+              "description": "The Qonto action is used to interact with the Qonto API",
+              "anyOf": [
+                {
+                  "title": "Create Client",
+                  "description": "Creates a new client in Qonto",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "qonto"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "create-client"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "Client name",
+                          "type": "string"
+                        },
+                        "email": {
+                          "description": "Client email",
+                          "type": "string",
+                          "format": "email",
+                          "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                        },
+                        "phone": {
+                          "description": "Client phone number",
+                          "type": "string"
+                        },
+                        "address": {
+                          "description": "Client address",
+                          "type": "object",
+                          "properties": {
+                            "street": {
+                              "description": "Street address",
+                              "type": "string"
+                            },
+                            "city": {
+                              "description": "City",
+                              "type": "string"
+                            },
+                            "postal_code": {
+                              "description": "Postal code",
+                              "type": "string"
+                            },
+                            "country": {
+                              "description": "Country",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "street",
+                            "city",
+                            "postal_code",
+                            "country"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "vat_number": {
+                          "description": "VAT number",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "title": "Create Invoice",
+                  "description": "Creates a new invoice in Qonto",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "service": {
+                      "type": "string",
+                      "const": "qonto"
+                    },
+                    "action": {
+                      "type": "string",
+                      "const": "create-invoice"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "client_id": {
+                          "description": "ID of the client for this invoice",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "description": "Invoice total amount",
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "currency": {
+                          "description": "Invoice currency",
+                          "default": "EUR",
+                          "type": "string"
+                        },
+                        "due_date": {
+                          "description": "Invoice due date (ISO 8601 format)",
+                          "type": "string"
+                        },
+                        "items": {
+                          "description": "Invoice line items",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "description": {
+                                "description": "Item description",
+                                "type": "string"
+                              },
+                              "quantity": {
+                                "description": "Quantity",
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              },
+                              "unit_price": {
+                                "description": "Unit price",
+                                "type": "number",
+                                "exclusiveMinimum": 0
+                              }
+                            },
+                            "required": [
+                              "description",
+                              "quantity",
+                              "unit_price"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "reference": {
+                          "description": "Invoice reference number",
+                          "type": "string"
+                        },
+                        "notes": {
+                          "description": "Additional notes",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "client_id",
+                        "amount",
+                        "currency",
+                        "due_date",
+                        "items"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "account",
+                    "service",
+                    "action",
+                    "params"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Database",
+          "description": "The Database action is an action that is performed by the automation",
+          "anyOf": [
+            {
+              "title": "Create record",
+              "description": "Create a record in a database table",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "service": {
+                  "type": "string",
+                  "const": "database"
+                },
+                "action": {
+                  "type": "string",
+                  "const": "create-record"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "table": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    },
+                    "fields": {
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "table",
+                    "fields"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "service",
+                "action",
+                "params"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      ]
+    },
+    "__schema2": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string"
+            },
+            "operator": {
+              "type": "string",
+              "enum": [
+                "contains",
+                "does-not-contain"
+              ]
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "operator",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string"
+            },
+            "operator": {
+              "type": "string",
+              "enum": [
+                "exists",
+                "does-not-exist",
+                "is-true",
+                "is-false"
+              ]
+            }
+          },
+          "required": [
+            "target",
+            "operator"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "and": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema2"
+              }
+            }
+          },
+          "required": [
+            "and"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "or": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema2"
+              }
+            }
+          },
+          "required": [
+            "or"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}
