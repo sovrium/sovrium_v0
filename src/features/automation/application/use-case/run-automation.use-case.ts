@@ -173,8 +173,12 @@ export class RunAutomationUseCase {
         try {
           await this.executePaths(app, run, automation, action, data, pathName)
         } catch (pathError) {
-          this.error(`Split-into-paths action ${actionPath} failed during path execution: ${pathError instanceof Error ? pathError.message : String(pathError)}`)
-          const serviceError = { message: `Path failure in multi-step execution: ${pathError instanceof Error ? pathError.message : String(pathError)}` } as ServiceError
+          this.error(
+            `Split-into-paths action ${actionPath} failed during path execution: ${pathError instanceof Error ? pathError.message : String(pathError)}`
+          )
+          const serviceError = {
+            message: `Path failure in multi-step execution: ${pathError instanceof Error ? pathError.message : String(pathError)}`,
+          } as ServiceError
           await this.stop(run, automation, actionPath, serviceError)
           return false
         }
@@ -271,7 +275,9 @@ export class RunAutomationUseCase {
           // Continue to execute other paths instead of throwing immediately
         }
       } else {
-        this.info(`executePaths: Skipping path ${path.name} - canContinue is false or result invalid`)
+        this.info(
+          `executePaths: Skipping path ${path.name} - canContinue is false or result invalid`
+        )
       }
     }
 

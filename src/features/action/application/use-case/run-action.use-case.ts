@@ -79,14 +79,18 @@ export class RunActionUseCase {
             case 'split-into-paths': {
               const paths: { [key: string]: object } = {}
               const pathsSteps: PathStep[] = []
-              this.actionRepository.log.debug(`split-into-paths: Processing ${action.params.length} paths`)
+              this.actionRepository.log.debug(
+                `split-into-paths: Processing ${action.params.length} paths`
+              )
               for (const path of action.params) {
                 try {
                   this.actionRepository.log.debug(`split-into-paths: Processing path ${path.name}`)
                   const output = run.getStepsOutput()
                   const filter = this.actionRepository.fillSchema(path.filter, output)
                   const result = await this.runFilterUseCase.execute(filter, run)
-                  this.actionRepository.log.debug(`split-into-paths: Path ${path.name} filter result: ${JSON.stringify(result)}`)
+                  this.actionRepository.log.debug(
+                    `split-into-paths: Path ${path.name} filter result: ${JSON.stringify(result)}`
+                  )
                   paths[path.name] = result
                   pathsSteps.push({
                     schema: path,
@@ -95,7 +99,9 @@ export class RunActionUseCase {
                     actions: [],
                   })
                 } catch (error) {
-                  this.actionRepository.log.error(`split-into-paths: Error processing path ${path.name}: ${error}`)
+                  this.actionRepository.log.error(
+                    `split-into-paths: Error processing path ${path.name}: ${error}`
+                  )
                   // Still create the path but with canContinue: false
                   paths[path.name] = { canContinue: false, error: String(error) }
                   pathsSteps.push({
@@ -106,7 +112,9 @@ export class RunActionUseCase {
                   })
                 }
               }
-              this.actionRepository.log.debug(`split-into-paths: Created ${pathsSteps.length} path steps`)
+              this.actionRepository.log.debug(
+                `split-into-paths: Created ${pathsSteps.length} path steps`
+              )
               run.startActionPathsStep(action, pathsSteps)
               await this.runRepository.update(run)
               data = paths

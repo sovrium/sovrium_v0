@@ -179,14 +179,15 @@ export class Run {
     if (!step) return false
     if ('error' in step) return !step.error
     if ('output' in step) {
-      // For paths steps, also check if any path actions have errors
-      if ('paths' in step) {
-        const hasPathErrors = step.paths.some((path) =>
-          path.actions.some((action) => action.error)
-        )
-        if (hasPathErrors) return false
-      }
       return !!step.output
+    }
+    // For paths steps, check if any path actions have errors
+    if ('paths' in step) {
+      const pathsStep = step as { paths: Array<{ actions: Array<{ error?: unknown }> }> }
+      const hasPathErrors = pathsStep.paths.some((path) =>
+        path.actions.some((action) => action.error)
+      )
+      return !hasPathErrors
     }
     return true
   }

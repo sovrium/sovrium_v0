@@ -20,7 +20,7 @@ export class BucketController {
     const app = c.get('app')
     const downloadObjectUseCase = c.get('downloadObjectUseCase')
     const object = await downloadObjectUseCase.execute(app, data.bucketId, data.key)
-    return new Response(object.data, {
+    return new Response(object.data as BodyInit, {
       status: 200,
       headers: {
         'Content-Type': object.contentType || 'application/octet-stream',

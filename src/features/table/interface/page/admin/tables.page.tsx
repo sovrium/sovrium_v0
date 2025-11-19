@@ -147,8 +147,23 @@ const RecordsDataTable = () => {
       switch (field.type) {
         case 'checkbox':
           return <Checkbox checked={row.getValue(field.name)} />
-        default:
-          return row.getValue(field.name)
+        default: {
+          const value = row.getValue(field.name)
+          // Special handling for google_sheet_id field
+          if (field.name === 'google_sheet_id' && value) {
+            return (
+              <a
+                href={`https://docs.google.com/spreadsheets/d/${value}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 hover:underline"
+              >
+                {value as string}
+              </a>
+            )
+          }
+          return (value as string) ?? null
+        }
       }
     },
   }))

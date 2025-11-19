@@ -24,7 +24,7 @@ import { join } from 'path'
 export type HonoType = { Variables: HonoContextType }
 
 export class ServerService {
-  private server: Bun.Server | null = null
+  private server: Bun.Server<unknown> | null = null
   private readonly app: Hono<HonoType>
   private readonly openapi: OpenAPIHono<HonoType>
   private readonly pageRoutes = new Map<string, () => Promise<string>>()

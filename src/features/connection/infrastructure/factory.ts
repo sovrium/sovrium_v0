@@ -92,7 +92,9 @@ export function createConnectionServices(container: SimpleContainer): Connection
  * Create HandleConnectionErrorUseCase after automation repository is available
  * This must be called in Phase 3 of DI initialization
  */
-export function createHandleConnectionErrorUseCase(container: SimpleContainer): HandleConnectionErrorUseCase {
+export function createHandleConnectionErrorUseCase(
+  container: SimpleContainer
+): HandleConnectionErrorUseCase {
   const connectionRepository = container.get<ConnectionRepository>('connectionRepository')
   const automationRepository = container.get<IAutomationRepository>('automationRepository')
 
