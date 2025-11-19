@@ -1,3 +1,10 @@
+# [0.84.0](https://github.com/sovrium/sovrium_v0/compare/v0.83.0...v0.84.0) (2025-11-19)
+
+
+### Features
+
+* add link to google sheet for google_sheet_id column ([ef8481a](https://github.com/sovrium/sovrium_v0/commit/ef8481ae1dc7845e73dd42125919ba562e1a612f)) — Thomas JEANNEAU
+
 # [0.83.0](https://github.com/sovrium/sovrium_v0/compare/v0.82.0...v0.83.0) (2025-11-13)
 
 
