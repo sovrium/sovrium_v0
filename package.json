@@ -101,7 +101,7 @@
     "date-fns": "^4.1.0",
     "drizzle-orm": "^0.44.7",
     "eslint": "^9.39.1",
-    "googleapis": "^164.1.0",
+    "googleapis": "^166.0.0",
     "handlebars": "^4.7.8",
     "hono": "^4.10.6",
     "ky": "^1.14.0",
