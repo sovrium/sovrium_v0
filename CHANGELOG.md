@@ -1,3 +1,10 @@
+# [0.83.0](https://github.com/sovrium/sovrium_v0/compare/v0.82.0...v0.83.0) (2025-11-13)
+
+
+### Features
+
+* **table:** sort records by creation date in descending order ([0eda71a](https://github.com/sovrium/sovrium_v0/commit/0eda71a935249be6a6c68f4877c55c5a862b0b2d)) — Thomas JEANNEAU
+
 # [0.82.0](https://github.com/sovrium/sovrium_v0/compare/v0.81.0...v0.82.0) (2025-11-13)
 
 
