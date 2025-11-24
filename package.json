@@ -149,7 +149,7 @@
     "knip": "^5.70.0",
     "msw": "^2.12.2",
     "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14",
+    "prettier-plugin-tailwindcss": "^0.7.1",
     "semantic-release": "^24.2.9",
     "typescript-eslint": "^8.47.0"
   },
