@@ -216,10 +216,10 @@ test('should display created_at and id columns', async ({ startExampleApp }) => 
   await page.goto('/admin/tables')
 
   // THEN
-  // Verify column headers are visible (they use cell role, not columnheader)
+  // Verify column headers are visible
   const headerRow = page.getByRole('row').first()
-  await expect(headerRow.getByRole('cell', { name: 'created_at' })).toBeVisible()
-  await expect(headerRow.getByRole('cell', { name: 'id' })).toBeVisible()
+  await expect(headerRow.getByRole('columnheader', { name: 'created_at' })).toBeVisible()
+  await expect(headerRow.getByRole('columnheader', { name: 'id' })).toBeVisible()
 
   // Verify the created_at value is displayed (should contain date/time)
   const dataRow = page.getByRole('row').filter({ hasText: 'John' })
