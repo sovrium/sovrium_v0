@@ -4,10 +4,28 @@
         <title>LTF Engine Blog</title>
         <link>https://engine.latechforce.com/blog</link>
         <description>LTF Engine Blog</description>
-        <lastBuildDate>Wed, 19 Nov 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Feb 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 0.85.0]]></title>
+            <link>https://engine.latechforce.com/blog/release-0-85-0</link>
+            <guid>https://engine.latechforce.com/blog/release-0-85-0</guid>
+            <pubDate>Mon, 02 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Changelog for version 0.85.0]]></description>
+            <content:encoded><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-85-0"><p class="before-truncate"> 0.85.0   Bug Fixes  * e2e: use correct columnheader role in table test (719859a) — Thomas JEANNEAU    Features  * form: add logo/image configuration for forms (176c965) — Thomas JEANNEAU...</p>
+</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0850"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-85-0">0.85.0</a><a href="https://engine.latechforce.com/blog/release-0-85-0#0850" class="hash-link" aria-label="Direct link to 0.85.0" title="Direct link to 0.85.0">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-85-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
+<ul>
+<li><strong>e2e:</strong> use correct columnheader role in table test (<a href="https://github.com/sovrium/sovrium_v0/commit/719859a451946c0d3093268d21007fbd459dbb08" target="_blank" rel="noopener noreferrer">719859a</a>) — Thomas JEANNEAU</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-85-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
+<ul>
+<li><strong>form:</strong> add logo/image configuration for forms (<a href="https://github.com/sovrium/sovrium_v0/commit/176c96532265967aba8bbdd4a788792012d876a4" target="_blank" rel="noopener noreferrer">176c965</a>) — Thomas JEANNEAU</li>
+</ul>]]></content:encoded>
+            <category>Release</category>
+        </item>
         <item>
             <title><![CDATA[Release 0.84.0]]></title>
             <link>https://engine.latechforce.com/blog/release-0-84-0</link>
@@ -417,29 +435,6 @@
 <li><strong>Runs:</strong> can replay failed runs (<a href="https://github.com/sovrium/sovrium_v0/commit/bb20c30d79d213f7aad301821e4fa98a8fe720f5" target="_blank" rel="noopener noreferrer">bb20c30</a>) — Thomas JEANNEAU</li>
 </ul>]]></content:encoded>
             <category>Fix</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 0.64.0]]></title>
-            <link>https://engine.latechforce.com/blog/release-0-64-0</link>
-            <guid>https://engine.latechforce.com/blog/release-0-64-0</guid>
-            <pubDate>Fri, 27 Jun 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Changelog for version 0.64.0]]></description>
-            <content:encoded><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-64-0"><p class="before-truncate"> 0.64.0   Bug Fixes  * app: should throw an error if a action account is not found (3d036d2) — Thomas JEANNEAU    Features  * action: should run a TypeScript code with actions (78525c9) — Thomas JEANNEAU   0.63.0   Features  * airtable: should run a airtable list webhook payloads action (56199c4) — ...</p>
-</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0640"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/release-0-64-0">0.64.0</a><a href="https://engine.latechforce.com/blog/release-0-64-0#0640" class="hash-link" aria-label="Direct link to 0.64.0" title="Direct link to 0.64.0">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/release-0-64-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
-<ul>
-<li><strong>app:</strong> should throw an error if a action account is not found (<a href="https://github.com/sovrium/sovrium_v0/commit/3d036d20111d3ff8bfea1458a067f1fd5b3950e7" target="_blank" rel="noopener noreferrer">3d036d2</a>) — Thomas JEANNEAU</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/release-0-64-0#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
-<ul>
-<li><strong>action:</strong> should run a TypeScript code with actions (<a href="https://github.com/sovrium/sovrium_v0/commit/78525c993c11b31a953fb238d15f0251cffa37f1" target="_blank" rel="noopener noreferrer">78525c9</a>) — Thomas JEANNEAU</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="0630">0.63.0<a href="https://engine.latechforce.com/blog/release-0-64-0#0630" class="hash-link" aria-label="Direct link to 0.63.0" title="Direct link to 0.63.0">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features<a href="https://engine.latechforce.com/blog/release-0-64-0#features-1" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
-<ul>
-<li><strong>airtable:</strong> should run a airtable list webhook payloads action (<a href="https://github.com/sovrium/sovrium_v0/commit/56199c4be3b0c7bd37505f3fcb12b2e9ae32b500" target="_blank" rel="noopener noreferrer">56199c4</a>) — Thomas JEANNEAU</li>
-</ul>]]></content:encoded>
-            <category>Release</category>
         </item>
     </channel>
 </rss>

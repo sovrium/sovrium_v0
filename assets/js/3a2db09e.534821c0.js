@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[8121],{68070:e=>{e.exports=JSON.parse('{"tags":[{"label":"Release","permalink":"/blog/tags/release","description":"Release notes","count":19},{"label":"Fix","permalink":"/blog/tags/fix","description":"Fix notes","count":16}]}')}}]);

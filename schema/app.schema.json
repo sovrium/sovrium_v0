@@ -1,11 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Application Configuration",
-  "description": "Complete configuration for your application including metadata, data models, automations, and integrations",
-  "version": "0.84.0",
   "type": "object",
   "properties": {
     "name": {
+      "default": "My app",
       "description": "The name of your application",
       "title": "Application Name",
       "examples": [
@@ -14,11 +12,11 @@
         "Admin Dashboard"
       ],
       "placeholder": "Enter your application name",
-      "default": "My app",
       "type": "string",
       "minLength": 3
     },
     "description": {
+      "default": "My app description",
       "description": "A brief description of what your application does",
       "title": "Application Description",
       "examples": [
@@ -30,11 +28,11 @@
         "ui:widget": "textarea",
         "ui:rows": 3
       },
-      "default": "My app description",
       "type": "string",
       "minLength": 1
     },
     "icon": {
+      "default": "globe",
       "description": "The icon that represents your application",
       "title": "Application Icon",
       "enumNames": [
@@ -60,7 +58,6 @@
         "Package"
       ],
       "placeholder": "Select an icon",
-      "default": "globe",
       "type": "string",
       "enum": [
         "shopping-cart",
@@ -86,6 +83,7 @@
       ]
     },
     "color": {
+      "default": "blue",
       "description": "The primary color theme for your application",
       "title": "Theme Color",
       "enumNames": [
@@ -103,7 +101,6 @@
         "Purple"
       ],
       "placeholder": "Select a color theme",
-      "default": "blue",
       "type": "string",
       "enum": [
         "blue",
@@ -121,6 +118,7 @@
       ]
     },
     "appVersion": {
+      "default": "1.0.0",
       "description": "The version of your application following semantic versioning",
       "title": "Application Version",
       "examples": [
@@ -130,11 +128,11 @@
       ],
       "placeholder": "1.0.0",
       "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9]+)?$",
-      "default": "1.0.0",
       "type": "string",
       "minLength": 5
     },
     "schemaVersion": {
+      "default": "latest",
       "description": "The version of the schema format being used",
       "title": "Schema Version",
       "examples": [
@@ -144,11 +142,11 @@
       ],
       "placeholder": "latest",
       "readOnly": true,
-      "default": "latest",
       "type": "string",
       "minLength": 5
     },
     "pages": {
+      "default": [],
       "description": "List of pages in the application",
       "title": "Pages",
       "minItems": 1,
@@ -160,15 +158,13 @@
           "addable": true
         }
       },
-      "default": [],
       "type": "array",
       "items": {
-        "title": "Page",
-        "description": "A static page with customizable head and body content",
-        "version": "0.84.0",
         "type": "object",
         "properties": {
           "name": {
+            "type": "string",
+            "minLength": 1,
             "description": "Internal name for the page",
             "title": "Page Name",
             "placeholder": "Enter page name",
@@ -178,11 +174,11 @@
               "contact",
               "custom-html"
             ],
-            "help": "Unique identifier for the page",
-            "type": "string",
-            "minLength": 1
+            "help": "Unique identifier for the page"
           },
           "path": {
+            "type": "string",
+            "minLength": 1,
             "description": "URL path where the page is accessible",
             "title": "Page Path",
             "placeholder": "/about",
@@ -193,11 +189,10 @@
               "/custom-html"
             ],
             "pattern": "^/[a-z0-9-/]*$",
-            "help": "Must start with / and use lowercase letters, numbers, hyphens",
-            "type": "string",
-            "minLength": 1
+            "help": "Must start with / and use lowercase letters, numbers, hyphens"
           },
           "head": {
+            "default": [],
             "description": "List of head elements (meta tags, etc.)",
             "title": "Head Elements",
             "minItems": 0,
@@ -209,25 +204,24 @@
                 "addable": true
               }
             },
-            "default": [],
             "type": "array",
             "items": {
               "anyOf": [
                 {
-                  "title": "Head Element",
-                  "description": "Meta element configuration for page head section",
                   "type": "object",
                   "properties": {
                     "tag": {
+                      "type": "string",
+                      "const": "meta",
                       "description": "Type of head element",
                       "title": "Head Element Tag",
                       "examples": [
                         "meta"
-                      ],
-                      "type": "string",
-                      "const": "meta"
+                      ]
                     },
                     "name": {
+                      "type": "string",
+                      "minLength": 1,
                       "description": "Name attribute of the meta tag",
                       "title": "Meta Name",
                       "placeholder": "description",
@@ -237,11 +231,11 @@
                         "keywords",
                         "author"
                       ],
-                      "help": "The meta tag name attribute",
-                      "type": "string",
-                      "minLength": 1
+                      "help": "The meta tag name attribute"
                     },
                     "content": {
+                      "type": "string",
+                      "minLength": 1,
                       "description": "Content of the meta tag",
                       "title": "Meta Content",
                       "placeholder": "Enter meta content",
@@ -250,9 +244,7 @@
                         "Page title",
                         "keyword1, keyword2"
                       ],
-                      "help": "The content for this meta tag",
-                      "type": "string",
-                      "minLength": 1
+                      "help": "The content for this meta tag"
                     }
                   },
                   "required": [
@@ -260,23 +252,25 @@
                     "name",
                     "content"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Head Element",
+                  "description": "Meta element configuration for page head section"
                 },
                 {
-                  "title": "Title Element",
-                  "description": "Title element configuration for page head section",
                   "type": "object",
                   "properties": {
                     "tag": {
+                      "type": "string",
+                      "const": "title",
                       "description": "Type of head element",
                       "title": "Head Element Tag",
                       "examples": [
                         "title"
-                      ],
-                      "type": "string",
-                      "const": "title"
+                      ]
                     },
                     "content": {
+                      "type": "string",
+                      "minLength": 1,
                       "description": "Title content for the page",
                       "title": "Page Title",
                       "placeholder": "Enter page title",
@@ -286,30 +280,28 @@
                         "Contact",
                         "Home"
                       ],
-                      "help": "The title that appears in the browser tab and search results",
-                      "type": "string",
-                      "minLength": 1
+                      "help": "The title that appears in the browser tab and search results"
                     }
                   },
                   "required": [
                     "tag",
                     "content"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Title Element",
+                  "description": "Title element configuration for page head section"
                 },
                 {
-                  "title": "Script Element",
-                  "description": "Script element configuration for page head section",
                   "type": "object",
                   "properties": {
                     "tag": {
+                      "type": "string",
+                      "const": "script",
                       "description": "Type of head element",
                       "title": "Head Element Tag",
                       "examples": [
                         "script"
-                      ],
-                      "type": "string",
-                      "const": "script"
+                      ]
                     },
                     "src": {
                       "description": "Source URL for external script",
@@ -366,23 +358,25 @@
                   "required": [
                     "tag"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Script Element",
+                  "description": "Script element configuration for page head section"
                 },
                 {
-                  "title": "Style Element",
-                  "description": "Style element configuration for page head section",
                   "type": "object",
                   "properties": {
                     "tag": {
+                      "type": "string",
+                      "const": "style",
                       "description": "Type of head element",
                       "title": "Head Element Tag",
                       "examples": [
                         "style"
-                      ],
-                      "type": "string",
-                      "const": "style"
+                      ]
                     },
                     "content": {
+                      "type": "string",
+                      "minLength": 1,
                       "description": "CSS content for the style tag",
                       "title": "CSS Content",
                       "placeholder": "body { margin: 0; }",
@@ -395,9 +389,7 @@
                       "uiSchema": {
                         "ui:widget": "textarea",
                         "ui:rows": 5
-                      },
-                      "type": "string",
-                      "minLength": 1
+                      }
                     },
                     "type": {
                       "description": "Style type attribute",
@@ -427,23 +419,25 @@
                     "tag",
                     "content"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Style Element",
+                  "description": "Style element configuration for page head section"
                 },
                 {
-                  "title": "Link Element",
-                  "description": "Link element configuration for page head section",
                   "type": "object",
                   "properties": {
                     "tag": {
+                      "type": "string",
+                      "const": "link",
                       "description": "Type of head element",
                       "title": "Head Element Tag",
                       "examples": [
                         "link"
-                      ],
-                      "type": "string",
-                      "const": "link"
+                      ]
                     },
                     "href": {
+                      "type": "string",
+                      "minLength": 1,
                       "description": "URL of the linked resource",
                       "title": "Link URL",
                       "placeholder": "/styles.css",
@@ -452,11 +446,11 @@
                         "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700",
                         "/favicon.ico"
                       ],
-                      "help": "URL of the resource to link to",
-                      "type": "string",
-                      "minLength": 1
+                      "help": "URL of the resource to link to"
                     },
                     "rel": {
+                      "type": "string",
+                      "minLength": 1,
                       "description": "Relationship between current document and linked resource",
                       "title": "Relationship",
                       "placeholder": "stylesheet",
@@ -467,9 +461,7 @@
                         "canonical",
                         "alternate"
                       ],
-                      "help": "Specifies the relationship between the current document and the linked document",
-                      "type": "string",
-                      "minLength": 1
+                      "help": "Specifies the relationship between the current document and the linked document"
                     },
                     "type": {
                       "description": "MIME type of the linked resource",
@@ -524,12 +516,15 @@
                     "href",
                     "rel"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Link Element",
+                  "description": "Link element configuration for page head section"
                 }
               ]
             }
           },
           "body": {
+            "default": [],
             "description": "List of body elements for page content",
             "title": "Body Elements",
             "minItems": 1,
@@ -541,25 +536,24 @@
                 "addable": true
               }
             },
-            "default": [],
             "type": "array",
             "items": {
               "anyOf": [
                 {
-                  "title": "Body Element",
-                  "description": "Custom HTML element configuration for page body section",
                   "type": "object",
                   "properties": {
                     "type": {
+                      "type": "string",
+                      "const": "custom-html",
                       "description": "Type of body element",
                       "title": "Body Element Type",
                       "examples": [
                         "custom-html"
-                      ],
-                      "type": "string",
-                      "const": "custom-html"
+                      ]
                     },
                     "content": {
+                      "type": "string",
+                      "minLength": 1,
                       "description": "HTML content for the body element",
                       "title": "HTML Content",
                       "placeholder": "<h1>Your content here</h1>",
@@ -572,16 +566,16 @@
                       "uiSchema": {
                         "ui:widget": "textarea",
                         "ui:rows": 5
-                      },
-                      "type": "string",
-                      "minLength": 1
+                      }
                     }
                   },
                   "required": [
                     "type",
                     "content"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Body Element",
+                  "description": "Custom HTML element configuration for page body section"
                 }
               ]
             }
@@ -593,10 +587,14 @@
           "head",
           "body"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "title": "Page",
+        "description": "A static page with customizable head and body content",
+        "version": "0.85.0"
       }
     },
     "automations": {
+      "default": [],
       "description": "List of automation workflows that define business logic and integrations",
       "title": "Automations",
       "uiSchema": {
@@ -607,15 +605,14 @@
           "addable": true
         }
       },
-      "default": [],
       "type": "array",
       "items": {
-        "title": "Automation Workflow",
-        "description": "A workflow that executes a series of actions when triggered by specific events or conditions",
-        "version": "0.84.0",
         "type": "object",
         "properties": {
           "id": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991,
             "description": "Unique identifier for the automation",
             "title": "Automation ID",
             "readOnly": true,
@@ -623,12 +620,11 @@
               1,
               2,
               100
-            ],
-            "type": "integer",
-            "exclusiveMinimum": 0,
-            "maximum": 9007199254740991
+            ]
           },
           "name": {
+            "type": "string",
+            "minLength": 3,
             "description": "Name of the automation workflow",
             "title": "Automation Name",
             "placeholder": "Enter automation name",
@@ -636,9 +632,7 @@
               "Send Welcome Email",
               "Process Order",
               "Sync Customer Data"
-            ],
-            "type": "string",
-            "minLength": 3
+            ]
           },
           "description": {
             "description": "Detailed description of what this automation does",
@@ -669,19 +663,10 @@
             "format": "uri"
           },
           "trigger": {
-            "title": "Trigger",
-            "description": "The event or condition that starts this automation",
-            "uiSchema": {
-              "ui:widget": "trigger-selector"
-            },
             "anyOf": [
               {
-                "title": "HTTP",
-                "description": "The HTTP trigger is a trigger that is triggered by an HTTP request",
                 "anyOf": [
                   {
-                    "title": "POST",
-                    "description": "The POST HTTP trigger is a trigger that is triggered by a POST request",
                     "type": "object",
                     "properties": {
                       "service": {
@@ -717,11 +702,11 @@
                       "event",
                       "params"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "title": "POST",
+                    "description": "The POST HTTP trigger is a trigger that is triggered by a POST request"
                   },
                   {
-                    "title": "GET",
-                    "description": "The GET HTTP trigger is a trigger that is triggered by a GET request",
                     "type": "object",
                     "properties": {
                       "service": {
@@ -754,17 +739,17 @@
                       "event",
                       "params"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "title": "GET",
+                    "description": "The GET HTTP trigger is a trigger that is triggered by a GET request"
                   }
-                ]
+                ],
+                "title": "HTTP",
+                "description": "The HTTP trigger is a trigger that is triggered by an HTTP request"
               },
               {
-                "title": "Database",
-                "description": "The database trigger is a trigger that is triggered by a database event",
                 "anyOf": [
                   {
-                    "title": "Record Created",
-                    "description": "The Record Created trigger is a trigger that is triggered by a record being created",
                     "type": "object",
                     "properties": {
                       "service": {
@@ -793,11 +778,11 @@
                       "event",
                       "params"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "title": "Record Created",
+                    "description": "The Record Created trigger is a trigger that is triggered by a record being created"
                   },
                   {
-                    "title": "Record Updated",
-                    "description": "The Record Updated trigger is a trigger that is triggered by a record being updated",
                     "type": "object",
                     "properties": {
                       "service": {
@@ -826,17 +811,17 @@
                       "event",
                       "params"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "title": "Record Updated",
+                    "description": "The Record Updated trigger is a trigger that is triggered by a record being updated"
                   }
-                ]
+                ],
+                "title": "Database",
+                "description": "The database trigger is a trigger that is triggered by a database event"
               },
               {
-                "title": "Schedule",
-                "description": "The Schedule trigger is a trigger that is triggered by a schedule event",
                 "anyOf": [
                   {
-                    "title": "Cron Time",
-                    "description": "The Cron Time trigger is a trigger that is triggered by a cron time",
                     "type": "object",
                     "properties": {
                       "service": {
@@ -869,21 +854,19 @@
                       "event",
                       "params"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "title": "Cron Time",
+                    "description": "The Cron Time trigger is a trigger that is triggered by a cron time"
                   }
-                ]
+                ],
+                "title": "Schedule",
+                "description": "The Schedule trigger is a trigger that is triggered by a schedule event"
               },
               {
-                "title": "Integration Trigger",
-                "description": "The integration trigger is the event that triggers the automation",
                 "anyOf": [
                   {
-                    "title": "Calendly",
-                    "description": "The Calendly trigger is a trigger that is triggered by a Calendly event",
                     "anyOf": [
                       {
-                        "title": "Invite Created",
-                        "description": "The Calendly invite created trigger is a trigger that is triggered by a invite created event",
                         "type": "object",
                         "properties": {
                           "account": {
@@ -931,17 +914,17 @@
                           "service",
                           "event"
                         ],
-                        "additionalProperties": false
+                        "additionalProperties": false,
+                        "title": "Invite Created",
+                        "description": "The Calendly invite created trigger is a trigger that is triggered by a invite created event"
                       }
-                    ]
+                    ],
+                    "title": "Calendly",
+                    "description": "The Calendly trigger is a trigger that is triggered by a Calendly event"
                   },
                   {
-                    "title": "Airtable",
-                    "description": "The Airtable trigger is a trigger that is triggered by a Airtable event",
                     "anyOf": [
                       {
-                        "title": "Invite Created",
-                        "description": "The Calendly invite created trigger is a trigger that is triggered by a invite created event",
                         "type": "object",
                         "properties": {
                           "account": {
@@ -985,17 +968,17 @@
                           "event",
                           "params"
                         ],
-                        "additionalProperties": false
+                        "additionalProperties": false,
+                        "title": "Invite Created",
+                        "description": "The Calendly invite created trigger is a trigger that is triggered by a invite created event"
                       }
-                    ]
+                    ],
+                    "title": "Airtable",
+                    "description": "The Airtable trigger is a trigger that is triggered by a Airtable event"
                   },
                   {
-                    "title": "LinkedIn Ads",
-                    "description": "The LinkedIn Ads trigger is triggered by LinkedIn lead events",
                     "anyOf": [
                       {
-                        "title": "New Lead Gen Form Response",
-                        "description": "Triggered when a new LinkedIn Lead Gen Form response is created",
                         "type": "object",
                         "properties": {
                           "account": {
@@ -1047,17 +1030,17 @@
                           "event",
                           "params"
                         ],
-                        "additionalProperties": false
+                        "additionalProperties": false,
+                        "title": "New Lead Gen Form Response",
+                        "description": "Triggered when a new LinkedIn Lead Gen Form response is created"
                       }
-                    ]
+                    ],
+                    "title": "LinkedIn Ads",
+                    "description": "The LinkedIn Ads trigger is triggered by LinkedIn lead events"
                   },
                   {
-                    "title": "Facebook",
-                    "description": "The Facebook trigger is triggered by Facebook lead events",
                     "anyOf": [
                       {
-                        "title": "New Lead",
-                        "description": "Triggered when a new Facebook Lead Ad response is created",
                         "type": "object",
                         "properties": {
                           "account": {
@@ -1082,19 +1065,19 @@
                             "type": "object",
                             "properties": {
                               "pageId": {
+                                "type": "string",
                                 "title": "Facebook Page ID",
-                                "description": "The ID of the Facebook page with lead forms",
-                                "type": "string"
+                                "description": "The ID of the Facebook page with lead forms"
                               },
                               "appId": {
+                                "type": "string",
                                 "title": "Facebook App ID",
-                                "description": "Your Facebook App ID from the developer console",
-                                "type": "string"
+                                "description": "Your Facebook App ID from the developer console"
                               },
                               "appSecret": {
+                                "type": "string",
                                 "title": "Facebook App Secret",
-                                "description": "Your Facebook App Secret from the developer console",
-                                "type": "string"
+                                "description": "Your Facebook App Secret from the developer console"
                               },
                               "verifyToken": {
                                 "title": "Webhook Verify Token",
@@ -1116,15 +1099,27 @@
                           "event",
                           "params"
                         ],
-                        "additionalProperties": false
+                        "additionalProperties": false,
+                        "title": "New Lead",
+                        "description": "Triggered when a new Facebook Lead Ad response is created"
                       }
-                    ]
+                    ],
+                    "title": "Facebook",
+                    "description": "The Facebook trigger is triggered by Facebook lead events"
                   }
-                ]
+                ],
+                "title": "Integration Trigger",
+                "description": "The integration trigger is the event that triggers the automation"
               }
-            ]
+            ],
+            "title": "Trigger",
+            "description": "The event or condition that starts this automation",
+            "uiSchema": {
+              "ui:widget": "trigger-selector"
+            }
           },
           "actions": {
+            "default": [],
             "description": "Sequence of actions to execute when triggered",
             "title": "Actions",
             "uiSchema": {
@@ -1135,7 +1130,6 @@
                 "addable": true
               }
             },
-            "default": [],
             "type": "array",
             "items": {
               "$ref": "#/$defs/__schema1"
@@ -1148,10 +1142,14 @@
           "trigger",
           "actions"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "title": "Automation Workflow",
+        "description": "A workflow that executes a series of actions when triggered by specific events or conditions",
+        "version": "0.85.0"
       }
     },
     "tables": {
+      "default": [],
       "description": "Database tables that store your application data",
       "title": "Data Tables",
       "uiSchema": {
@@ -1162,15 +1160,14 @@
           "addable": true
         }
       },
-      "default": [],
       "type": "array",
       "items": {
-        "title": "Data Table",
-        "description": "A database table definition with its fields and structure",
-        "version": "0.84.0",
         "type": "object",
         "properties": {
           "id": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991,
             "description": "Unique identifier for the table",
             "title": "Table ID",
             "readOnly": true,
@@ -1178,12 +1175,11 @@
               1,
               2,
               100
-            ],
-            "type": "integer",
-            "exclusiveMinimum": 0,
-            "maximum": 9007199254740991
+            ]
           },
           "name": {
+            "type": "string",
+            "minLength": 1,
             "description": "Name of the database table",
             "title": "Table Name",
             "placeholder": "Enter table name",
@@ -1194,11 +1190,10 @@
               "customers"
             ],
             "pattern": "^[a-z][a-z0-9_]*$",
-            "help": "Use lowercase letters, numbers, and underscores. Must start with a letter.",
-            "type": "string",
-            "minLength": 1
+            "help": "Use lowercase letters, numbers, and underscores. Must start with a letter."
           },
           "fields": {
+            "default": [],
             "description": "List of fields/columns in this table",
             "title": "Table Fields",
             "minItems": 1,
@@ -1210,15 +1205,10 @@
                 "addable": true
               }
             },
-            "default": [],
             "type": "array",
             "items": {
-              "title": "Field",
-              "description": "The field is a field of a table",
               "anyOf": [
                 {
-                  "title": "Text Field",
-                  "description": "The text field is a field that can contain a text",
                   "type": "object",
                   "properties": {
                     "id": {
@@ -1251,11 +1241,11 @@
                     "name",
                     "type"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Text Field",
+                  "description": "The text field is a field that can contain a text"
                 },
                 {
-                  "title": "Checkbox Field",
-                  "description": "The checkbox field is a field that can contain a checkbox",
                   "type": "object",
                   "properties": {
                     "id": {
@@ -1282,11 +1272,11 @@
                     "name",
                     "type"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Checkbox Field",
+                  "description": "The checkbox field is a field that can contain a checkbox"
                 },
                 {
-                  "title": "Single Select Field",
-                  "description": "The single select field is a field that can contain a single select",
                   "type": "object",
                   "properties": {
                     "id": {
@@ -1321,11 +1311,11 @@
                     "type",
                     "options"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Single Select Field",
+                  "description": "The single select field is a field that can contain a single select"
                 },
                 {
-                  "title": "Single Attachment Field",
-                  "description": "The single attachment field is a field that can contain a single attachment",
                   "type": "object",
                   "properties": {
                     "id": {
@@ -1349,9 +1339,13 @@
                     "name",
                     "type"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Single Attachment Field",
+                  "description": "The single attachment field is a field that can contain a single attachment"
                 }
-              ]
+              ],
+              "title": "Field",
+              "description": "The field is a field of a table"
             }
           }
         },
@@ -1360,10 +1354,14 @@
           "name",
           "fields"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "title": "Data Table",
+        "description": "A database table definition with its fields and structure",
+        "version": "0.85.0"
       }
     },
     "forms": {
+      "default": [],
       "description": "User interface forms for data collection and interaction",
       "title": "Forms",
       "uiSchema": {
@@ -1374,15 +1372,14 @@
           "addable": true
         }
       },
-      "default": [],
       "type": "array",
       "items": {
-        "title": "User Form",
-        "description": "A form for collecting user input with customizable fields and actions",
-        "version": "0.84.0",
         "type": "object",
         "properties": {
           "id": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991,
             "description": "Unique identifier for the form",
             "title": "Form ID",
             "readOnly": true,
@@ -1390,12 +1387,11 @@
               1,
               2,
               100
-            ],
-            "type": "integer",
-            "exclusiveMinimum": 0,
-            "maximum": 9007199254740991
+            ]
           },
           "path": {
+            "type": "string",
+            "minLength": 1,
             "description": "URL path where the form is accessible",
             "title": "Form Path",
             "placeholder": "/contact",
@@ -1406,11 +1402,11 @@
               "/order"
             ],
             "pattern": "^/[a-z0-9-/]*$",
-            "help": "Must start with / and use lowercase letters, numbers, hyphens",
-            "type": "string",
-            "minLength": 1
+            "help": "Must start with / and use lowercase letters, numbers, hyphens"
           },
           "action": {
+            "type": "string",
+            "minLength": 1,
             "description": "API endpoint or action to handle form submission",
             "title": "Submit Action",
             "placeholder": "/api/submit-form",
@@ -1419,11 +1415,11 @@
               "/api/register",
               "https://api.example.com/form"
             ],
-            "help": "The endpoint that will process the form data",
-            "type": "string",
-            "minLength": 1
+            "help": "The endpoint that will process the form data"
           },
           "name": {
+            "type": "string",
+            "minLength": 1,
             "description": "Internal name for the form",
             "title": "Form Name",
             "placeholder": "Enter form name",
@@ -1431,9 +1427,7 @@
               "Contact Form",
               "Registration Form",
               "Feedback Survey"
-            ],
-            "type": "string",
-            "minLength": 1
+            ]
           },
           "title": {
             "description": "Display title shown to users",
@@ -1460,7 +1454,19 @@
             },
             "type": "string"
           },
+          "logo": {
+            "description": "URL of the logo image displayed above the form title",
+            "title": "Form Logo",
+            "placeholder": "/static/logo.png",
+            "examples": [
+              "/static/logo.png",
+              "https://example.com/logo.png"
+            ],
+            "help": "URL or path to the logo image (e.g., /static/logo.png)",
+            "type": "string"
+          },
           "inputs": {
+            "default": [],
             "description": "List of form fields for user input",
             "title": "Form Fields",
             "minItems": 1,
@@ -1472,15 +1478,10 @@
                 "addable": true
               }
             },
-            "default": [],
             "type": "array",
             "items": {
-              "title": "Input",
-              "description": "The input is a input of a form",
               "anyOf": [
                 {
-                  "title": "Text Input",
-                  "description": "The text input is a input that can contain a text",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -1516,11 +1517,11 @@
                     "name",
                     "type"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Text Input",
+                  "description": "The text input is a input that can contain a text"
                 },
                 {
-                  "title": "Checkbox Input",
-                  "description": "The checkbox input is a input that can contain a checkbox",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -1547,11 +1548,11 @@
                     "name",
                     "type"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Checkbox Input",
+                  "description": "The checkbox input is a input that can contain a checkbox"
                 },
                 {
-                  "title": "Select Input",
-                  "description": "The select input is a input that can contain a select",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -1603,11 +1604,11 @@
                     "options",
                     "type"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Select Input",
+                  "description": "The select input is a input that can contain a select"
                 },
                 {
-                  "title": "Attachment Input",
-                  "description": "The attachment input is a input that can contain a attachment",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -1634,9 +1635,13 @@
                     "name",
                     "type"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Attachment Input",
+                  "description": "The attachment input is a input that can contain a attachment"
                 }
-              ]
+              ],
+              "title": "Input",
+              "description": "The input is a input of a form"
             }
           },
           "successMessage": {
@@ -1662,10 +1667,14 @@
           "name",
           "inputs"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "title": "User Form",
+        "description": "A form for collecting user input with customizable fields and actions",
+        "version": "0.85.0"
       }
     },
     "connections": {
+      "default": [],
       "description": "External service connections and API integrations",
       "title": "Connections",
       "uiSchema": {
@@ -1676,24 +1685,10 @@
           "addable": true
         }
       },
-      "default": [],
       "type": "array",
       "items": {
-        "description": "Connect your application to external services like Calendly, Airtable, Google, LinkedIn, or Facebook",
-        "title": "Service Connection",
-        "discriminator": "type",
-        "uiSchema": {
-          "ui:widget": "connection-selector",
-          "ui:options": {
-            "showIcon": true,
-            "groupBy": "category"
-          }
-        },
-        "version": "0.84.0",
         "anyOf": [
           {
-            "title": "Calendly",
-            "description": "The Calendly connection is a connection to the Calendly API",
             "type": "object",
             "properties": {
               "id": {
@@ -1722,11 +1717,11 @@
               "clientSecret",
               "service"
             ],
-            "additionalProperties": false
+            "additionalProperties": false,
+            "title": "Calendly",
+            "description": "The Calendly connection is a connection to the Calendly API"
           },
           {
-            "title": "Airtable",
-            "description": "The Airtable connection is a connection to the Airtable API",
             "type": "object",
             "properties": {
               "id": {
@@ -1755,13 +1750,13 @@
               "clientSecret",
               "service"
             ],
-            "additionalProperties": false
+            "additionalProperties": false,
+            "title": "Airtable",
+            "description": "The Airtable connection is a connection to the Airtable API"
           },
           {
             "anyOf": [
               {
-                "title": "Google Gmail",
-                "description": "The Google Gmail connection is a connection to the Google Gmail API",
                 "type": "object",
                 "properties": {
                   "id": {
@@ -1790,11 +1785,11 @@
                   "clientSecret",
                   "service"
                 ],
-                "additionalProperties": false
+                "additionalProperties": false,
+                "title": "Google Gmail",
+                "description": "The Google Gmail connection is a connection to the Google Gmail API"
               },
               {
-                "title": "Google Sheets",
-                "description": "The Google Sheets connection is a connection to the Google Sheets API",
                 "type": "object",
                 "properties": {
                   "id": {
@@ -1823,13 +1818,13 @@
                   "clientSecret",
                   "service"
                 ],
-                "additionalProperties": false
+                "additionalProperties": false,
+                "title": "Google Sheets",
+                "description": "The Google Sheets connection is a connection to the Google Sheets API"
               }
             ]
           },
           {
-            "title": "LinkedIn Ads",
-            "description": "The LinkedIn Ads connection is a connection to the LinkedIn Ads API",
             "type": "object",
             "properties": {
               "id": {
@@ -1858,11 +1853,11 @@
               "clientSecret",
               "service"
             ],
-            "additionalProperties": false
+            "additionalProperties": false,
+            "title": "LinkedIn Ads",
+            "description": "The LinkedIn Ads connection is a connection to the LinkedIn Ads API"
           },
           {
-            "title": "Facebook Ads",
-            "description": "The Facebook Ads connection is a connection to the Facebook Ads API",
             "type": "object",
             "properties": {
               "id": {
@@ -1891,11 +1886,11 @@
               "clientSecret",
               "service"
             ],
-            "additionalProperties": false
+            "additionalProperties": false,
+            "title": "Facebook Ads",
+            "description": "The Facebook Ads connection is a connection to the Facebook Ads API"
           },
           {
-            "title": "Notion",
-            "description": "The Notion connection is a connection to the Notion API",
             "type": "object",
             "properties": {
               "id": {
@@ -1924,11 +1919,11 @@
               "clientSecret",
               "service"
             ],
-            "additionalProperties": false
+            "additionalProperties": false,
+            "title": "Notion",
+            "description": "The Notion connection is a connection to the Notion API"
           },
           {
-            "title": "Qonto",
-            "description": "The Qonto connection is a connection to the Qonto API",
             "type": "object",
             "properties": {
               "id": {
@@ -1957,12 +1952,26 @@
               "clientSecret",
               "service"
             ],
-            "additionalProperties": false
+            "additionalProperties": false,
+            "title": "Qonto",
+            "description": "The Qonto connection is a connection to the Qonto API"
           }
-        ]
+        ],
+        "description": "Connect your application to external services like Calendly, Airtable, Google, LinkedIn, or Facebook",
+        "title": "Service Connection",
+        "discriminator": "type",
+        "uiSchema": {
+          "ui:widget": "connection-selector",
+          "ui:options": {
+            "showIcon": true,
+            "groupBy": "category"
+          }
+        },
+        "version": "0.85.0"
       }
     },
     "buckets": {
+      "default": [],
       "description": "Storage buckets for files and media assets",
       "title": "Storage Buckets",
       "uiSchema": {
@@ -1973,15 +1982,14 @@
           "addable": true
         }
       },
-      "default": [],
       "type": "array",
       "items": {
-        "title": "Storage Bucket",
-        "description": "A storage container for organizing and managing files and media assets",
-        "version": "0.84.0",
         "type": "object",
         "properties": {
           "id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
             "description": "Unique identifier for the storage bucket",
             "title": "Bucket ID",
             "readOnly": true,
@@ -1990,12 +1998,12 @@
               1,
               2,
               100
-            ],
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 9007199254740991
+            ]
           },
           "name": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
             "description": "Name of the storage bucket for organizing files",
             "title": "Bucket Name",
             "placeholder": "my-bucket-name",
@@ -2006,17 +2014,17 @@
               "media-assets"
             ],
             "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
-            "help": "Use lowercase letters, numbers, and hyphens. Must start and end with a letter or number.",
-            "type": "string",
-            "minLength": 3,
-            "maxLength": 63
+            "help": "Use lowercase letters, numbers, and hyphens. Must start and end with a letter or number."
           }
         },
         "required": [
           "id",
           "name"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "title": "Storage Bucket",
+        "description": "A storage container for organizing and managing files and media assets",
+        "version": "0.85.0"
       }
     }
   },
@@ -2035,10 +2043,11 @@
     "buckets"
   ],
   "additionalProperties": false,
+  "title": "Application Configuration",
+  "description": "Complete configuration for your application including metadata, data models, automations, and integrations",
+  "version": "0.85.0",
   "$defs": {
     "__schema0": {
-      "title": "JSON Schema",
-      "description": "The JSON Schema is a schema that describes the structure of the data",
       "type": "object",
       "properties": {
         "type": {
@@ -2227,19 +2236,15 @@
           ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "title": "JSON Schema",
+      "description": "The JSON Schema is a schema that describes the structure of the data"
     },
     "__schema1": {
-      "title": "Action",
-      "description": "The action is an action that is performed by the automation",
       "anyOf": [
         {
-          "title": "HTTP",
-          "description": "The HTTP action is an action that is performed by the automation",
           "anyOf": [
             {
-              "title": "GET",
-              "description": "The GET HTTP action is an action that is performed by the automation",
               "type": "object",
               "properties": {
                 "name": {
@@ -2281,11 +2286,11 @@
                 "action",
                 "params"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "title": "GET",
+              "description": "The GET HTTP action is an action that is performed by the automation"
             },
             {
-              "title": "POST",
-              "description": "The POST HTTP action is an action that is performed by the automation",
               "type": "object",
               "properties": {
                 "name": {
@@ -2334,11 +2339,11 @@
                 "action",
                 "params"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "title": "POST",
+              "description": "The POST HTTP action is an action that is performed by the automation"
             },
             {
-              "title": "Response",
-              "description": "The response HTTP action is an action that is performed by the automation",
               "type": "object",
               "properties": {
                 "name": {
@@ -2387,17 +2392,17 @@
                 "service",
                 "action"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "title": "Response",
+              "description": "The response HTTP action is an action that is performed by the automation"
             }
-          ]
+          ],
+          "title": "HTTP",
+          "description": "The HTTP action is an action that is performed by the automation"
         },
         {
-          "title": "Code",
-          "description": "The code action is a code action that is performed by the automation",
           "anyOf": [
             {
-              "title": "Run Typescript",
-              "description": "The run typescript code action is a code action that is performed by the automation",
               "type": "object",
               "properties": {
                 "name": {
@@ -2440,11 +2445,11 @@
                 "action",
                 "params"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "title": "Run Typescript",
+              "description": "The run typescript code action is a code action that is performed by the automation"
             },
             {
-              "title": "Run Javascript",
-              "description": "The run javascript code action is a code action that is performed by the automation",
               "type": "object",
               "properties": {
                 "name": {
@@ -2487,17 +2492,17 @@
                 "action",
                 "params"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "title": "Run Javascript",
+              "description": "The run javascript code action is a code action that is performed by the automation"
             }
-          ]
+          ],
+          "title": "Code",
+          "description": "The code action is a code action that is performed by the automation"
         },
         {
-          "title": "Filter",
-          "description": "The Filter action is an action that is performed by the automation",
           "anyOf": [
             {
-              "title": "Only continue if",
-              "description": "The Only continue if filter action is an action that is performed by the automation",
               "type": "object",
               "properties": {
                 "name": {
@@ -2521,11 +2526,11 @@
                 "action",
                 "params"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "title": "Only continue if",
+              "description": "The Only continue if filter action is an action that is performed by the automation"
             },
             {
-              "title": "Split into paths",
-              "description": "The Split into paths filter action is an action that is performed by the automation",
               "type": "object",
               "properties": {
                 "name": {
@@ -2572,19 +2577,19 @@
                 "action",
                 "params"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "title": "Split into paths",
+              "description": "The Split into paths filter action is an action that is performed by the automation"
             }
-          ]
+          ],
+          "title": "Filter",
+          "description": "The Filter action is an action that is performed by the automation"
         },
         {
           "anyOf": [
             {
-              "title": "Calendly",
-              "description": "The Calendly action is a action that is used to interact with the Calendly API",
               "anyOf": [
                 {
-                  "title": "List Webhook Subscriptions",
-                  "description": "The Calendly list webhook subscriptions action is a action that lists the webhook subscriptions for a given organization",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -2640,11 +2645,11 @@
                     "service",
                     "action"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "List Webhook Subscriptions",
+                  "description": "The Calendly list webhook subscriptions action is a action that lists the webhook subscriptions for a given organization"
                 },
                 {
-                  "title": "Get Event Type",
-                  "description": "The Calendly get event type action is a action that gets the event type for a given uuid",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -2688,17 +2693,17 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Get Event Type",
+                  "description": "The Calendly get event type action is a action that gets the event type for a given uuid"
                 }
-              ]
+              ],
+              "title": "Calendly",
+              "description": "The Calendly action is a action that is used to interact with the Calendly API"
             },
             {
-              "title": "Airtable",
-              "description": "The Airtable action is a action that is used to interact with the Airtable API",
               "anyOf": [
                 {
-                  "title": "List Webhook Subscriptions",
-                  "description": "The Calendly list webhook subscriptions action is a action that lists the webhook subscriptions for a given organization",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -2752,17 +2757,17 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "List Webhook Subscriptions",
+                  "description": "The Calendly list webhook subscriptions action is a action that lists the webhook subscriptions for a given organization"
                 }
-              ]
+              ],
+              "title": "Airtable",
+              "description": "The Airtable action is a action that is used to interact with the Airtable API"
             },
             {
-              "title": "Google Sheets",
-              "description": "The Google Sheets action is a action that is used to interact with the Google Sheets API",
               "anyOf": [
                 {
-                  "title": "Append values to a Google Sheets",
-                  "description": "The Google Sheets append values action is a action that appends values to a Google Sheets spreadsheet",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -2820,17 +2825,17 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Append values to a Google Sheets",
+                  "description": "The Google Sheets append values action is a action that appends values to a Google Sheets spreadsheet"
                 }
-              ]
+              ],
+              "title": "Google Sheets",
+              "description": "The Google Sheets action is a action that is used to interact with the Google Sheets API"
             },
             {
-              "title": "Google Gmail",
-              "description": "The Google Gmail action is a action that is used to interact with the Google Gmail API",
               "anyOf": [
                 {
-                  "title": "Send an email",
-                  "description": "The Google Gmail send email action is a action that sends an email",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -2927,17 +2932,17 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Send an email",
+                  "description": "The Google Gmail send email action is a action that sends an email"
                 }
-              ]
+              ],
+              "title": "Google Gmail",
+              "description": "The Google Gmail action is a action that is used to interact with the Google Gmail API"
             },
             {
-              "title": "LinkedIn Ads",
-              "description": "Actions to interact with LinkedIn Ads APIs",
               "anyOf": [
                 {
-                  "title": "Create Lead Notification Subscription (Owner Level)",
-                  "description": "Creates a LinkedIn Lead Notification subscription at owner (organization) level.",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -2965,13 +2970,13 @@
                       "type": "object",
                       "properties": {
                         "webhook": {
-                          "title": "Webhook URL",
                           "type": "string",
-                          "format": "uri"
+                          "format": "uri",
+                          "title": "Webhook URL"
                         },
                         "organizationId": {
-                          "title": "LinkedIn Organization ID",
-                          "type": "string"
+                          "type": "string",
+                          "title": "LinkedIn Organization ID"
                         },
                         "leadType": {
                           "default": "SPONSORED",
@@ -2995,11 +3000,11 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Create Lead Notification Subscription (Owner Level)",
+                  "description": "Creates a LinkedIn Lead Notification subscription at owner (organization) level."
                 },
                 {
-                  "title": "Fetch Lead Notification Subscriptions (Owner Level)",
-                  "description": "Lists LinkedIn lead notification subscriptions for an organization.",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3027,8 +3032,8 @@
                       "type": "object",
                       "properties": {
                         "organizationId": {
-                          "title": "LinkedIn Organization ID",
-                          "type": "string"
+                          "type": "string",
+                          "title": "LinkedIn Organization ID"
                         }
                       },
                       "required": [
@@ -3044,11 +3049,11 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Fetch Lead Notification Subscriptions (Owner Level)",
+                  "description": "Lists LinkedIn lead notification subscriptions for an organization."
                 },
                 {
-                  "title": "Get Single Lead Form Response",
-                  "description": "Retrieves a single LinkedIn Lead Form Response by its ID.",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3076,9 +3081,9 @@
                       "type": "object",
                       "properties": {
                         "leadResponseId": {
+                          "type": "string",
                           "title": "Lead Response ID",
-                          "description": "The unique identifier for the lead form response (e.g., urn:li:leadFormResponse:123456)",
-                          "type": "string"
+                          "description": "The unique identifier for the lead form response (e.g., urn:li:leadFormResponse:123456)"
                         }
                       },
                       "required": [
@@ -3094,17 +3099,17 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Get Single Lead Form Response",
+                  "description": "Retrieves a single LinkedIn Lead Form Response by its ID."
                 }
-              ]
+              ],
+              "title": "LinkedIn Ads",
+              "description": "Actions to interact with LinkedIn Ads APIs"
             },
             {
-              "title": "Facebook Ads",
-              "description": "Actions to interact with Facebook Ads APIs",
               "anyOf": [
                 {
-                  "title": "List App Subscriptions",
-                  "description": "Lists subscriptions configured on the Facebook App",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3132,12 +3137,12 @@
                       "type": "object",
                       "properties": {
                         "appId": {
-                          "title": "Facebook App ID",
-                          "type": "string"
+                          "type": "string",
+                          "title": "Facebook App ID"
                         },
                         "appSecret": {
-                          "title": "Facebook App Secret",
-                          "type": "string"
+                          "type": "string",
+                          "title": "Facebook App Secret"
                         }
                       },
                       "required": [
@@ -3154,11 +3159,11 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "List App Subscriptions",
+                  "description": "Lists subscriptions configured on the Facebook App"
                 },
                 {
-                  "title": "Get LeadGen",
-                  "description": "Retrieves lead generation data using the leadgen_id from webhook",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3186,9 +3191,9 @@
                       "type": "object",
                       "properties": {
                         "leadgenId": {
+                          "type": "string",
                           "title": "Leadgen ID",
-                          "description": "The leadgen_id from Facebook webhook data",
-                          "type": "string"
+                          "description": "The leadgen_id from Facebook webhook data"
                         }
                       },
                       "required": [
@@ -3204,17 +3209,17 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Get LeadGen",
+                  "description": "Retrieves lead generation data using the leadgen_id from webhook"
                 }
-              ]
+              ],
+              "title": "Facebook Ads",
+              "description": "Actions to interact with Facebook Ads APIs"
             },
             {
-              "title": "Notion",
-              "description": "The Notion action is used to interact with the Notion API",
               "anyOf": [
                 {
-                  "title": "Create Page",
-                  "description": "Creates a new page in Notion",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3242,7 +3247,6 @@
                       "type": "object",
                       "properties": {
                         "parent": {
-                          "description": "Parent of the new page (database, page, or workspace)",
                           "anyOf": [
                             {
                               "type": "object",
@@ -3296,15 +3300,16 @@
                               ],
                               "additionalProperties": false
                             }
-                          ]
+                          ],
+                          "description": "Parent of the new page (database, page, or workspace)"
                         },
                         "properties": {
-                          "description": "Page properties",
                           "type": "object",
                           "propertyNames": {
                             "type": "string"
                           },
-                          "additionalProperties": {}
+                          "additionalProperties": {},
+                          "description": "Page properties"
                         },
                         "children": {
                           "description": "Page content blocks",
@@ -3401,11 +3406,11 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Create Page",
+                  "description": "Creates a new page in Notion"
                 },
                 {
-                  "title": "Get Page",
-                  "description": "Retrieves a page from Notion",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3433,8 +3438,8 @@
                       "type": "object",
                       "properties": {
                         "pageId": {
-                          "description": "The ID of the page to retrieve",
-                          "type": "string"
+                          "type": "string",
+                          "description": "The ID of the page to retrieve"
                         },
                         "filterProperties": {
                           "description": "Properties to include in response",
@@ -3457,11 +3462,11 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Get Page",
+                  "description": "Retrieves a page from Notion"
                 },
                 {
-                  "title": "Update Page",
-                  "description": "Updates properties, icon, cover, or archived status of a Notion page",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3489,8 +3494,8 @@
                       "type": "object",
                       "properties": {
                         "pageId": {
-                          "description": "The ID of the page to update",
-                          "type": "string"
+                          "type": "string",
+                          "description": "The ID of the page to update"
                         },
                         "properties": {
                           "description": "Page properties to update",
@@ -3593,11 +3598,11 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Update Page",
+                  "description": "Updates properties, icon, cover, or archived status of a Notion page"
                 },
                 {
-                  "title": "Delete Page",
-                  "description": "Deletes (archives) a page in Notion",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3625,8 +3630,8 @@
                       "type": "object",
                       "properties": {
                         "pageId": {
-                          "description": "The ID of the page to delete (archive)",
-                          "type": "string"
+                          "type": "string",
+                          "description": "The ID of the page to delete (archive)"
                         }
                       },
                       "required": [
@@ -3642,11 +3647,11 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Delete Page",
+                  "description": "Deletes (archives) a page in Notion"
                 },
                 {
-                  "title": "List Pages",
-                  "description": "Lists pages from a Notion database",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3674,8 +3679,8 @@
                       "type": "object",
                       "properties": {
                         "databaseId": {
-                          "description": "The ID of the database to query",
-                          "type": "string"
+                          "type": "string",
+                          "description": "The ID of the database to query"
                         },
                         "filter": {
                           "description": "Filter conditions for the query"
@@ -3709,11 +3714,11 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "List Pages",
+                  "description": "Lists pages from a Notion database"
                 },
                 {
-                  "title": "Search Pages",
-                  "description": "Searches for pages in Notion",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3741,8 +3746,8 @@
                       "type": "object",
                       "properties": {
                         "query": {
-                          "description": "Search query text",
-                          "type": "string"
+                          "type": "string",
+                          "description": "Search query text"
                         },
                         "filter": {
                           "description": "Optional filter for search results",
@@ -3771,17 +3776,17 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Search Pages",
+                  "description": "Searches for pages in Notion"
                 }
-              ]
+              ],
+              "title": "Notion",
+              "description": "The Notion action is used to interact with the Notion API"
             },
             {
-              "title": "Qonto",
-              "description": "The Qonto action is used to interact with the Qonto API",
               "anyOf": [
                 {
-                  "title": "Create Client",
-                  "description": "Creates a new client in Qonto",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3809,8 +3814,8 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "description": "Client name",
-                          "type": "string"
+                          "type": "string",
+                          "description": "Client name"
                         },
                         "email": {
                           "description": "Client email",
@@ -3827,20 +3832,20 @@
                           "type": "object",
                           "properties": {
                             "street": {
-                              "description": "Street address",
-                              "type": "string"
+                              "type": "string",
+                              "description": "Street address"
                             },
                             "city": {
-                              "description": "City",
-                              "type": "string"
+                              "type": "string",
+                              "description": "City"
                             },
                             "postal_code": {
-                              "description": "Postal code",
-                              "type": "string"
+                              "type": "string",
+                              "description": "Postal code"
                             },
                             "country": {
-                              "description": "Country",
-                              "type": "string"
+                              "type": "string",
+                              "description": "Country"
                             }
                           },
                           "required": [
@@ -3869,11 +3874,11 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Create Client",
+                  "description": "Creates a new client in Qonto"
                 },
                 {
-                  "title": "Create Invoice",
-                  "description": "Creates a new invoice in Qonto",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -3901,42 +3906,41 @@
                       "type": "object",
                       "properties": {
                         "client_id": {
-                          "description": "ID of the client for this invoice",
-                          "type": "string"
+                          "type": "string",
+                          "description": "ID of the client for this invoice"
                         },
                         "amount": {
-                          "description": "Invoice total amount",
                           "type": "number",
-                          "exclusiveMinimum": 0
+                          "exclusiveMinimum": 0,
+                          "description": "Invoice total amount"
                         },
                         "currency": {
-                          "description": "Invoice currency",
                           "default": "EUR",
+                          "description": "Invoice currency",
                           "type": "string"
                         },
                         "due_date": {
-                          "description": "Invoice due date (ISO 8601 format)",
-                          "type": "string"
+                          "type": "string",
+                          "description": "Invoice due date (ISO 8601 format)"
                         },
                         "items": {
-                          "description": "Invoice line items",
                           "type": "array",
                           "items": {
                             "type": "object",
                             "properties": {
                               "description": {
-                                "description": "Item description",
-                                "type": "string"
+                                "type": "string",
+                                "description": "Item description"
                               },
                               "quantity": {
-                                "description": "Quantity",
                                 "type": "number",
-                                "exclusiveMinimum": 0
+                                "exclusiveMinimum": 0,
+                                "description": "Quantity"
                               },
                               "unit_price": {
-                                "description": "Unit price",
                                 "type": "number",
-                                "exclusiveMinimum": 0
+                                "exclusiveMinimum": 0,
+                                "description": "Unit price"
                               }
                             },
                             "required": [
@@ -3945,7 +3949,8 @@
                               "unit_price"
                             ],
                             "additionalProperties": false
-                          }
+                          },
+                          "description": "Invoice line items"
                         },
                         "reference": {
                           "description": "Invoice reference number",
@@ -3973,19 +3978,19 @@
                     "action",
                     "params"
                   ],
-                  "additionalProperties": false
+                  "additionalProperties": false,
+                  "title": "Create Invoice",
+                  "description": "Creates a new invoice in Qonto"
                 }
-              ]
+              ],
+              "title": "Qonto",
+              "description": "The Qonto action is used to interact with the Qonto API"
             }
           ]
         },
         {
-          "title": "Database",
-          "description": "The Database action is an action that is performed by the automation",
           "anyOf": [
             {
-              "title": "Create record",
-              "description": "Create a record in a database table",
               "type": "object",
               "properties": {
                 "name": {
@@ -4048,11 +4053,17 @@
                 "action",
                 "params"
               ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "title": "Create record",
+              "description": "Create a record in a database table"
             }
-          ]
+          ],
+          "title": "Database",
+          "description": "The Database action is an action that is performed by the automation"
         }
-      ]
+      ],
+      "title": "Action",
+      "description": "The action is an action that is performed by the automation"
     },
     "__schema2": {
       "anyOf": [
