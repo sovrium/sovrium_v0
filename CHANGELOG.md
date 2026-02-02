@@ -1,3 +1,15 @@
+# [0.85.0](https://github.com/sovrium/sovrium_v0/compare/v0.84.0...v0.85.0) (2026-02-02)
+
+
+### Bug Fixes
+
+* **e2e:** use correct columnheader role in table test ([719859a](https://github.com/sovrium/sovrium_v0/commit/719859a451946c0d3093268d21007fbd459dbb08)) — Thomas JEANNEAU
+
+
+### Features
+
+* **form:** add logo/image configuration for forms ([176c965](https://github.com/sovrium/sovrium_v0/commit/176c96532265967aba8bbdd4a788792012d876a4)) — Thomas JEANNEAU
+
 # [0.84.0](https://github.com/sovrium/sovrium_v0/compare/v0.83.0...v0.84.0) (2025-11-19)
 
 
