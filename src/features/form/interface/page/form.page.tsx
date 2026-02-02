@@ -87,16 +87,25 @@ const FormDataPage = () => {
   return (
     <div className="rounded-lg border border-gray-200 bg-white">
       <div className="border-b border-gray-200 p-8">
+        {form.logo && (
+          <div className="mb-4">
+            <img
+              src={form.logo}
+              alt=""
+              className="h-12 w-auto"
+            />
+          </div>
+        )}
         <div className="mb-2">
-          <TypographyH1 className="text-left">{data.form.title}</TypographyH1>
+          <TypographyH1 className="text-left">{form.title}</TypographyH1>
         </div>
         <div className="text-gray-600">
-          <TypographyP>{data.form.description}</TypographyP>
+          <TypographyP>{form.description}</TypographyP>
         </div>
       </div>
       <div className="p-8">
         <Form
-          inputs={data.form.inputs}
+          inputs={form.inputs}
           onSubmit={onSubmit}
         />
       </div>

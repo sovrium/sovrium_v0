@@ -5,9 +5,10 @@ import type { LoggerService } from '../../infrastructure/service/logger.service'
 /**
  * Base class for anti-corruption layers providing common functionality
  */
-export abstract class BaseAntiCorruptionLayer<TExternal, TDomain>
-  implements IAntiCorruptionLayer<TExternal, TDomain>
-{
+export abstract class BaseAntiCorruptionLayer<TExternal, TDomain> implements IAntiCorruptionLayer<
+  TExternal,
+  TDomain
+> {
   constructor(protected readonly logger: LoggerService) {}
 
   abstract toDomain(external: TExternal): TDomain

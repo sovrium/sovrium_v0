@@ -9,6 +9,7 @@ export type FormDto = {
   inputs: InputDto[]
   title?: string
   description?: string
+  logo?: string
   successMessage?: string
 }
 
@@ -20,6 +21,7 @@ export function toFormDto(form: Form): FormDto {
     path: form.path,
     action: form.schema.action,
     description: form.schema.description,
+    logo: form.schema.logo,
     inputs: form.schema.inputs.map(toInputDto),
     successMessage: form.schema.successMessage,
   }

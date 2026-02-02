@@ -74,6 +74,17 @@ export const formSchema = z
         ],
         uiSchema: { 'ui:widget': 'textarea', 'ui:rows': 2 },
       }),
+    logo: z
+      .string()
+      .trim()
+      .optional()
+      .describe('URL of the logo image displayed above the form title')
+      .meta({
+        title: 'Form Logo',
+        placeholder: '/static/logo.png',
+        examples: ['/static/logo.png', 'https://example.com/logo.png'],
+        help: 'URL or path to the logo image (e.g., /static/logo.png)',
+      }),
     inputs: z
       .array(inputSchema)
       .default([])
