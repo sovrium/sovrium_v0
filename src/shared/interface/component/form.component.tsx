@@ -96,6 +96,7 @@ function FormInput({ field, input }: { field: AnyFieldApi; input: InputDto }) {
           onValueChange={(value) => field.handleChange(value)}
           value={field.state.value ?? ''}
           required={input.required}
+          autoComplete="off"
         >
           <SelectTrigger className="w-[240px]">
             <SelectValue placeholder={input.placeholder} />
