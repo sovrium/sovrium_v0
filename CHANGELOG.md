@@ -1,3 +1,10 @@
+## [0.85.2](https://github.com/sovrium/sovrium_v0/compare/v0.85.1...v0.85.2) (2026-05-11)
+
+
+### Bug Fixes
+
+* **ci:** update bun runtime to 1.3.13 ([63a6dc0](https://github.com/sovrium/sovrium_v0/commit/63a6dc0fc190e9866b57a1dcfed2695175f2c604)) — Thomas JEANNEAU
+
 ## [0.85.1](https://github.com/sovrium/sovrium_v0/compare/v0.85.0...v0.85.1) (2026-05-11)
 
 
