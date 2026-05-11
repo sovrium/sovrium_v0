@@ -8,14 +8,19 @@
     <subtitle>LTF Engine Blog</subtitle>
     <icon>https://engine.latechforce.com/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Fix 0.85.1]]></title>
-        <id>https://engine.latechforce.com/blog/fix-0-85-1</id>
-        <link href="https://engine.latechforce.com/blog/fix-0-85-1"/>
+        <title type="html"><![CDATA[Fix 0.85.2]]></title>
+        <id>https://engine.latechforce.com/blog/fix-0-85-2</id>
+        <link href="https://engine.latechforce.com/blog/fix-0-85-2"/>
         <updated>2026-05-11T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Changelog for version 0.85.1]]></summary>
-        <content type="html"><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-85-1"><p class="before-truncate"> 0.85.1   Bug Fixes  * form: disable browser autofill on single-select fields (6b23f8b) — Thomas JEANNEAU...</p>
-</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0851"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-85-1">0.85.1</a><a href="https://engine.latechforce.com/blog/fix-0-85-1#0851" class="hash-link" aria-label="Direct link to 0.85.1" title="Direct link to 0.85.1">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-85-1#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
+        <summary type="html"><![CDATA[Changelog for version 0.85.2]]></summary>
+        <content type="html"><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-85-2"><p class="before-truncate"> 0.85.2   Bug Fixes  * ci: update bun runtime to 1.3.13 (63a6dc0) — Thomas JEANNEAU   0.85.1   Bug Fixes  * form: disable browser autofill on single-select fields (6b23f8b) — Thomas JEANNEAU...</p>
+</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0852"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-85-2">0.85.2</a><a href="https://engine.latechforce.com/blog/fix-0-85-2#0852" class="hash-link" aria-label="Direct link to 0.85.2" title="Direct link to 0.85.2">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-85-2#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
+<ul>
+<li><strong>ci:</strong> update bun runtime to 1.3.13 (<a href="https://github.com/sovrium/sovrium_v0/commit/63a6dc0fc190e9866b57a1dcfed2695175f2c604" target="_blank" rel="noopener noreferrer">63a6dc0</a>) — Thomas JEANNEAU</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="0851">0.85.1<a href="https://engine.latechforce.com/blog/fix-0-85-2#0851" class="hash-link" aria-label="Direct link to 0.85.1" title="Direct link to 0.85.1">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-85-2#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
 <ul>
 <li><strong>form:</strong> disable browser autofill on single-select fields (<a href="https://github.com/sovrium/sovrium_v0/commit/6b23f8bfc9d1ebf513186fcbd3d2a2dcf9466aa0" target="_blank" rel="noopener noreferrer">6b23f8b</a>) — Thomas JEANNEAU</li>
 </ul>]]></content>
