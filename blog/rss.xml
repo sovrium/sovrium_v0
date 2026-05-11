@@ -4,10 +4,24 @@
         <title>LTF Engine Blog</title>
         <link>https://engine.latechforce.com/blog</link>
         <description>LTF Engine Blog</description>
-        <lastBuildDate>Mon, 02 Feb 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 11 May 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Fix 0.85.1]]></title>
+            <link>https://engine.latechforce.com/blog/fix-0-85-1</link>
+            <guid>https://engine.latechforce.com/blog/fix-0-85-1</guid>
+            <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Changelog for version 0.85.1]]></description>
+            <content:encoded><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-85-1"><p class="before-truncate"> 0.85.1   Bug Fixes  * form: disable browser autofill on single-select fields (6b23f8b) — Thomas JEANNEAU...</p>
+</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0851"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-85-1">0.85.1</a><a href="https://engine.latechforce.com/blog/fix-0-85-1#0851" class="hash-link" aria-label="Direct link to 0.85.1" title="Direct link to 0.85.1">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-85-1#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
+<ul>
+<li><strong>form:</strong> disable browser autofill on single-select fields (<a href="https://github.com/sovrium/sovrium_v0/commit/6b23f8bfc9d1ebf513186fcbd3d2a2dcf9466aa0" target="_blank" rel="noopener noreferrer">6b23f8b</a>) — Thomas JEANNEAU</li>
+</ul>]]></content:encoded>
+            <category>Fix</category>
+        </item>
         <item>
             <title><![CDATA[Release 0.85.0]]></title>
             <link>https://engine.latechforce.com/blog/release-0-85-0</link>
@@ -397,42 +411,6 @@
 <li>display user email in connections (<a href="https://github.com/sovrium/sovrium_v0/commit/41770117f891871e02e328daf94b13b175a41e19" target="_blank" rel="noopener noreferrer">4177011</a>) — Thomas JEANNEAU</li>
 <li>should copy shareable connection link (<a href="https://github.com/sovrium/sovrium_v0/commit/55ff636337395d7497a17c084697496a90ca08cd" target="_blank" rel="noopener noreferrer">55ff636</a>) — Thomas JEANNEAU</li>
 <li>should disconnect a connection (<a href="https://github.com/sovrium/sovrium_v0/commit/c287a6d35ac7be44f5942951432ea9ae1d198264" target="_blank" rel="noopener noreferrer">c287a6d</a>) — Thomas JEANNEAU</li>
-</ul>]]></content:encoded>
-            <category>Fix</category>
-        </item>
-        <item>
-            <title><![CDATA[Fix 0.66.1]]></title>
-            <link>https://engine.latechforce.com/blog/fix-0-66-1</link>
-            <guid>https://engine.latechforce.com/blog/fix-0-66-1</guid>
-            <pubDate>Thu, 17 Jul 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Changelog for version 0.66.1]]></description>
-            <content:encoded><![CDATA[<a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-66-1"><p class="before-truncate"> 0.66.1   Bug Fixes  * table: fix postgres view schema (311193a) — Thomas JEANNEAU   0.66.0   Bug Fixes  * Run: fix replaying error (489dcfb) — Thomas JEANNEAU    Features  * Run: can filter run by status (8328ff9) — Thomas JEANNEAU   0.65.0   Bug Fixes  * Connection: add email alert when a connecti...</p>
-</a><h2 class="anchor anchorWithStickyNavbar_LWe7" id="0661"><a style="text-decoration:none;color:inherit" href="https://engine.latechforce.com/blog/fix-0-66-1">0.66.1</a><a href="https://engine.latechforce.com/blog/fix-0-66-1#0661" class="hash-link" aria-label="Direct link to 0.66.1" title="Direct link to 0.66.1">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-66-1#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
-<ul>
-<li><strong>table:</strong> fix postgres view schema (<a href="https://github.com/sovrium/sovrium_v0/commit/311193ab797a60f368b9aa0fe291cc3af742819e" target="_blank" rel="noopener noreferrer">311193a</a>) — Thomas JEANNEAU</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="0660">0.66.0<a href="https://engine.latechforce.com/blog/fix-0-66-1#0660" class="hash-link" aria-label="Direct link to 0.66.0" title="Direct link to 0.66.0">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-1">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-66-1#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
-<ul>
-<li><strong>Run:</strong> fix replaying error (<a href="https://github.com/sovrium/sovrium_v0/commit/489dcfbb4cde9046f84372ab59c1a59e8ccf7018" target="_blank" rel="noopener noreferrer">489dcfb</a>) — Thomas JEANNEAU</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://engine.latechforce.com/blog/fix-0-66-1#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
-<ul>
-<li><strong>Run:</strong> can filter run by status (<a href="https://github.com/sovrium/sovrium_v0/commit/8328ff9e57eae1055f4b2fa51dd70cc1dbddfc03" target="_blank" rel="noopener noreferrer">8328ff9</a>) — Thomas JEANNEAU</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="0650">0.65.0<a href="https://engine.latechforce.com/blog/fix-0-66-1#0650" class="hash-link" aria-label="Direct link to 0.65.0" title="Direct link to 0.65.0">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes-2">Bug Fixes<a href="https://engine.latechforce.com/blog/fix-0-66-1#bug-fixes-2" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3>
-<ul>
-<li><strong>Connection:</strong> add email alert when a connection status is disconnected (<a href="https://github.com/sovrium/sovrium_v0/commit/728dd8c5b116da3daeebc89d9b3c6b051da6baa8" target="_blank" rel="noopener noreferrer">728dd8c</a>) — Thomas JEANNEAU</li>
-<li><strong>Google:</strong> should not throw an error if a refresh token is not valid (<a href="https://github.com/sovrium/sovrium_v0/commit/66cbd6e514f52974c5dfed0467e59bc951aa8e70" target="_blank" rel="noopener noreferrer">66cbd6e</a>) — Thomas JEANNEAU</li>
-<li><strong>Runs:</strong> reset pagination when navigate between automation runs pages (<a href="https://github.com/sovrium/sovrium_v0/commit/6c877e04da09f49ac6457765bb2c02f02bd0526c" target="_blank" rel="noopener noreferrer">6c877e0</a>) — Thomas JEANNEAU</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features<a href="https://engine.latechforce.com/blog/fix-0-66-1#features-1" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
-<ul>
-<li><strong>Automation:</strong> add email alert if an automation run failed (<a href="https://github.com/sovrium/sovrium_v0/commit/24870e166a930bf418b024e09b7ce4a813e6792a" target="_blank" rel="noopener noreferrer">24870e1</a>) — Thomas JEANNEAU</li>
-<li><strong>Run:</strong> add pagination for display runs (<a href="https://github.com/sovrium/sovrium_v0/commit/2c0af6adac663dc5a98bf73df5c9be60425a52e9" target="_blank" rel="noopener noreferrer">2c0af6a</a>) — Thomas JEANNEAU</li>
-<li><strong>Runs:</strong> can replay failed runs (<a href="https://github.com/sovrium/sovrium_v0/commit/bb20c30d79d213f7aad301821e4fa98a8fe720f5" target="_blank" rel="noopener noreferrer">bb20c30</a>) — Thomas JEANNEAU</li>
 </ul>]]></content:encoded>
             <category>Fix</category>
         </item>
