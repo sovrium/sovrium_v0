@@ -1,3 +1,10 @@
+## [0.85.1](https://github.com/sovrium/sovrium_v0/compare/v0.85.0...v0.85.1) (2026-05-11)
+
+
+### Bug Fixes
+
+* **form:** disable browser autofill on single-select fields ([6b23f8b](https://github.com/sovrium/sovrium_v0/commit/6b23f8bfc9d1ebf513186fcbd3d2a2dcf9466aa0)) — Thomas JEANNEAU
+
 # [0.85.0](https://github.com/sovrium/sovrium_v0/compare/v0.84.0...v0.85.0) (2026-02-02)
 
 
