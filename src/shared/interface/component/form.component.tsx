@@ -1,11 +1,13 @@
 // Third-party imports
 import { useForm, type AnyFieldApi } from '@tanstack/react-form'
 import { useState } from 'react'
+import { XIcon } from 'lucide-react'
 
 // Feature imports
 import type { InputDto } from '../../../features/form/application/dto/input.dto'
 
 // Shared UI imports
+import { cn } from '../lib/utils.lib'
 import { FormDescription, FormItem, FormLabel, FormMessage } from '../ui/form.ui'
 import { Input } from '../ui/input.ui'
 import { Button } from '../ui/button.ui'
@@ -89,30 +91,44 @@ function FormInput({ field, input }: { field: AnyFieldApi; input: InputDto }) {
           onBlur={field.handleBlur}
         />
       )
-    case 'single-select':
+    case 'single-select': {
+      const showClear = Boolean(field.state.value) && !input.required
       return (
-        <Select
-          name={field.name}
-          onValueChange={(value) => field.handleChange(value)}
-          value={field.state.value ?? ''}
-          required={input.required}
-          autoComplete="off"
-        >
-          <SelectTrigger className="w-[240px]">
-            <SelectValue placeholder={input.placeholder} />
-          </SelectTrigger>
-          <SelectContent>
-            {input.options.map((option) => (
-              <SelectItem
-                key={option.value}
-                value={option.value}
-              >
-                {option.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <div className="relative w-[240px]">
+          <Select
+            name={field.name}
+            onValueChange={(value) => field.handleChange(value)}
+            value={field.state.value ?? ''}
+            required={input.required}
+            autoComplete="off"
+          >
+            <SelectTrigger className={cn('w-full', showClear && 'pr-12')}>
+              <SelectValue placeholder={input.placeholder} />
+            </SelectTrigger>
+            <SelectContent>
+              {input.options.map((option) => (
+                <SelectItem
+                  key={option.value}
+                  value={option.value}
+                >
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {showClear ? (
+            <button
+              type="button"
+              aria-label="Clear selection"
+              onClick={() => field.handleChange('')}
+              className="text-muted-foreground hover:text-foreground absolute top-1/2 right-8 -translate-y-1/2"
+            >
+              <XIcon className="size-4" />
+            </button>
+          ) : null}
+        </div>
       )
+    }
     case 'single-attachment':
       return (
         <Input
