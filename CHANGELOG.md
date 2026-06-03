@@ -1,3 +1,10 @@
+# [0.86.0](https://github.com/sovrium/sovrium_v0/compare/v0.85.2...v0.86.0) (2026-06-03)
+
+
+### Features
+
+* **form:** allow clearing the value of an optional single-select field ([3bda0dd](https://github.com/sovrium/sovrium_v0/commit/3bda0dded32264198b6ec643f81ff8b739cb8831)) — Thomas JEANNEAU
+
 ## [0.85.2](https://github.com/sovrium/sovrium_v0/compare/v0.85.1...v0.85.2) (2026-05-11)
 
 
